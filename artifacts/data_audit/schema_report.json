@@ -1,0 +1,95 @@
+{
+  "validation": [
+    {
+      "name": "kaggle_training",
+      "n_tasks": 1000,
+      "violations": []
+    },
+    {
+      "name": "kaggle_evaluation",
+      "n_tasks": 120,
+      "violations": []
+    },
+    {
+      "name": "kaggle_test",
+      "n_tasks": 240,
+      "violations": []
+    },
+    {
+      "name": "github_training",
+      "n_tasks": 1000,
+      "violations": []
+    },
+    {
+      "name": "github_evaluation",
+      "n_tasks": 120,
+      "violations": []
+    }
+  ],
+  "kaggle_vs_github_training": {
+    "left": "kaggle_training",
+    "right": "github_training",
+    "n_shared_ids": 1000,
+    "only_in_kaggle_training": [],
+    "only_in_github_training": [],
+    "demonstration_pairs_differ": [],
+    "test_pairs_differ": []
+  },
+  "kaggle_vs_github_evaluation": {
+    "left": "kaggle_evaluation",
+    "right": "github_evaluation",
+    "n_shared_ids": 120,
+    "only_in_kaggle_evaluation": [],
+    "only_in_github_evaluation": [],
+    "demonstration_pairs_differ": [
+      {
+        "task_id": "d8e07eb2",
+        "kaggle_evaluation_n_train": 5,
+        "github_evaluation_n_train": 5
+      },
+      {
+        "task_id": "faa9f03d",
+        "kaggle_evaluation_n_train": 3,
+        "github_evaluation_n_train": 4
+      }
+    ],
+    "test_pairs_differ": [
+      {
+        "task_id": "4a21e3da",
+        "kaggle_evaluation_n_test": 2,
+        "github_evaluation_n_test": 1
+      },
+      {
+        "task_id": "abc82100",
+        "kaggle_evaluation_n_test": 2,
+        "github_evaluation_n_test": 1
+      },
+      {
+        "task_id": "b6f77b65",
+        "kaggle_evaluation_n_test": 3,
+        "github_evaluation_n_test": 2
+      },
+      {
+        "task_id": "f560132c",
+        "kaggle_evaluation_n_test": 2,
+        "github_evaluation_n_test": 1
+      },
+      {
+        "task_id": "faa9f03d",
+        "kaggle_evaluation_n_test": 2,
+        "github_evaluation_n_test": 1
+      }
+    ]
+  },
+  "submission_contract": {
+    "source": "/home/Yatsuiii/arc-agi-2-2026/competition_2026/extracted/sample_submission.json",
+    "n_tasks": 240,
+    "attempt_keys": [
+      "attempt_1",
+      "attempt_2"
+    ],
+    "missing_task_ids": [],
+    "unexpected_task_ids": [],
+    "entry_count_mismatches": []
+  }
+}
