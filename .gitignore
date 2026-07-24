@@ -13,3 +13,4 @@ experiments/*/runs/
 !artifacts/exp001/
 !artifacts/data_audit/**
 !artifacts/exp001/**
+.ruff_cache/
