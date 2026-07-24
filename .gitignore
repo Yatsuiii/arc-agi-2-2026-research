@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.ipynb_checkpoints/
+artifacts/*
+!artifacts/.gitkeep
+experiments/*/runs/
+*.pt
+*.pth
+*.safetensors
