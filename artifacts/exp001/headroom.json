@@ -1,0 +1,97 @@
+{
+  "experiment": "EXP001-A",
+  "source": "/home/Yatsuiii/arc-agi-2-2026/references/paper_winners/03_compressarc/results_for_the_blog_post",
+  "benchmark": "ARC-AGI-1 (CompressARC recorded traces)",
+  "splits": [
+    {
+      "split": "training",
+      "n_tasks": 400,
+      "selection": {
+        "oracle@1": 121,
+        "oracle@2": 139,
+        "oracle@3": 146,
+        "oracle@5": 153,
+        "oracle@10": 166,
+        "oracle@20": 175,
+        "oracle@any": 212,
+        "realised@2": 139
+      },
+      "uniform_accuracy_by_budget": {
+        "50": 4,
+        "100": 10,
+        "200": 59,
+        "400": 106,
+        "800": 133,
+        "1200": 138,
+        "1600": 143,
+        "2000": 148
+      },
+      "oracle_allocation_by_budget": {
+        "50": 82,
+        "100": 119,
+        "200": 148,
+        "400": 148,
+        "800": 148,
+        "1200": 148,
+        "1600": 148,
+        "2000": 148
+      },
+      "minimum_sufficient_budget_histogram": {
+        "50": 4,
+        "100": 6,
+        "200": 49,
+        "400": 47,
+        "800": 27,
+        "1200": 5,
+        "1600": 5,
+        "2000": 5
+      },
+      "never_solved": 252
+    },
+    {
+      "split": "evaluation",
+      "n_tasks": 400,
+      "selection": {
+        "oracle@1": 74,
+        "oracle@2": 80,
+        "oracle@3": 88,
+        "oracle@5": 97,
+        "oracle@10": 104,
+        "oracle@20": 115,
+        "oracle@any": 137,
+        "realised@2": 80
+      },
+      "uniform_accuracy_by_budget": {
+        "50": 3,
+        "100": 6,
+        "200": 25,
+        "400": 57,
+        "800": 76,
+        "1200": 84,
+        "1600": 90,
+        "2000": 90
+      },
+      "oracle_allocation_by_budget": {
+        "50": 60,
+        "100": 82,
+        "200": 90,
+        "400": 90,
+        "800": 90,
+        "1200": 90,
+        "1600": 90,
+        "2000": 90
+      },
+      "minimum_sufficient_budget_histogram": {
+        "50": 3,
+        "100": 3,
+        "200": 19,
+        "400": 32,
+        "800": 19,
+        "1200": 8,
+        "1600": 6,
+        "2000": 0
+      },
+      "never_solved": 310
+    }
+  ]
+}

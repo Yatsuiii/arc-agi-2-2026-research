@@ -65,7 +65,8 @@ Copy into `experiments/<ID>/RESULT.md`.
 
 | ID | Title | Status | Preregistration SHA | Result | Claims touched |
 | --- | --- | --- | --- | --- | --- |
-| EXP001 | Solver complementarity and selection-oracle headroom on ARC-AGI-2 | PREREGISTERED | see `experiments/EXP001/PLAN.md` | pending | C1, C2, C3 |
+| EXP001-A | Selection and compute headroom from CompressARC recorded traces (ARC-AGI-1) | **COMPLETE** | `9230ca9` | `experiments/EXP001/RESULT.md` | C2 supported, C3 supported, B5 strengthened |
+| EXP001-B | Same analysis on ARC-AGI-2 candidate records | BLOCKED on RUN-001 | `9230ca9` | pending | C1, C2, C3 |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).

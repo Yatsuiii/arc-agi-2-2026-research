@@ -25,7 +25,7 @@ motivation for our own contribution.
 | B2 | On ARC-AGI-2, the dominant driver of NVARC's score was the synthetic-data mix, not the solver architecture. | `nvarc_2025.pdf` Fig. 1: same pipeline, 12.92% with BARC → 27.64% with more NVARC synthetic data | SUPPORTED |
 | B3 | Ensembling a second, architecturally different solver (TRM) on top of the strong Qwen3-4B branch produced no measurable gain. | `nvarc_2025.pdf` §4.4: "using a Qwen3 4B submission that uses 10 hours only, with a score 27.22, adding TRM yields the same 27.22 score" | SUPPORTED |
 | B4 | Test-time training is used by every strong 2025 ARC-AGI-2 system for which we have evidence. | NVARC §3.2, §4.2; ARChitects `page.md` (128 TTT steps per task); Barbadillo `docs/05_Solution_Summary.md` | SUPPORTED |
-| B5 | Candidate selection, not candidate generation, is a live failure mode: correct candidates are generated and then not chosen. | `nvarc_2025.pdf` §4.4: TRM-only solves "were not always picked by Qwen3 scoring" | SUPPORTED but thin — one sentence, no numbers. Needs our own measurement (EXP001). |
+| B5 | Candidate selection, not candidate generation, is a live failure mode: correct candidates are generated and then not chosen. | `nvarc_2025.pdf` §4.4, plus our own EXP001-A: 57 of 400 ARC-AGI-1 evaluation tasks had the correct answer generated and ranked below 2 | SUPPORTED. Measured, not anecdotal, but on ARC-AGI-1. |
 | B6 | ARChitects' final 2025 system underperformed its local eval estimate on the leaderboard (26% expected vs 21.67% actual), which they attribute to eval-set overfitting. | `references/score_winners/02_architects/page.md` §Final Submission's Results | SUPPORTED |
 | B7 | Published 2025 ARC-AGI-2 public-eval numbers were measured on an evaluation snapshot that differs from the 2026 Kaggle evaluation files on 6 of 120 tasks. | `docs/PROJECT_STATE.md` §5 | SUPPORTED (measured locally) |
 
@@ -37,8 +37,8 @@ reference them.
 | ID | Claim | Required evidence | Status |
 | --- | --- | --- | --- |
 | C1 | Independent ARC-AGI-2 solvers have materially non-overlapping solve sets, so per-task routing has real headroom. | Per-task solve vectors for >= 2 solvers on a common split; Jaccard and unique-solve counts with CIs | PROPOSED |
-| C2 | A large fraction of the gap between a solver's oracle-selection accuracy and its actual accuracy is recoverable, i.e. selection is a bottleneck distinct from generation. | Candidate sets with ground-truth membership flags; oracle@k vs realised accuracy | PROPOSED |
-| C3 | Task-level features computable before running an expensive solver predict that solver's success well enough to reallocate compute profitably. | Predictive AUC on held-out tasks + a compute-vs-accuracy curve beating uniform allocation | PROPOSED |
+| C2 | A large fraction of the gap between a solver's oracle-selection accuracy and its actual accuracy is recoverable, i.e. selection is a bottleneck distinct from generation. | Candidate sets with ground-truth membership flags; oracle@k vs realised accuracy | **SUPPORTED on ARC-AGI-1** (EXP001-A: 14.25pp headroom on held-out, 17.8% of failures are selection failures). Unverified on ARC-AGI-2. |
+| C3 | Task-level features computable before running an expensive solver predict that solver's success well enough to reallocate compute profitably. | Predictive AUC on held-out tasks + a compute-vs-accuracy curve beating uniform allocation | **HEADROOM SUPPORTED on ARC-AGI-1** (EXP001-A: oracle allocation matches full-budget accuracy at 1/8 the compute). The predictor half is still PROPOSED. |
 
 ## Anti-claims
 
@@ -50,3 +50,9 @@ Things we will explicitly not claim, recorded so we do not drift into them.
 | A2 | We will not claim novelty for any component before `paper/RELATED_WORK.md` records a search for it. | Phase 11 precondition. |
 | A3 | We will not present a "combine everything" ensemble as a scientific contribution. | B3 shows naive ensembling did not even help the people who tried it, and component contributions would not be separable. |
 | A4 | We will not report improvements tuned against the Kaggle public leaderboard. | Public LB is half the hidden set; tuning on it is the exact overfitting mode B6 documents. |
+
+## New claim from EXP001-A
+
+| ID | Claim | Required evidence | Status |
+| --- | --- | --- | --- |
+| C4 | Running a per-task solver to its full budget can *lose* correct answers it had already ranked into the top 2, so knowing when to stop is a distinct lever from knowing how to rank. | Per-task rank trajectories over the compute budget | **SUPPORTED on ARC-AGI-1** (EXP001-A: 10 of 400 evaluation tasks, 2.5pp, an eighth of the solver's score). Unplanned finding; needs replication on ARC-AGI-2. |
