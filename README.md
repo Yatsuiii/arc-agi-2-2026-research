@@ -89,14 +89,35 @@ an oracle allocator. Both surviving theses keep their premises.
 Nothing has been trained. No GPU notebook has been launched. No checkpoint has
 been downloaded.
 
+## Calendar
+
+| Milestone | Date | Days from 2026-07-25 |
+| --- | --- | --- |
+| ARC-AGI-2 solver deadline | 2026-11-02 | 100 |
+| Paper-track deadline | 2026-11-09 | 107 |
+
+About 28 usable 12-hour Kaggle runs in total.
+
+## Kaggle access
+
+Working. `~/.kaggle/credentials.json` holds an OAuth token and Kaggle CLI 2.2.4
+at `~/arc-agi-2-2026/.tools/kaggle-venv/bin/kaggle` authenticates. The note at
+`metadata/KAGGLE_DOWNLOAD_PENDING.txt` is stale — it tested for the legacy
+`kaggle.json` and missed the OAuth credential.
+
+Persona verification may still gate prize eligibility and submission. It does
+not gate API access.
+
 ## Exact next step
 
-**RUN-001**, specified in `docs/BASELINE_SELECTION.md`, blocked on two things:
+**RUN-001**, specified in `docs/BASELINE_SELECTION.md`. One precondition
+remains:
 
-1. Kaggle credentials (`~/.kaggle/kaggle.json`), currently absent — see
-   `metadata/KAGGLE_DOWNLOAD_PENDING.txt`.
-2. Reading and recording the licence of the Kaggle model
-   `sorokin/qwen3_4b_grids15_sft139`.
+- Read and record the licence of the Kaggle model
+  `sorokin/qwen3_4b_grids15_sft139` from its web page. The Kaggle API exposes no
+  licence field for model instances, so this cannot be automated. Its training
+  data (`sorokin/nvarc-*`) is licensed `unknown`, which is a reason for
+  pessimism.
 
 RUN-001 forks the 2026 T4x2 notebook, changes nothing about the model, the
 test-time training, the decoding or the selection, and adds only the persistence

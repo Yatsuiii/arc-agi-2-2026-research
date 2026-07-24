@@ -48,7 +48,7 @@ large component. This document reconstructs where each part came from.
 | 3 | Augmentation rescoring | ARChitects 2024 product-of-experts | fixed at m=8 and made **identical across candidates** so scores are comparable | candidate ranking | ~8 forward passes per unique candidate | not isolated | **none** | RESEARCH REFERENCE ONLY |
 | 4 | `score_agg` / `score_kgmon` selection rule | **NVARC original** | vote count + mean augmented log-likelihood | final answer choice | negligible | "better method", **no number** | **none**, though the 2026 notebook ships a comparison function | RESEARCH REFERENCE ONLY |
 | 5 | Per-task LoRA TTT | MindsAI 2023 → ARChitects 2025 | r=256, alpha=32, bf16, 4-bit and gradient checkpointing removed | per-task adaptation | large; per task | not isolated | **none** | RESEARCH REFERENCE ONLY |
-| 6 | 16-token cut tokenizer | **NVARC original** | Qwen3 vocab 151,936 → 16 | removes ~0.78B embedding params; makes 4B trainable on small GPUs | one-off | not isolated, **and not discussed in the paper** | none | artifacts in repo, RESEARCH REFERENCE ONLY |
+| 6 | 16-token cut tokenizer | **NVARC original** | Qwen3 vocab 151,936 → 16 | removes 0.39B embedding params (4.02B → 3.63B, verified against the published checkpoint's shard sizes); makes 4B trainable on small GPUs | one-off | not isolated, **and not discussed in the paper** | none | artifacts in repo, RESEARCH REFERENCE ONLY |
 | 7 | Qwen3-4B-Thinking-2507 base | Alibaba (Apache-2.0) | vocab cut, then SFT | backbone | 4 nodes x 8 H100 x 27 h | 2B→4B: 22.22%→29.72% (Table 2) | **yes**, model-size ablation | base Apache-2.0; **fine-tune published on Kaggle, licence unchecked** |
 | 8 | SDG pipeline (4 stages) | **NVARC original**, methodologically indebted to BARC and INSTRUCT-SKILLMIX | LLM summaries → mixing → input programs validated by generated unit tests → output programs validated by cross-sample agreement | training data | very large; gpt-oss-120b at scale | **12.92% → 27.64%** | **yes**, Fig. 1 — the only decisive ablation in the paper | RESEARCH REFERENCE ONLY |
 | 9 | H-ARC descriptions | Le-Gris et al., *Scientific Data* 2025 | filtered and reformatted | SDG seed data | negligible | not isolated | none | upstream licence, not fetched |
@@ -73,9 +73,11 @@ Four things, in descending order of demonstrated value:
    agreement for output programs. Both are machine-checkable, which is why it
    scaled where the ARChitects' human-judged pipeline did not.
 2. **The 16-token cut tokenizer** (#6). Not mentioned in the paper at all;
-   recoverable only from `ARChitects/qwen3_configs/vocab.json` and the
-   `-16t` model path. It is what makes a 4B model test-time trainable inside a
-   Kaggle GPU budget, and therefore what makes the whole approach feasible.
+   recoverable only from `ARChitects/qwen3_configs/vocab.json`, the `-16t` model
+   path, and the published checkpoint's file listing (6.77 GiB of bf16 shards =
+   3.63B params, and a 94-byte `vocab.json`). It is what makes a 4B model
+   test-time trainable inside a Kaggle GPU budget, and therefore what makes the
+   whole approach feasible.
 3. **`score_agg`** (#4). One line of arithmetic, claimed to be an improvement,
    never measured.
 4. **The batched-DFS engineering and its batch-invariance analysis** (#2).

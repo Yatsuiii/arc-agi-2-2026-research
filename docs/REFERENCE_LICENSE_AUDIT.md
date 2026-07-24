@@ -67,12 +67,38 @@ Note in particular:
   (`nvarc_2025.pdf` Table 1) and each has its own licence.
 - `external/TinyRecursiveModels` pinned at `e7b6871`, MIT.
 
-**Kaggle datasets referenced by the README and never downloaded**:
-`sorokin/nvarc-artifacts-puzzles`, `sorokin/nvarc-synthetic-puzzles`,
-`sorokin/nvarc-augmented-puzzles`, `cpmpml/arc-prize-trm-training-data`,
-`cpmpml/arc-prize-trm-evaluation-data`, `cpmpml/arc-prize-trm-031`. Kaggle
-dataset licences are set per dataset and are **not** implied by the GitHub repo.
-Each must be checked on its Kaggle page before any download.
+### Kaggle dataset licences — RESOLVED 2026-07-25
+
+Queried via the authenticated Kaggle API (`datasets metadata`, metadata only,
+nothing downloaded):
+
+| Dataset | Size | Licence | Class |
+| --- | --- | --- | --- |
+| `sorokin/nvarc-artifacts-puzzles` | 42.0 GB | **`unknown`** | RESEARCH REFERENCE ONLY |
+| `sorokin/nvarc-synthetic-puzzles` | 338 MB | **`unknown`** | RESEARCH REFERENCE ONLY |
+| `sorokin/nvarc-augmented-puzzles` | 1.32 GB | **`unknown`** | RESEARCH REFERENCE ONLY |
+| `cpmpml/arc-prize-trm-031` (checkpoints) | 13.9 GB | **`CC0-1.0`** | **DIRECTLY REUSABLE** |
+| `cpmpml/arc-prize-trm-training-data` | 2.22 GB | **`CC0-1.0`** | **DIRECTLY REUSABLE** |
+| `cpmpml/arc-prize-trm-evaluation-data` | 8.38 MB | **`CC0-1.0`** | **DIRECTLY REUSABLE** |
+
+Two consequences.
+
+**All three NVARC synthetic-data artifacts carry licence `unknown`** — the
+author selected no licence on upload. That is the same posture as the GitHub
+repository and it confirms the classification above independently. They are not
+reusable, and the 3.2M-sample training mix therefore cannot be lawfully reused
+even though it is downloadable.
+
+**All three TRM artifacts are CC0-1.0**, i.e. dedicated to the public domain.
+This is the most permissive status of anything in the workspace, and it means
+NVARC's *TRM branch* is materially more reusable than its winning branch:
+CC0 data plus MIT code plus a published checkpoint. It materially strengthens
+the case for TRM as the secondary diagnostic baseline
+(`docs/BASELINE_SELECTION.md`).
+
+Note `cpmpml` is listed as an ADMIN collaborator on the `sorokin/nvarc-*`
+datasets, so the two authors' artifacts are jointly owned but differently
+licensed. The licence difference is a deliberate choice, not an oversight.
 
 ### Derived-data contamination warning
 
@@ -269,8 +295,8 @@ the notebook*, which is the clean path and the one we will take.
 
 | Asset | Licence status |
 | --- | --- |
-| Kaggle model `sorokin/qwen3_4b_grids15_sft139/Transformers/bfloat16/1` | NOT CHECKED. Derived from Qwen3-4B (Apache-2.0 base) fine-tuned on NVARC synthetic data. The Kaggle model page licence is authoritative and must be read before download. Also subject to the eval-set contamination warning in §1. |
-| Kaggle notebook `sorokin/pip-install-unsloth-flash-patch` | NOT CHECKED. Supplies offline pip wheels. |
+| Kaggle model `sorokin/qwen3_4b_grids15_sft139/Transformers/bfloat16/1` | **STILL UNRESOLVED.** The Kaggle CLI exposes no licence field for model instances (`models get` has no metadata file, `models list -s` does not match it), so this must be read from the model's web page. Derived from Qwen3-4B (Apache-2.0 base) fine-tuned on NVARC synthetic data whose own licence is `unknown` (§1), which is a reason for pessimism. Also subject to the eval-set contamination warning in §1. File listing retrieved and recorded in `docs/NVARC_2026_T4_BASELINE_AUDIT.md` §3-5. |
+| Kaggle notebook `sorokin/pip-install-unsloth-flash-patch` | **AUDITED**, licence still unresolved (Kaggle exposes no licence field for kernels via the API). Contents fully read and recorded in `docs/NVARC_2026_T4_BASELINE_AUDIT.md` §6. Installs `unsloth==2025.9.7`, `unsloth_zoo==2025.9.9`, `numpy==2.2.6`, `matplotlib==3.10.6`, `scikit-learn==1.7.2`, plus a third-party prebuilt `flash_attn` wheel from `github.com/mjun0812/flash-attention-prebuild-wheels`, then patches `unsloth/models/qwen3.py`. The third-party wheel has its own upstream licence chain (flash-attention is BSD-3-Clause). |
 | Docker image `gcr.io/kaggle-private-byod/python@sha256:320043e1...` | Kaggle-provided. Not redistributable by us. |
 
 ## 10. Official benchmark and competition data
@@ -302,10 +328,29 @@ NVARC and Barbadillo licence positions matter for us.
 3. **TRM, SOAR and CompressARC code may be vendored** under MIT with the notice
    retained, into a clearly marked `third_party/` tree that does not yet exist.
 4. **No checkpoint or Kaggle dataset is downloaded** until its Kaggle/HF page
-   licence has been read and recorded in this document.
+   licence has been read and recorded in this document. Kaggle API access is
+   working (§Kaggle access below), so this is a discipline, not a limitation.
 5. **Any evaluation number produced with an NVARC-derived checkpoint is reported
    as contaminated** with respect to the 120-task public evaluation set.
-6. Two questions are open and blocking only for the reuse path, not for the
-   study:
+6. Three questions remain open, blocking only for the reuse path, not for the
+   study. None is resolvable through the Kaggle API, which exposes no licence
+   field for kernels or model instances; all three need a web page or an author:
    - Notebook `nihilisticneuralnet/baseline-nvarc-arc-25-winning-solution-for-t4x2`: what licence?
+   - Kaggle model `sorokin/qwen3_4b_grids15_sft139`: what licence?
    - NVARC repository `1ytic/NVARC`: is the absence of a LICENSE intentional?
+
+## Kaggle access
+
+Verified 2026-07-25. `~/.kaggle/credentials.json` holds an **OAuth** token (not
+the legacy `kaggle.json`), and Kaggle CLI 2.2.4 at
+`~/arc-agi-2-2026/.tools/kaggle-venv/bin/kaggle` authenticates successfully:
+`competitions list` returns the three ARC Prize 2026 competitions with
+`userHasEntered=True`.
+
+`metadata/KAGGLE_DOWNLOAD_PENDING.txt` is **stale** — it tested for
+`~/.kaggle/kaggle.json` specifically and so missed the OAuth credential. It sits
+outside `our_project` and is read-only to us; disregard it.
+
+Persona verification may still gate prize eligibility and submission. It does
+not gate authenticated API access, and all metadata in this document was
+retrieved through that access.

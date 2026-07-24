@@ -60,6 +60,27 @@ patching race.
 Kaggle model source: `sorokin/qwen3_4b_grids15_sft139/Transformers/bfloat16/1`
 (`kernel-metadata.json:23`).
 
+**File listing, retrieved via the authenticated Kaggle API (metadata only, not
+downloaded):**
+
+| File | Bytes |
+| --- | --- |
+| `model-00001-of-00002.safetensors` | 4,996,836,472 |
+| `model-00002-of-00002.safetensors` | 2,270,397,024 |
+| `model.safetensors.index.json` | 32,913 |
+| `config.json` | 1,532 |
+| `tokenizer.json` | **1,731** |
+| `vocab.json` | **94** |
+| `added_tokens.json` | 68 |
+| `special_tokens_map.json` | 367 |
+| `tokenizer_config.json` | 988 |
+| `generation_config.json` | 113 |
+
+Weights total **7,267,233,496 bytes = 6.77 GiB**, i.e. **3.63B bf16 parameters**
+— exactly `4.02B - 0.389B`, confirming the 16-token cut tokenizer against a
+tied-embedding Qwen3-4B. A 94-byte `vocab.json` is only possible with a
+16-entry vocabulary. Version timestamp 2025-11-02.
+
 **How it was trained — fully traceable.** The name is the experiment name in
 `references/score_winners/01_nvarc/ARChitects/run_sft_4b.sh:7`:
 
@@ -84,11 +105,38 @@ Data: `data/grids_v15` — the seven subsets written by
 their test-pair ground-truth outputs, at 6 augmented copies each**
 (`build_datasets.py:158,245-246`). See `docs/systems/NVARC.md` §9.
 
-## 6. Dependency notebook
+## 6. Dependency notebook — now audited
 
-`sorokin/pip-install-unsloth-flash-patch` (kernel source, id 272622465). Supplies
-offline pip wheels for Unsloth and the flash-attention patch. Not present
-locally; contents unaudited.
+`sorokin/pip-install-unsloth-flash-patch` (id_no 97546973). Pulled and read via
+the Kaggle API. Seven cells:
+
+| Cell | Action |
+| --- | --- |
+| 0 | `pip install --target=/kaggle/working unsloth==2025.9.7 unsloth_zoo==2025.9.9 numpy==2.2.6 matplotlib==3.10.6 scikit-learn==1.7.2` |
+| 1 | `pip install --no-deps --target=/kaggle/working` of a **prebuilt third-party wheel**, `flash_attn-2.8.2+cu128torch2.8-cp311-cp311-linux_x86_64.whl` from `github.com/mjun0812/flash-attention-prebuild-wheels` release v0.3.14 |
+| 2-4 | version echoes for python, torch, flash_attn |
+| 5 | writes `qwen3.patch`, a binary diff against `unsloth/models/qwen3.py` |
+| 6 | `patch --binary /kaggle/working/unsloth/models/qwen3.py qwen3.patch` |
+
+`enable_internet: true` for this notebook and `false` for the baseline: the
+standard Kaggle offline pattern, where a utility kernel downloads wheels with
+internet on and the competition kernel consumes its output offline. Legitimate,
+and it means **the baseline's dependency set is pinned by a notebook we do not
+control and which could be edited at any time.** Worth vendoring if we depend on
+it.
+
+The patch itself is informative. It transposes Q/K/V into
+`(batch, seq, heads, dim)` layout, fixes a `temp_O` shape bug for Mistral-Nemo
+dimensions, and **deletes the sliding-window slicing and the
+`is_causal` branch** from unsloth's Qwen3 attention path.
+
+Note the tension: this wheel is `flash_attn 2.8.2+cu128`, which requires sm80 or
+above and **cannot run on a T4 (sm75)**. The dependency notebook was authored for
+NVARC's L4 setup. The T4 baseline works around it at runtime by monkeypatching
+`unsloth.models.qwen3.flash_attn_func` with xformers `memory_efficient_attention`
+(`nvarc_t4x2_notebook.py:646-657`). So the flash-attention wheel is installed and
+then bypassed, while the *patch* to `qwen3.py` is what the T4 path actually
+depends on. A fragile arrangement, and undocumented in either notebook.
 
 ## 7. Internet
 
@@ -108,12 +156,14 @@ frees its worker. Sensible given the highly variable per-task cost documented in
 
 ## 9. Expected VRAM per GPU
 
-Not measurable without running. From the configuration: Qwen3-4B in 4-bit NF4 is
-~2.3 GB of weights, minus the ~0.78B embedding parameters the cut tokenizer
-removes, so closer to ~1.8 GB. LoRA r=256 over 7 projection modules plus
-`embed_tokens` and `lm_head` adds roughly 0.4-0.6 GB in fp16 plus optimizer
-state under adamw_8bit. Activations at `max_seq_length=8192` with batch 1 and
-**gradient checkpointing off** are the dominant and least predictable term.
+Not measurable without running, but the checkpoint file listing tightens the
+estimate considerably. The model is **3.63B parameters** (§3-5), not 4.02B. In
+4-bit NF4 that is roughly `3.63e9 x 0.55 bytes ≈ 2.0 GB` of quantised weights,
+with the 16-entry embedding contributing essentially nothing. LoRA r=256 over 7
+projection modules plus `embed_tokens` and `lm_head` adds roughly 0.4-0.6 GB in
+fp16, plus optimizer state under adamw_8bit. Activations at
+`max_seq_length=8192` with batch 1 and **gradient checkpointing off** are the
+dominant and least predictable term.
 
 The notebook instruments this itself (`torch.cuda.max_memory_allocated()`,
 printed separately for training and inference), which is the right design and

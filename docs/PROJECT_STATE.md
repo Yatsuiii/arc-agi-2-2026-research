@@ -203,15 +203,35 @@ solution paper) and
 | `references/score_winners/03_*` (MindsAI) | **ABSENT** | No score-producing artifact. MindsAI has historically not open sourced. Teardown will be evidence-limited. |
 | `references/score_winners/04_*` (Lonnie) | **ABSENT** | No score-producing artifact. |
 | `references/kaggle_notebooks/` | **EMPTY** | No exact score-winning notebooks beyond the 2026 T4x2 baseline. |
-| NVARC submodule contents (7 repos) | **NOT FETCHED** | BARC, re-arc, h-arc, MINI-ARC, ConceptARC, TRM@e7b6871 unavailable. Blocks exact reproduction of the NVARC SDG pipeline. |
-| NVARC Kaggle datasets (`nvarc-artifacts-puzzles`, `nvarc-synthetic-puzzles`, `nvarc-augmented-puzzles`) | **NOT DOWNLOADED** | 103k synthetic + 3.2M augmented puzzles. Required to retrain either NVARC branch. |
-| TRM Kaggle datasets (`cpmpml/arc-prize-trm-training-data`, `-evaluation-data`, `arc-prize-trm-031`) | **NOT DOWNLOADED** | Required to retrain or run the NVARC TRM branch. |
-| `sorokin/qwen3_4b_grids15_sft139` checkpoint | **NOT DOWNLOADED** (deliberately, per implementation limits) | Required to run the 2026 T4x2 baseline. |
-| Kaggle API credentials | **ABSENT** (`metadata/KAGGLE_DOWNLOAD_PENDING.txt`) | Blocks every Kaggle dataset/model download above. **This is the single largest reproducibility blocker.** |
+| NVARC submodule contents (7 repos) | **NOT FETCHED** | BARC, re-arc, h-arc, MINI-ARC, ConceptARC, TRM@e7b6871 unavailable. Blocks exact reproduction of the NVARC SDG pipeline. Fetchable from GitHub at will. |
+| NVARC Kaggle datasets (`nvarc-artifacts-puzzles` 42.0 GB, `nvarc-synthetic-puzzles` 338 MB, `nvarc-augmented-puzzles` 1.32 GB) | **NOT DOWNLOADED** | Reachable, but licence is `unknown` so **not lawfully reusable** regardless. |
+| TRM Kaggle datasets (`arc-prize-trm-031` 13.9 GB, `-training-data` 2.22 GB, `-evaluation-data` 8.38 MB) | **NOT DOWNLOADED** | Reachable and **CC0-1.0**, i.e. public domain. Available whenever wanted. |
+| `sorokin/qwen3_4b_grids15_sft139` checkpoint | **NOT DOWNLOADED** (deliberately, per implementation limits) | 6.77 GiB, reachable. File listing retrieved; licence still unresolved. |
+| Kaggle API access | **WORKING** | OAuth credential at `~/.kaggle/credentials.json`, CLI 2.2.4, verified 2026-07-25. **`metadata/KAGGLE_DOWNLOAD_PENDING.txt` is stale**: it tested for the legacy `~/.kaggle/kaggle.json` and missed the OAuth token. Not a blocker. |
+| Persona verification | **UNKNOWN status** | May gate prize eligibility and submission. Does **not** gate authenticated API access. To confirm before relying on a submission. |
 
 None of these block the literature and architecture study. All are recorded as
 explicit gaps and are carried into `docs/REFERENCE_LICENSE_AUDIT.md` and
 `docs/BASELINE_SELECTION.md`.
+
+## 8b. Competition calendar
+
+Retrieved from the authenticated Kaggle API, 2026-07-25:
+
+| Competition | Deadline | Reward | Teams | Entered |
+| --- | --- | --- | --- | --- |
+| `arc-prize-2026-arc-agi-2` | **2026-11-02 23:59** | $700,000 | 1244 | yes |
+| `arc-prize-2026-paper-track` | **2026-11-09 23:59** | $450,000 | 105 | yes |
+| `arc-prize-2026-arc-agi-3` | 2026-11-02 23:59 | $850,000 | 1893 | yes |
+
+**100 days to the solver deadline, 107 to the paper track.** At roughly two full
+baseline runs per week (`paper/COMPUTE_LEDGER.md`) that is about 28 usable
+12-hour runs for the entire project, which is the hard constraint every plan in
+this repository must respect.
+
+Note also that an **ARC-AGI-3** competition exists with a larger purse than
+ARC-AGI-2. It is out of scope for this project and is recorded only so the scope
+choice is explicit rather than accidental.
 
 ## 9. Frozen decisions from Phase 0
 

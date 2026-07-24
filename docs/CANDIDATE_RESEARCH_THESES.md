@@ -8,6 +8,11 @@ Common constraint, from `paper/COMPUTE_LEDGER.md`: we can afford roughly two
 full baseline runs per week. A thesis whose decisive experiment needs more than
 about four is not testable and is rejected on that basis alone.
 
+Calendar, from the Kaggle API: the ARC-AGI-2 solver deadline is **2026-11-02**
+and the paper track is **2026-11-09** — **100 and 107 days** from 2026-07-25,
+about 28 usable 12-hour runs in total. All three timelines below fit with slack,
+which means the choice between them should be made on evidence, not on schedule.
+
 ---
 
 # T1 — Compute-aware routing under a hard wall-clock budget
@@ -99,8 +104,10 @@ completeness strong - novelty medium.
 
 ## 13. Timeline
 
-Week 1 EXP001 oracle (CPU). Week 2 RUN-001 + predictor fitting. Weeks 3-4
-scheduler + two validation runs. Week 5 writeup.
+EXP001 Stage A oracle (CPU) **done 2026-07-24**. Then RUN-001 + predictor
+fitting, ~2 weeks. Scheduler + two validation runs, ~3 weeks. Writeup ~2 weeks.
+Lands early October against the 2026-11-02 solver deadline, leaving ~4 weeks of
+slack.
 
 ## 14. Required figures and ablations
 
@@ -223,9 +230,11 @@ completeness strong - novelty **strong**.
 
 ## 13. Timeline
 
-Week 1 EXP001 on CompressARC records (CPU, validates the pipeline). Week 2
-RUN-001. Weeks 2-3 feature development and dev-split fitting, all CPU. Week 4
-one confirmation submission. Week 5 writeup.
+EXP001 Stage A on CompressARC records **done 2026-07-24**; it validated the
+pipeline and confirmed the premise. Then RUN-001, ~1 week. Feature development
+and dev-split fitting, all CPU, ~2 weeks. One confirmation submission, ~1 week.
+Writeup ~2 weeks. Lands mid-September against the 2026-11-02 solver deadline,
+the largest slack of the three.
 
 ## 14. Required figures and ablations
 
@@ -339,8 +348,10 @@ completeness strong - novelty medium.
 
 ## 13. Timeline
 
-Weeks 1-2 published-number consolidation and the m-sweep (CPU). Weeks 3-4 TRM
-run and equivariance prototype. Week 5 writeup.
+Published-number consolidation and the m-sweep (CPU), ~2 weeks. TRM run and
+equivariance prototype, ~2 weeks — cheaper now that the TRM artifacts are
+confirmed CC0-1.0 and need no licence negotiation. Writeup ~2 weeks. Lands late
+September against the 2026-11-02 solver deadline.
 
 ## 14. Required figures and ablations
 

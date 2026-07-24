@@ -13,7 +13,7 @@ comparable — the ARChitects' own lineage went 53.5% → 16.94% across the two.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Paradigm** | AR transduction | AR transduction | masked diffusion | recursive supervised | LLM program synthesis | MDL compression | program synthesis (shipped: AR transduction) | UNKNOWN |
 | **Architecture** | Qwen3-4B, 16-tok vocab | Mistral-NeMo-Minitron-8B | LLaDA-8B, 2D GG-RoPE | 2-layer recursive net | Qwen 7-72B, Mistral-123B | multitensor, tied-weight equivariant | BARC induction models | UNKNOWN |
-| **Params** | ~3.2B effective | 8B | 8B x2 (content + shape) | 7M + puzzle table | 7B-123B | **76K** | ~7B | UNKNOWN |
+| **Params** | **3.63B** (measured) | 8B | 8B x2 (content + shape) | 7M + puzzle table | 7B-123B | **76K** | ~7B | UNKNOWN |
 | **Training data** | 3.2M augmented from 104,539 puzzles | ARC1+2, ARC-Heavy, RE-ARC, ConceptARC | same | ~1000 puzzles x 1000 aug | 5M self-generated solutions | **none** | BARC + hindsight | UNKNOWN |
 | **Synthetic data** | **yes, decisive** | tried, abandoned | tried, abandoned | no | yes, hindsight relabelling | no | yes, hindsight relabelling | UNKNOWN |
 | **Test-time training** | yes, LoRA r=256 | yes, per task | yes, 128 steps, LoRA r=32 | yes, full weights | optional, +3-5% | **the entire method** | yes | **yes (originated it)** |
@@ -52,7 +52,7 @@ comparable — the ARChitects' own lineage went 53.5% → 16.94% across the two.
 | Component | System | Notes |
 | --- | --- | --- |
 | LLM-generated, execution-validated synthetic puzzles at scale | NVARC | the only decisively ablated score driver in the field |
-| 16-token cut vocabulary | NVARC | undocumented in the paper; enables 4B TTT on small GPUs |
+| 16-token cut vocabulary | NVARC | undocumented in the paper; removes 0.39B of 4.02B params and enables 4B TTT on small GPUs |
 | Masked diffusion + recursive latent sampling | ARChitects B | |
 | 2D Golden Gate RoPE + padded-then-stripped 32x32 canvas | ARChitects B | |
 | Deep supervision over refinement steps | TRM | third-party-validated as HRM's real driver |

@@ -33,7 +33,7 @@ independent branches were built; the winning submission used only one.
 
 | Branch | Model | Params | Note |
 | --- | --- | --- | --- |
-| ARChitects branch (winning) | Qwen3-4B-Thinking-2507 | ~4B, **minus ~0.78B of embeddings** | see §5 |
+| ARChitects branch (winning) | Qwen3-4B-Thinking-2507 | **3.63B** (4.02B minus 0.39B of embeddings) | measured, see §5 |
 | ARChitects branch (2B variant) | Qwen3-VL-2B-Instruct, LLM part only | ~2B | Table 2: 22.22% LB |
 | TRM branch | Tiny Recursive Model | 7M network + a per-puzzle embedding table | §4.1 |
 
@@ -62,9 +62,17 @@ exactly 13 entries — the ten digits, `Ċ` (newline), `user`, `assistant` — p
 
 Consequences, none of which the paper spells out:
 
-- Qwen3's 151,936-entry embedding matrix and lm_head collapse to 16 entries.
-  At hidden size 2560 that is roughly **0.78B parameters removed** from a 4B
-  model. This is why a "4B" model runs test-time LoRA on a 16 GB T4.
+- Qwen3's 151,936-entry embedding collapses to 16 entries. At hidden size 2560
+  that removes `151920 x 2560 = 389M` parameters. Qwen3-4B ties `lm_head` to
+  `embed_tokens`, so the saving is counted once, not twice.
+- **Confirmed against the published checkpoint.** The Kaggle model
+  `sorokin/qwen3_4b_grids15_sft139/Transformers/bfloat16/1` ships two
+  safetensors shards totalling 7,267,233,496 bytes = 6.77 GiB. At bf16 that is
+  **3.63B parameters**, exactly `4.02B - 0.389B`. Its `vocab.json` is **94
+  bytes** and `tokenizer.json` **1731 bytes**, which only a 16-token vocabulary
+  can produce. This is direct confirmation of the cut tokenizer from the
+  artifact rather than from inference.
+- This is why a nominally 4B model runs test-time LoRA on a 16 GB T4.
 - LoRA can target `embed_tokens` and `lm_head` at r=256 for almost nothing,
   which the 2026 notebook does (`nvarc_t4x2_notebook.py:664`). On a full-vocab
   model that would be prohibitive.

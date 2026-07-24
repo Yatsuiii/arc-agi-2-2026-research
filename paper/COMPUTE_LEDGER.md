@@ -22,10 +22,22 @@ Read the ARChitects row again: a season of 1-3 GH200 machines plus two weeks of
 16xH100. That is the compute behind 21.67%. **We are not going to out-scale
 anyone.**
 
+## Calendar
+
+| Milestone | Date | Days from 2026-07-25 |
+| --- | --- | --- |
+| ARC Prize 2026 ARC-AGI-2 deadline | **2026-11-02 23:59** | **100** |
+| ARC Prize 2026 paper-track deadline | **2026-11-09 23:59** | **107** |
+
+Retrieved from the Kaggle API. At ~2 full baseline runs per week (see
+Budgeting principle below), 100 days is roughly **28 usable 12-hour runs** for
+the whole project, including calibration, ablations and the final submission.
+
 ## Our available compute
 
 | Resource | Quota | Notes |
 | --- | --- | --- |
+| Kaggle API access | working (OAuth, CLI 2.2.4) | verified 2026-07-25 |
 | Kaggle notebook GPU | 2xT4 (16 GB each) or 4xL4 depending on allocation; competition runtime cap 12 h | The 2026 baseline targets `NvidiaTeslaT4` explicitly |
 | Kaggle GPU quota | ~30 h/week, subject to change | Hard constraint on iteration speed |
 | Kaggle submissions | 1/day historically | The binding constraint on leaderboard feedback, and the reason `paper/CLAIM_LEDGER.md` A4 exists |
@@ -37,6 +49,8 @@ anyone.**
 | Date | Experiment | Hardware | Wall-clock | GPU-hours | Notes |
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-24 | Phases 0-12 audit | local CPU | ~1 h | 0 | Static analysis, JSON parsing, PDF reading. No training, no downloads. |
+| 2026-07-24 | EXP001 Stage A | local CPU | 20 s | 0 | Headroom analysis of CompressARC recorded traces. |
+| 2026-07-25 | Kaggle metadata sweep | local CPU | ~2 min | 0 | Licence and file-listing queries for 6 datasets, 1 model instance, 2 kernels. Metadata only; **nothing downloaded**. |
 
 ## Budgeting principle
 

@@ -35,18 +35,23 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
 
 ## What we can reproduce today
 
-- All dataset statistics and duplicate analysis: `src/data_audit/`, CPU only,
-  deterministic, no external downloads. `make audit` regenerates every artifact
-  under `artifacts/data_audit/`.
+- All dataset statistics and duplicate analysis: `python -m src.data_audit`, CPU
+  only, deterministic, no external downloads, ~4 s.
+- EXP001 Stage A headroom analysis: `python -m src.analysis.headroom`, CPU only,
+  ~20 s, reproduces CompressARC's published accuracies exactly.
 - Every claim in `docs/PROJECT_STATE.md` and `docs/REFERENCE_LICENSE_AUDIT.md`
-  from the files on disk.
+  from the files on disk, plus the Kaggle metadata claims via the authenticated
+  CLI at `~/arc-agi-2-2026/.tools/kaggle-venv/bin/kaggle`.
 
 ## What we cannot reproduce, and why
 
 | Blocker | Detail | Severity |
 | --- | --- | --- |
-| Kaggle credentials absent | `metadata/KAGGLE_DOWNLOAD_PENDING.txt` — no `~/.kaggle/kaggle.json`. Blocks every checkpoint and dataset download. | **BLOCKING for any baseline run** |
-| NVARC submodules not fetched | 7 repositories (BARC, re-arc, h-arc, MINI-ARC, ConceptARC, TRM@e7b6871, ARC-AGI-2) | Blocks NVARC SDG reproduction |
+| ~~Kaggle credentials absent~~ | **RESOLVED / never true.** OAuth credential at `~/.kaggle/credentials.json`, CLI 2.2.4 authenticated, verified 2026-07-25. `metadata/KAGGLE_DOWNLOAD_PENDING.txt` is stale — it tested for the legacy `kaggle.json`. | not a blocker |
+| NVARC synthetic data not lawfully reusable | All three `sorokin/nvarc-*` Kaggle datasets carry licence `unknown`. Downloadable but not reusable. | **BLOCKING for reproducing the score driver** |
+| Checkpoint and notebook licences unresolved | Kaggle exposes no licence field for model instances or kernels via the API; both need a web page | **BLOCKING for publication**, not for a private run |
+| Persona verification status unknown | May gate prize eligibility and submission; does not gate API access | **BLOCKING for submission** if unverified |
+| NVARC submodules not fetched | 7 repositories (BARC, re-arc, h-arc, MINI-ARC, ConceptARC, TRM@e7b6871, ARC-AGI-2) | Blocks NVARC SDG reproduction; fetchable at will |
 | NVARC pretraining compute | 4 nodes x 8xH100 for 27 hours for the 4B model (`nvarc_2025.pdf` §3.1) | Permanently out of reach |
 | TRM pretraining compute | 24 hours on 8xH100 (`nvarc_2025.pdf` §4.1); original TRM 3 days on 4xH100 | Out of reach; must use released checkpoints |
 | ARChitects LLaDA pretraining | 175,000 steps, 39 hours on 8xH100 (`page.md`) | Out of reach |

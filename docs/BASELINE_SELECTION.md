@@ -60,7 +60,16 @@ any published claim.
 Chosen for four reasons that have nothing to do with its score:
 
 1. **It is the only clean-licence, independently-reproducible ARC-AGI-2 solver
-   with a published checkpoint.** MIT throughout.
+   with a published checkpoint** — and the licence position is stronger than it
+   looked at first pass. The code is MIT (Samsung SAIL), and the three Kaggle
+   artifacts NVARC published for it are **CC0-1.0**, i.e. public domain:
+   `arc-prize-trm-031` (13.9 GB of checkpoints), `arc-prize-trm-training-data`
+   (2.22 GB), `arc-prize-trm-evaluation-data` (8.38 MB). Verified via the Kaggle
+   API on 2026-07-25.
+
+   The contrast is sharp and deliberate: the same authors published the NVARC
+   synthetic-data artifacts with licence `unknown` and the TRM artifacts as CC0.
+   **NVARC's TRM branch is fully reusable; its winning branch is not.**
 2. **It is architecturally maximally different** from the primary: 7M recursive
    network versus 4B autoregressive LLM, different representation, different
    training data, different failure surface. Complementarity measured between
@@ -104,11 +113,16 @@ and the prior says there is nothing to separate.
 
 | Blocker | Severity | Resolution |
 | --- | --- | --- |
-| No Kaggle credentials (`metadata/KAGGLE_DOWNLOAD_PENDING.txt`) | **BLOCKING** | user creates `~/.kaggle/kaggle.json` |
-| Checkpoint licence unverified (`sorokin/qwen3_4b_grids15_sft139`) | **BLOCKING for publication**, not for a private run | read the Kaggle model page, record in the licence audit |
-| Notebook licence unclear | blocking for reuse of its code | use the ARChitects source instead (option B) |
+| ~~No Kaggle credentials~~ | **NOT A BLOCKER** | OAuth access verified 2026-07-25; `metadata/KAGGLE_DOWNLOAD_PENDING.txt` is stale |
+| Checkpoint licence unverified (`sorokin/qwen3_4b_grids15_sft139`) | **BLOCKING for publication**, not for a private run | not exposed by the Kaggle API; read the model's web page |
+| Notebook licence unclear | blocking for reuse of its code | not exposed by the API either; use the ARChitects source instead (option B) |
+| Persona verification status unknown | **BLOCKING for submission** if unverified | confirm before relying on a leaderboard number |
 | ARC Prize 2026 rules not held locally | blocking for final licence conclusions | obtain and record |
 | Time guards will bind at 2xT4 | expect a below-27.64% score | measure it; do not treat the shortfall as a bug |
+
+The Kaggle correction changes the shape of this list: what remains is licence
+and eligibility work plus one measurement, not an access problem. RUN-001 is
+executable as soon as its preconditions below are met.
 
 ## Exact first Kaggle run plan — NOT TO BE LAUNCHED WITHOUT APPROVAL
 
@@ -119,9 +133,17 @@ environment on 2xT4, and produce the persisted candidate dataset every later
 CPU experiment depends on. **Not** to produce a research result.
 
 Preconditions:
-1. Kaggle credentials present.
-2. `sorokin/qwen3_4b_grids15_sft139` licence read and recorded.
-3. This plan committed, and its SHA recorded.
+1. ~~Kaggle credentials~~ — **met**, OAuth access verified 2026-07-25.
+2. `sorokin/qwen3_4b_grids15_sft139` licence read from its web page and
+   recorded. **Still outstanding**; the Kaggle API does not expose it.
+3. Persona verification confirmed, if the run is intended to produce a
+   leaderboard number rather than only the candidate dataset.
+4. This plan committed, and its SHA recorded.
+
+Precondition 2 is the only hard gate for a private calibration run. If the
+checkpoint turns out to be unlicensed, RUN-001 still has value as a measurement
+of the baseline's behaviour, but nothing derived from it may be published, and
+we would migrate to option B on a differently-licensed checkpoint.
 
 Procedure:
 1. Fork the notebook into our own Kaggle kernel. Do not edit model, TTT,
