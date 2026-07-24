@@ -1,0 +1,52 @@
+# CLAIM_LEDGER
+
+Every claim the paper might make, and the exact evidence required to keep it.
+A claim without a green evidence row does not appear in the paper.
+
+## Status values
+
+- `PROPOSED` — written down, no evidence yet.
+- `SUPPORTED` — required evidence exists and points the right way.
+- `WEAKENED` — evidence exists but is narrower than the claim. The claim text
+  must shrink to match.
+- `REJECTED` — evidence contradicts it. Stays in this file; may appear in the
+  paper as a negative result.
+- `RETIRED` — no longer relevant to the thesis we chose. Reason recorded.
+
+## Background claims (about the field, not about our contribution)
+
+These are claims we make in related work. Each needs a citation, not an
+experiment. They are listed because getting one wrong would undermine the
+motivation for our own contribution.
+
+| ID | Claim | Evidence | Status |
+| --- | --- | --- | --- |
+| B1 | The 2025 ARC-AGI-2 public-leaderboard maximum was ~27.6% during the competition and ~29.7% shortly after. | `references/score_winners/01_nvarc/nvarc_2025.pdf` abstract, §3.5, Table 2 | SUPPORTED |
+| B2 | On ARC-AGI-2, the dominant driver of NVARC's score was the synthetic-data mix, not the solver architecture. | `nvarc_2025.pdf` Fig. 1: same pipeline, 12.92% with BARC → 27.64% with more NVARC synthetic data | SUPPORTED |
+| B3 | Ensembling a second, architecturally different solver (TRM) on top of the strong Qwen3-4B branch produced no measurable gain. | `nvarc_2025.pdf` §4.4: "using a Qwen3 4B submission that uses 10 hours only, with a score 27.22, adding TRM yields the same 27.22 score" | SUPPORTED |
+| B4 | Test-time training is used by every strong 2025 ARC-AGI-2 system for which we have evidence. | NVARC §3.2, §4.2; ARChitects `page.md` (128 TTT steps per task); Barbadillo `docs/05_Solution_Summary.md` | SUPPORTED |
+| B5 | Candidate selection, not candidate generation, is a live failure mode: correct candidates are generated and then not chosen. | `nvarc_2025.pdf` §4.4: TRM-only solves "were not always picked by Qwen3 scoring" | SUPPORTED but thin — one sentence, no numbers. Needs our own measurement (EXP001). |
+| B6 | ARChitects' final 2025 system underperformed its local eval estimate on the leaderboard (26% expected vs 21.67% actual), which they attribute to eval-set overfitting. | `references/score_winners/02_architects/page.md` §Final Submission's Results | SUPPORTED |
+| B7 | Published 2025 ARC-AGI-2 public-eval numbers were measured on an evaluation snapshot that differs from the 2026 Kaggle evaluation files on 6 of 120 tasks. | `docs/PROJECT_STATE.md` §5 | SUPPORTED (measured locally) |
+
+## Contribution claims
+
+Populated once a thesis is selected. Placeholder IDs are reserved so EXP001 can
+reference them.
+
+| ID | Claim | Required evidence | Status |
+| --- | --- | --- | --- |
+| C1 | Independent ARC-AGI-2 solvers have materially non-overlapping solve sets, so per-task routing has real headroom. | Per-task solve vectors for >= 2 solvers on a common split; Jaccard and unique-solve counts with CIs | PROPOSED |
+| C2 | A large fraction of the gap between a solver's oracle-selection accuracy and its actual accuracy is recoverable, i.e. selection is a bottleneck distinct from generation. | Candidate sets with ground-truth membership flags; oracle@k vs realised accuracy | PROPOSED |
+| C3 | Task-level features computable before running an expensive solver predict that solver's success well enough to reallocate compute profitably. | Predictive AUC on held-out tasks + a compute-vs-accuracy curve beating uniform allocation | PROPOSED |
+
+## Anti-claims
+
+Things we will explicitly not claim, recorded so we do not drift into them.
+
+| ID | Anti-claim | Reason |
+| --- | --- | --- |
+| A1 | We will not claim state-of-the-art on ARC-AGI-2 without a rerun-mode Kaggle score. | Local eval on the 120-task public set is contaminated for any NVARC-derived checkpoint (`docs/REFERENCE_LICENSE_AUDIT.md` §1) and differs from the semi-private set. |
+| A2 | We will not claim novelty for any component before `paper/RELATED_WORK.md` records a search for it. | Phase 11 precondition. |
+| A3 | We will not present a "combine everything" ensemble as a scientific contribution. | B3 shows naive ensembling did not even help the people who tried it, and component contributions would not be separable. |
+| A4 | We will not report improvements tuned against the Kaggle public leaderboard. | Public LB is half the hidden set; tuning on it is the exact overfitting mode B6 documents. |
