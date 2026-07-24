@@ -20,10 +20,10 @@ paper.
 | T1 | Dataset and split table with contamination status per split | `src/data_audit/schema_report.py` | same | §5.2 | **AVAILABLE** |
 | T2 | Cross-system comparison matrix | hand-assembled from `docs/SYSTEM_COMPARISON.md`, cited not generated | audit docs | §3 | AVAILABLE (prose table) |
 | F3 | Solve-set overlap between solvers (upset or Venn) | `[BLOCKED]` EXP001 | per-task solve vectors | C1 | BLOCKED |
-| F4 | Oracle@k vs realised accuracy@2 as a function of k | `[BLOCKED]` EXP001 | candidate sets with ground-truth flags | C2 | BLOCKED |
+| F4 | Oracle@k vs realised accuracy@2 as a function of k | `src/analysis/headroom.py` (ARC-AGI-1, done); EXP001-B for ARC-AGI-2 | `artifacts/exp001/headroom.json`; RUN-001 `candidates.jsonl.gz` | C2 | **ARC-AGI-1 AVAILABLE**, ARC-AGI-2 pending RUN-001 |
 | F5 | Compute-vs-accuracy curve, uniform vs routed allocation | `[BLOCKED]` | per-task time and outcome | C3 | BLOCKED |
 | F6 | Failure-category counts per solver | `[BLOCKED]` | labelled predictions | §8 | BLOCKED |
-| F7 | Selection-algorithm ablation | `[BLOCKED]` AB-S1 | persisted candidate sets | §7 | BLOCKED |
+| F7 | Selection-algorithm ablation | `[BLOCKED]` AB-S1 | RUN-001 `candidates.jsonl.gz` (`beam_score` + `score_aug[8]` per candidate) | §7 | **UNBLOCKED once RUN-001 lands** |
 
 ## Note on F1/F2/T1
 

@@ -42,6 +42,21 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
 - Every claim in `docs/PROJECT_STATE.md` and `docs/REFERENCE_LICENSE_AUDIT.md`
   from the files on disk, plus the Kaggle metadata claims via the authenticated
   CLI at `~/arc-agi-2-2026/.tools/kaggle-venv/bin/kaggle`.
+- The RUN-001 instrumented notebook, regenerable from the frozen reference with
+  `python -m src.run001.build_notebook` and checkable with
+  `python -m src.run001.validate_notebook`. The build asserts each patch anchor
+  matches exactly once, so the notebook cannot drift silently.
+
+## RUN-001 environment, measured
+
+Pinning the reference docker image is required, not cosmetic: under the default
+image the run fails at `import torch` because the dependency kernel's cp311
+wheels shadow the system torch under a cp312 interpreter. Setting
+`machine_shape: NvidiaTeslaT4` is likewise required, or Kaggle allocates a single
+P100 (sm60) instead of 2x T4 (sm75). Measured inside the pinned image: Python
+3.11.13, torch 2.8.0+cu128, xformers 0.0.32.post2, bitsandbytes 0.48.2, unsloth
+2025.9.7, 19.5 GB writable. Full evidence in
+`experiments/RUN001/ACCESS_REPORT.md`.
 
 ## What we cannot reproduce, and why
 

@@ -51,6 +51,8 @@ the whole project, including calibration, ablations and the final submission.
 | 2026-07-24 | Phases 0-12 audit | local CPU | ~1 h | 0 | Static analysis, JSON parsing, PDF reading. No training, no downloads. |
 | 2026-07-24 | EXP001 Stage A | local CPU | 20 s | 0 | Headroom analysis of CompressARC recorded traces. |
 | 2026-07-25 | Kaggle metadata sweep | local CPU | ~2 min | 0 | Licence and file-listing queries for 6 datasets, 1 model instance, 2 kernels. Metadata only; **nothing downloaded**. |
+| 2026-07-25 | RUN-001 access probes | Kaggle CPU + 2xT4 | ~15 min | ~0.2 | 5 probe kernel versions establishing Persona, accelerator, mounts and the import chain. |
+| 2026-07-25 | RUN-001 baseline | Kaggle 2x T4 | up to 11 h 40 | up to ~23 | Baseline execution and candidate archive. One version, one run. |
 
 ## Budgeting principle
 

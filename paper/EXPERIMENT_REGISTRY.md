@@ -67,6 +67,15 @@ Copy into `experiments/<ID>/RESULT.md`.
 | --- | --- | --- | --- | --- | --- |
 | EXP001-A | Selection and compute headroom from CompressARC recorded traces (ARC-AGI-1) | **COMPLETE** | `9230ca9` | `experiments/EXP001/RESULT.md` | C2 supported, C3 supported, B5 strengthened |
 | EXP001-B | Same analysis on ARC-AGI-2 candidate records | BLOCKED on RUN-001 | `9230ca9` | pending | C1, C2, C3 |
+| RUN-001 | NVARC T4x2 baseline execution and candidate archive | RUNNING | `131eba8` | `experiments/RUN001/` | none - acquisition only |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
+
+## Runs that are not experiments
+
+RUN-001 is registered here for provenance but is **dataset acquisition plus a
+competition-baseline capture**, not a hypothesis test. It supports no claim on
+its own. Its purpose is to produce the candidate archive that EXP001-B needs,
+and its accuracy number is contaminated by construction because the checkpoint
+was trained on the split it scores (`docs/systems/NVARC.md` §9).
