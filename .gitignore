@@ -9,3 +9,5 @@ experiments/*/runs/
 *.pt
 *.pth
 *.safetensors
+!artifacts/data_audit/
+!artifacts/data_audit/**
