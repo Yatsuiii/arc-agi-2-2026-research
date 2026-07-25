@@ -1,0 +1,23 @@
+# Default harness configuration. Loaded by src/harness/config.py:HarnessConfig.from_yaml.
+#
+# The checked-in default reproduces RUN-001's own selection exactly
+# (frozen_baseline: true, verifier B0). Every other verifier/allocator
+# component is a config flag away, never a code branch someone has to
+# remember to flip.
+
+frozen_baseline: true
+candidate_archive_dir: artifacts/run001/run001
+split: evaluation
+top_k_submission: 2
+
+verifier:
+  name: B0_original_nvarc
+  top_k: 2
+  params: {}
+
+allocator:
+  enabled: false  # Gate 1: not exercised until EXP002 shows confidence is decision-useful.
+  stopping_confidence_threshold: 0.8
+  stopping_margin_threshold: 0.15
+  max_actions_per_task: 0
+  allowed_actions: []
