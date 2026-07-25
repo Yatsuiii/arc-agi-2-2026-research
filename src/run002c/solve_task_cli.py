@@ -41,7 +41,8 @@ def solve(task_id: str, problem: dict, n_iterations: int, time_limit_s: float, d
 
     torch.set_default_device(device)
     if device.startswith("cuda"):
-        torch.cuda.reset_peak_memory_stats()
+        torch.cuda.set_device(device)
+        torch.cuda.reset_peak_memory_stats(device)
 
     task = preprocessing.Task(task_id, problem, None)
     model = arc_compressor.ARCCompressor(task)
@@ -53,18 +54,23 @@ def solve(task_id: str, problem: dict, n_iterations: int, time_limit_s: float, d
     start = time.time()
     deadline = start + time_limit_s
     steps_run = 0
+    timed_out = False
     for train_step in range(n_iterations):
         train.take_step(task, model, optimizer, train_step, logger)
         steps_run = train_step + 1
         if time.time() > deadline:
+            timed_out = True
             break
     elapsed_s = time.time() - start
 
-    peak_memory_bytes = torch.cuda.max_memory_allocated() if device.startswith("cuda") else 0
+    peak_memory_bytes = torch.cuda.max_memory_allocated(device) if device.startswith("cuda") else 0
 
     candidates = [
         {
-            "grid": [[int(cell) for cell in row] for row in grid],
+            # `grid` is one grid per test example (`solution_grids`' tuple
+            # shape: example -> row -> cell), not a single 2D grid — flatten
+            # one level less than a plain grid would need.
+            "grid": [[[int(cell) for cell in row] for row in example] for example in grid],
             "accumulated_score": logger.solution_hashes_count[hashed],
         }
         for hashed, grid in logger.solution_grids.items()
@@ -76,6 +82,7 @@ def solve(task_id: str, problem: dict, n_iterations: int, time_limit_s: float, d
         "task_id": task_id,
         "n_test": task.n_test,
         "steps_run": steps_run,
+        "timed_out": timed_out,
         "elapsed_s": elapsed_s,
         "peak_memory_bytes": peak_memory_bytes,
         "device": device,
