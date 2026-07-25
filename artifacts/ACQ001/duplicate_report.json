@@ -1,0 +1,26 @@
+{
+  "canonical_duplicate_tasks": [],
+  "corpora": [
+    {
+      "n_tasks": 602,
+      "name": "TRAIN",
+      "source": "arc-agi_training_challenges.json"
+    },
+    {
+      "n_tasks": 199,
+      "name": "DEV",
+      "source": "arc-agi_training_challenges.json"
+    },
+    {
+      "n_tasks": 160,
+      "name": "TEST",
+      "source": "arc-agi_training_challenges.json"
+    }
+  ],
+  "exact_duplicate_tasks": [],
+  "notes": {
+    "canonical_group": "D4 (transpose x rot90) with colour relabelling by first appearance",
+    "why": "matches the augmentation group used by every reference solver"
+  },
+  "shared_demonstration_pairs_across_splits": []
+}
