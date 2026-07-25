@@ -54,14 +54,17 @@ class GlobalScheduler:
         actionable = [d for d in decisions if d.action != AllocationAction.STOP]
         if not actionable:
             return None
+        # Each StoppingRule decision already carries its own gain
+        # (expected_marginal_value) and cost; marginal_value() just divides
+        # them, the same formula this module's docstring names.
         ranked = rank_actions_by_value(
             [
                 {
                     "task_id": d.task_id,
                     "action": d.action,
                     "value": marginal_value(
-                        current_top1_probability=1.0 - d.expected_marginal_value,
-                        estimated_probability_after_action=1.0,
+                        current_top1_probability=0.0,
+                        estimated_probability_after_action=d.expected_marginal_value,
                         estimated_cost_seconds=d.estimated_cost_seconds,
                     ),
                     "decision": d,
