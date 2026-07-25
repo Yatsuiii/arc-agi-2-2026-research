@@ -184,6 +184,46 @@ def demo_colour_pattern(demo_pairs: list[tuple[Grid, Grid]]) -> dict[str, set[in
     return {"introduced": introduced, "removed": removed, "preserved": preserved}
 
 
+MAX_DIMENSION = 30
+VALID_COLOURS = set(range(10))
+
+
+def is_valid_grid(grid: Grid) -> float:
+    """1.0 if `grid` satisfies the ARC-AGI grid contract, else 0.0.
+
+    Non-empty, rectangular, every cell a colour 0-9, no dimension over 30 —
+    the same contract `src/run001/validate_outputs.py` checks a submission
+    against, restated here as a candidate-level feature so a structurally
+    invalid grid (which should never occur from a well-formed decoder, but is
+    cheap to rule out) never silently scores as merely "inconsistent."
+    """
+    if not grid or not grid[0]:
+        return 0.0
+    widths = {len(row) for row in grid}
+    if len(widths) != 1:
+        return 0.0
+    if len(grid) > MAX_DIMENSION or widths.pop() > MAX_DIMENSION:
+        return 0.0
+    return float(all(cell in VALID_COLOURS for row in grid for cell in row))
+
+
+def grid_complexity(grid: Grid) -> float:
+    """Coarse, model-independent complexity proxy: connected components per cell.
+
+    Not a real minimum-description-length estimate (`docs/CANDIDATE_RESEARCH_THESES.md`
+    §T2.3 names MDL-style scoring as CompressARC's actual objective, which
+    needs an optimiser this project does not have); this is a cheap,
+    deterministic stand-in in the same spirit — a grid built from few, large,
+    simply-shaped regions scores low, a visually noisy or over-segmented one
+    scores high.
+    """
+    rows, cols = shape(grid)
+    area = rows * cols
+    if area == 0:
+        return 0.0
+    return len(connected_components(grid)) / area
+
+
 def structural_features(
     candidate: Grid, test_input: Grid, demo_pairs: list[tuple[Grid, Grid]]
 ) -> dict[str, float | None]:
@@ -228,23 +268,44 @@ def structural_features(
         expected_periodic = all(demo_periodic)
         tiling_pattern_consistent = float(is_periodic_tiling(candidate) == expected_periodic)
 
+    output_size_matches_expected = (
+        float(cand_shape == expected_shape) if expected_shape is not None else None
+    )
+    introduced_colours_seen_in_demos = (
+        float(cand_introduced <= demo_pattern["introduced"]) if cand_introduced else 1.0
+    )
+    removed_colours_seen_in_demos = (
+        float(cand_removed <= demo_pattern["removed"]) if cand_removed else 1.0
+    )
+
+    # Every summand below is a 0/1 (or fractional, for symmetry) agreement
+    # score; a contradiction is a check that resolved (not None) and scored
+    # below 0.5. Counted, not just summed, so "3 checks fired and all
+    # disagreed" reads differently from "1 check fired and disagreed."
+    consistency_checks = (
+        output_size_matches_expected,
+        introduced_colours_seen_in_demos,
+        removed_colours_seen_in_demos,
+        symmetry_agreement,
+        object_count_consistent,
+        tiling_pattern_consistent,
+    )
+    contradiction_count = sum(1.0 for v in consistency_checks if v is not None and v < 0.5)
+
     return {
-        "output_size_matches_expected": (
-            float(cand_shape == expected_shape) if expected_shape is not None else None
-        ),
+        "output_size_matches_expected": output_size_matches_expected,
         "size_relation_category": relation,  # categorical; verifiers may one-hot it
         "n_colours_introduced_by_candidate": float(len(cand_introduced)),
         "n_colours_removed_by_candidate": float(len(cand_removed)),
-        "introduced_colours_seen_in_demos": (
-            float(cand_introduced <= demo_pattern["introduced"]) if cand_introduced else 1.0
-        ),
-        "removed_colours_seen_in_demos": (
-            float(cand_removed <= demo_pattern["removed"]) if cand_removed else 1.0
-        ),
+        "introduced_colours_seen_in_demos": introduced_colours_seen_in_demos,
+        "removed_colours_seen_in_demos": removed_colours_seen_in_demos,
         "symmetry_agreement_with_demo_outputs": symmetry_agreement,
         "object_count": float(cand_object_count),
         "object_count_consistent_with_demo_pattern": object_count_consistent,
         "tiling_pattern_consistent_with_demos": tiling_pattern_consistent,
         "is_degenerate_input_copy": float(candidate == test_input),
         "is_degenerate_constant_fill": float(len(cand_out_colours) <= 1),
+        "is_valid_grid": is_valid_grid(candidate),
+        "grid_complexity": grid_complexity(candidate),
+        "contradiction_count": contradiction_count,
     }

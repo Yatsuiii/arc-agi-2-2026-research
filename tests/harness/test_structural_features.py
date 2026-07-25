@@ -11,7 +11,9 @@ from src.harness.features.structural import (  # noqa: E402
     connected_components,
     demo_colour_pattern,
     expected_output_shape,
+    grid_complexity,
     is_periodic_tiling,
+    is_valid_grid,
     shape,
     size_relation,
     structural_features,
@@ -155,6 +157,46 @@ def test_structural_features_output_size_matches_expected_for_same_relation():
     bad = structural_features(bad_candidate, test_input, demos)
     assert good["output_size_matches_expected"] == 1.0
     assert bad["output_size_matches_expected"] == 0.0
+
+
+def test_is_valid_grid_accepts_well_formed_grid():
+    assert is_valid_grid([[1, 2], [3, 4]]) == 1.0
+
+
+def test_is_valid_grid_rejects_empty_and_ragged_and_oversized():
+    assert is_valid_grid([]) == 0.0
+    assert is_valid_grid([[1, 2], [3]]) == 0.0
+    assert is_valid_grid([[1] * 31 for _ in range(31)]) == 0.0
+    assert is_valid_grid([[11]]) == 0.0  # colour out of range
+
+
+def test_grid_complexity_lower_for_uniform_grid_than_noisy_grid():
+    uniform = [[0] * 4 for _ in range(4)]
+    noisy = [[i % 2 for i in range(4)] for _ in range(4)]
+    assert grid_complexity(uniform) < grid_complexity(noisy)
+
+
+def test_grid_complexity_empty_grid_is_zero():
+    assert grid_complexity([]) == 0.0
+
+
+def test_structural_features_includes_new_independent_fields():
+    test_input = [[1, 2], [3, 4]]
+    demos = [([[5, 6], [7, 8]], [[8, 7], [6, 5]])]
+    features = structural_features(test_input, test_input, demos)
+    assert features["is_valid_grid"] == 1.0
+    assert "grid_complexity" in features
+    assert "contradiction_count" in features
+
+
+def test_contradiction_count_rises_when_checks_disagree():
+    test_input = [[1, 2], [3, 4]]
+    demos = [([[5, 6], [7, 8]], [[8, 7], [6, 5]])]
+    good_candidate = [[9, 9], [9, 8]]  # right shape
+    bad_candidate = [[9, 9, 9]]  # wrong shape -> contradicts size relation
+    good = structural_features(good_candidate, test_input, demos)
+    bad = structural_features(bad_candidate, test_input, demos)
+    assert bad["contradiction_count"] >= good["contradiction_count"]
 
 
 def test_structural_features_object_count_consistency():
