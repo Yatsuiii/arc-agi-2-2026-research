@@ -1,0 +1,311 @@
+{
+  "b2_rule": {
+    "Q": 4,
+    "U": 3,
+    "W": 1,
+    "total_slots": 2
+  },
+  "configs": {
+    "B1": {
+      "abort_reason": null,
+      "aborted": false,
+      "candidate_oracle_coverage": 0.3333333333333333,
+      "completed_tasks_per_wall_clock_hour": 7.434362687621236,
+      "config": "B1",
+      "failures": [],
+      "gpu_hours": 3.3627553979555764,
+      "n_completed": 5,
+      "n_failed": 0,
+      "per_task": {
+        "00576224": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 3.19,
+            "cpu_user_s": 2028.5,
+            "involuntary_ctx_switches": 181708,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 3583
+          },
+          "n_candidates": 638,
+          "peak_memory_bytes": 81641472,
+          "pid": 43,
+          "realised_affinity": [
+            0
+          ],
+          "requested_core_id": 0,
+          "steps_per_s": 0.2697023707089094,
+          "steps_run": 653,
+          "timed_out": true,
+          "wall_clock_s": 2421.187467813492
+        },
+        "009d5c81": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.92,
+            "cpu_user_s": 2029.19,
+            "involuntary_ctx_switches": 173289,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 3124
+          },
+          "n_candidates": 522,
+          "peak_memory_bytes": 438010880,
+          "pid": 44,
+          "realised_affinity": [
+            1
+          ],
+          "requested_core_id": 1,
+          "steps_per_s": 0.25400767254303686,
+          "steps_run": 615,
+          "timed_out": true,
+          "wall_clock_s": 2421.1867060661316
+        },
+        "0520fde7": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 3.17,
+            "cpu_user_s": 2131.92,
+            "involuntary_ctx_switches": 169250,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 3623
+          },
+          "n_candidates": 140,
+          "peak_memory_bytes": 49199616,
+          "pid": 45,
+          "realised_affinity": [
+            2
+          ],
+          "requested_core_id": 2,
+          "steps_per_s": 0.31141787787101005,
+          "steps_run": 754,
+          "timed_out": true,
+          "wall_clock_s": 2421.1840538978577
+        },
+        "42f83767": {
+          "device": "cuda:1",
+          "last_proc_snapshot": {
+            "cpu_system_s": 3.83,
+            "cpu_user_s": 2134.53,
+            "involuntary_ctx_switches": 162190,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 2935
+          },
+          "n_candidates": 179,
+          "peak_memory_bytes": 1862467072,
+          "pid": 46,
+          "realised_affinity": [
+            3
+          ],
+          "requested_core_id": 3,
+          "steps_per_s": 0.08095216463907227,
+          "steps_run": 196,
+          "timed_out": true,
+          "wall_clock_s": 2421.1829402446747
+        },
+        "8abad3cf": {
+          "device": "cuda:1",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.18,
+            "cpu_user_s": 1202.53,
+            "involuntary_ctx_switches": 259613,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 1117
+          },
+          "n_candidates": 69,
+          "peak_memory_bytes": 114593792,
+          "pid": 47,
+          "realised_affinity": "unsupported_or_failed: [Errno 22] Invalid argument",
+          "requested_core_id": 4,
+          "steps_per_s": 0.14497073806144978,
+          "steps_run": 351,
+          "timed_out": true,
+          "wall_clock_s": 2421.17826461792
+        }
+      },
+      "quota_measurement": null,
+      "singleton_frequency": 0.0,
+      "singleton_test_indices": 0,
+      "thread_cap": 1,
+      "total_candidates": 1727,
+      "total_test_indices": 6,
+      "total_unique_candidates": 1630,
+      "wall_clock_s": 2421.189381837845
+    },
+    "B2": {
+      "abort_reason": null,
+      "aborted": false,
+      "candidate_oracle_coverage": 0.5,
+      "completed_tasks_per_wall_clock_hour": 3.7337444637447916,
+      "config": "B2",
+      "failures": [],
+      "gpu_hours": 3.346470171544287,
+      "n_completed": 5,
+      "n_failed": 0,
+      "per_task": {
+        "00576224": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.16,
+            "cpu_user_s": 2402.07,
+            "involuntary_ctx_switches": 26543,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 3181
+          },
+          "n_candidates": 858,
+          "peak_memory_bytes": 81641472,
+          "pid": 2390,
+          "realised_affinity": [
+            0
+          ],
+          "requested_core_id": 0,
+          "steps_per_s": 0.6127908278002261,
+          "steps_run": 1474,
+          "timed_out": true,
+          "wall_clock_s": 2405.3884835243225
+        },
+        "009d5c81": {
+          "device": "cuda:1",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.13,
+            "cpu_user_s": 2403.6,
+            "involuntary_ctx_switches": 28387,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 3022
+          },
+          "n_candidates": 606,
+          "peak_memory_bytes": 438010880,
+          "pid": 2391,
+          "realised_affinity": [
+            1
+          ],
+          "requested_core_id": 1,
+          "steps_per_s": 0.5870423263199295,
+          "steps_run": 1415,
+          "timed_out": true,
+          "wall_clock_s": 2410.388376712799
+        },
+        "0520fde7": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.12,
+            "cpu_user_s": 2404.06,
+            "involuntary_ctx_switches": 38618,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 1970
+          },
+          "n_candidates": 140,
+          "peak_memory_bytes": 49199616,
+          "pid": 4746,
+          "realised_affinity": [
+            0
+          ],
+          "requested_core_id": 0,
+          "steps_per_s": 0.3538676329627189,
+          "steps_run": 853,
+          "timed_out": true,
+          "wall_clock_s": 2410.5058517456055
+        },
+        "42f83767": {
+          "device": "cuda:1",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.22,
+            "cpu_user_s": 2404.59,
+            "involuntary_ctx_switches": 38951,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 618
+          },
+          "n_candidates": 570,
+          "peak_memory_bytes": 1862467072,
+          "pid": 4747,
+          "realised_affinity": [
+            1
+          ],
+          "requested_core_id": 1,
+          "steps_per_s": 0.1767264236343651,
+          "steps_run": 426,
+          "timed_out": true,
+          "wall_clock_s": 2410.505408525467
+        },
+        "8abad3cf": {
+          "device": "cuda:0",
+          "last_proc_snapshot": {
+            "cpu_system_s": 2.08,
+            "cpu_user_s": 2404.39,
+            "involuntary_ctx_switches": 35555,
+            "num_threads": 1,
+            "voluntary_ctx_switches": 1670
+          },
+          "n_candidates": 92,
+          "peak_memory_bytes": 114593792,
+          "pid": 4748,
+          "realised_affinity": [
+            2
+          ],
+          "requested_core_id": 2,
+          "steps_per_s": 0.30035206359733674,
+          "steps_run": 724,
+          "timed_out": true,
+          "wall_clock_s": 2410.504497051239
+        }
+      },
+      "quota_measurement": {
+        "Q": 4,
+        "components": [
+          [
+            "os_cpu_count",
+            4
+          ],
+          [
+            "sched_affinity_count",
+            4
+          ],
+          [
+            "psutil_logical_cpu_count",
+            4
+          ],
+          [
+            "cgroup_v2_effective_cpus",
+            4.0
+          ]
+        ]
+      },
+      "singleton_frequency": 0.0,
+      "singleton_test_indices": 0,
+      "thread_cap": 1,
+      "total_candidates": 2836,
+      "total_test_indices": 6,
+      "total_unique_candidates": 2603,
+      "wall_clock_s": 4820.897673845291
+    }
+  },
+  "experiment": "EXP002-C3 vCPU-aware throughput pilot",
+  "host_quota_measurement": {
+    "Q": 4,
+    "components": [
+      [
+        "os_cpu_count",
+        4
+      ],
+      [
+        "sched_affinity_count",
+        4
+      ],
+      [
+        "psutil_logical_cpu_count",
+        4
+      ],
+      [
+        "cgroup_v2_effective_cpus",
+        4.0
+      ]
+    ]
+  },
+  "pilot_sample": [
+    "00576224",
+    "009d5c81",
+    "0520fde7",
+    "42f83767",
+    "8abad3cf"
+  ],
+  "telemetry_log": "/kaggle/working/exp002c3_pilot/telemetry_monitor.log",
+  "time_limit_s": 2400
+}

@@ -1,0 +1,351 @@
+[{"stream_name":"stderr","time":7.722088313,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.722137357,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.722141838,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.7221444439999996,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.471702049,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.471733038,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.471738856,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.471743064,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.006475375,"data":"Writing multitensor_systems.py\n"}
+,{"stream_name":"stdout","time":11.025237451,"data":"Writing initializers.py\n"}
+,{"stream_name":"stdout","time":11.060031401,"data":"Writing layers.py\n"}
+,{"stream_name":"stdout","time":11.083176837,"data":"Writing preprocessing.py\n"}
+,{"stream_name":"stdout","time":11.102820043,"data":"Writing arc_compressor.py\n"}
+,{"stream_name":"stdout","time":11.119305191,"data":"Writing scoring.py\n"}
+,{"stream_name":"stdout","time":11.137199154,"data":"Writing visualization.py\n"}
+,{"stream_name":"stdout","time":11.155821012,"data":"Writing solution_selection.py\n"}
+,{"stream_name":"stdout","time":11.173728712,"data":"Writing train.py\n"}
+,{"stream_name":"stdout","time":11.201650116,"data":"Writing solve_task_cli.py\n"}
+,{"stream_name":"stdout","time":16.032180949,"data":"torch: 2.6.0+cu124 cuda available: True device count: 2\n"}
+,{"stream_name":"stdout","time":16.032211599,"data":"  cuda:0 = Tesla T4\n"}
+,{"stream_name":"stdout","time":16.032215674,"data":"  cuda:1 = Tesla T4\n"}
+,{"stream_name":"stdout","time":16.073072737,"data":"host CPU quota measurement: {'components': [('os_cpu_count', 4), ('sched_affinity_count', 4), ('psutil_logical_cpu_count', 4), ('cgroup_v2_effective_cpus', 4.0)], 'Q': 4}\n"}
+,{"stream_name":"stdout","time":16.073101616,"data":"B2 rule: Q=4, U=3, W=1 workers/GPU (2 total slots)\n"}
+,{"stream_name":"stdout","time":16.073108506,"data":"B2 wave 1: GPU0=['00576224'] GPU1=['009d5c81'] queued=['0520fde7', '42f83767', '8abad3cf']\n"}
+,{"stream_name":"stdout","time":16.281703128,"data":"config B1: launched 5 processes (thread_cap=1): 00576224@cuda:0(pid=43,core=0), 009d5c81@cuda:0(pid=44,core=1), 0520fde7@cuda:0(pid=45,core=2), 42f83767@cuda:1(pid=46,core=3), 8abad3cf@cuda:1(pid=47,core=4)\n"}
+,{"stream_name":"stdout","time":2437.425314892,"data":"config B1: 2421.2s wall clock, aborted=False\n"}
+,{"stream_name":"stdout","time":2437.621255042,"data":"config B2: launched 2 processes (thread_cap=1): 00576224@cuda:0(pid=2390,core=0), 009d5c81@cuda:1(pid=2391,core=1)\n"}
+,{"stream_name":"stdout","time":4848.190377611,"data":"config B2: 2410.4s wall clock, aborted=False\n"}
+,{"stream_name":"stdout","time":4848.190447004,"data":"B2 wave 2: launching queued tasks ['0520fde7', '42f83767', '8abad3cf'] onto freed slots\n"}
+,{"stream_name":"stdout","time":4848.190454337,"data":"config B2_wave2: launched 3 processes (thread_cap=1): 0520fde7@cuda:0(pid=4746,core=0), 42f83767@cuda:1(pid=4747,core=1), 8abad3cf@cuda:0(pid=4748,core=2)\n"}
+,{"stream_name":"stdout","time":7258.79372724,"data":"config B2_wave2: 2410.5s wall clock, aborted=False\n"}
+,{"stream_name":"stdout","time":7258.914527568,"data":"{\n"}
+,{"stream_name":"stdout","time":7258.914567005,"data":"  \"b2_rule\": {\n"}
+,{"stream_name":"stdout","time":7258.914571613,"data":"    \"Q\": 4,\n"}
+,{"stream_name":"stdout","time":7258.914575055,"data":"    \"U\": 3,\n"}
+,{"stream_name":"stdout","time":7258.91457873,"data":"    \"W\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914582053,"data":"    \"total_slots\": 2\n"}
+,{"stream_name":"stdout","time":7258.914585403,"data":"  },\n"}
+,{"stream_name":"stdout","time":7258.914588689,"data":"  \"configs\": {\n"}
+,{"stream_name":"stdout","time":7258.914592127,"data":"    \"B1\": {\n"}
+,{"stream_name":"stdout","time":7258.914595266,"data":"      \"abort_reason\": null,\n"}
+,{"stream_name":"stdout","time":7258.914598683,"data":"      \"aborted\": false,\n"}
+,{"stream_name":"stdout","time":7258.914602303,"data":"      \"candidate_oracle_coverage\": 0.3333333333333333,\n"}
+,{"stream_name":"stdout","time":7258.914605808,"data":"      \"completed_tasks_per_wall_clock_hour\": 7.434362687621236,\n"}
+,{"stream_name":"stdout","time":7258.914609781,"data":"      \"config\": \"B1\",\n"}
+,{"stream_name":"stdout","time":7258.914613798,"data":"      \"failures\": [],\n"}
+,{"stream_name":"stdout","time":7258.91461745,"data":"      \"gpu_hours\": 3.3627553979555764,\n"}
+,{"stream_name":"stdout","time":7258.914621188,"data":"      \"n_completed\": 5,\n"}
+,{"stream_name":"stdout","time":7258.914624895,"data":"      \"n_failed\": 0,\n"}
+,{"stream_name":"stdout","time":7258.914628352,"data":"      \"per_task\": {\n"}
+,{"stream_name":"stdout","time":7258.914631562,"data":"        \"00576224\": {\n"}
+,{"stream_name":"stdout","time":7258.914635177,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.91463869,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.914642104,"data":"            \"cpu_system_s\": 3.19,\n"}
+,{"stream_name":"stdout","time":7258.914645526,"data":"            \"cpu_user_s\": 2028.5,\n"}
+,{"stream_name":"stdout","time":7258.914649046,"data":"            \"involuntary_ctx_switches\": 181708,\n"}
+,{"stream_name":"stdout","time":7258.914652426,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.9146561,"data":"            \"voluntary_ctx_switches\": 3583\n"}
+,{"stream_name":"stdout","time":7258.914659554,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.914663135,"data":"          \"n_candidates\": 638,\n"}
+,{"stream_name":"stdout","time":7258.914666742,"data":"          \"peak_memory_bytes\": 81641472,\n"}
+,{"stream_name":"stdout","time":7258.914677127,"data":"          \"pid\": 43,\n"}
+,{"stream_name":"stdout","time":7258.914680773,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.914684239,"data":"            0\n"}
+,{"stream_name":"stdout","time":7258.914687786,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.914691301,"data":"          \"requested_core_id\": 0,\n"}
+,{"stream_name":"stdout","time":7258.914694767,"data":"          \"steps_per_s\": 0.2697023707089094,\n"}
+,{"stream_name":"stdout","time":7258.914698322,"data":"          \"steps_run\": 653,\n"}
+,{"stream_name":"stdout","time":7258.914701978,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.91470578,"data":"          \"wall_clock_s\": 2421.187467813492\n"}
+,{"stream_name":"stdout","time":7258.914709349,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.914712892,"data":"        \"009d5c81\": {\n"}
+,{"stream_name":"stdout","time":7258.914716516,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.914729774,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.914734457,"data":"            \"cpu_system_s\": 2.92,\n"}
+,{"stream_name":"stdout","time":7258.914738074,"data":"            \"cpu_user_s\": 2029.19,\n"}
+,{"stream_name":"stdout","time":7258.914741531,"data":"            \"involuntary_ctx_switches\": 173289,\n"}
+,{"stream_name":"stdout","time":7258.914745028,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914748742,"data":"            \"voluntary_ctx_switches\": 3124\n"}
+,{"stream_name":"stdout","time":7258.91475256,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.914755948,"data":"          \"n_candidates\": 522,\n"}
+,{"stream_name":"stdout","time":7258.914759648,"data":"          \"peak_memory_bytes\": 438010880,\n"}
+,{"stream_name":"stdout","time":7258.914763625,"data":"          \"pid\": 44,\n"}
+,{"stream_name":"stdout","time":7258.914767213,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.914770795,"data":"            1\n"}
+,{"stream_name":"stdout","time":7258.914774199,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.914777633,"data":"          \"requested_core_id\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914784172,"data":"          \"steps_per_s\": 0.25400767254303686,\n"}
+,{"stream_name":"stdout","time":7258.914787699,"data":"          \"steps_run\": 615,\n"}
+,{"stream_name":"stdout","time":7258.914791265,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.914795219,"data":"          \"wall_clock_s\": 2421.1867060661316\n"}
+,{"stream_name":"stdout","time":7258.914798928,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.914802028,"data":"        \"0520fde7\": {\n"}
+,{"stream_name":"stdout","time":7258.914805415,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.914808867,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.914812936,"data":"            \"cpu_system_s\": 3.17,\n"}
+,{"stream_name":"stdout","time":7258.914816665,"data":"            \"cpu_user_s\": 2131.92,\n"}
+,{"stream_name":"stdout","time":7258.914820644,"data":"            \"involuntary_ctx_switches\": 169250,\n"}
+,{"stream_name":"stdout","time":7258.914824712,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914828131,"data":"            \"voluntary_ctx_switches\": 3623\n"}
+,{"stream_name":"stdout","time":7258.914831646,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.914834928,"data":"          \"n_candidates\": 140,\n"}
+,{"stream_name":"stdout","time":7258.914841055,"data":"          \"peak_memory_bytes\": 49199616,\n"}
+,{"stream_name":"stdout","time":7258.914845035,"data":"          \"pid\": 45,\n"}
+,{"stream_name":"stdout","time":7258.914849034,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.914853447,"data":"            2\n"}
+,{"stream_name":"stdout","time":7258.914856639,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.914860056,"data":"          \"requested_core_id\": 2,\n"}
+,{"stream_name":"stdout","time":7258.91486349,"data":"          \"steps_per_s\": 0.31141787787101005,\n"}
+,{"stream_name":"stdout","time":7258.91486682,"data":"          \"steps_run\": 754,\n"}
+,{"stream_name":"stdout","time":7258.914870261,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.914874004,"data":"          \"wall_clock_s\": 2421.1840538978577\n"}
+,{"stream_name":"stdout","time":7258.914878282,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.914886688,"data":"        \"42f83767\": {\n"}
+,{"stream_name":"stdout","time":7258.914890367,"data":"          \"device\": \"cuda:1\",\n"}
+,{"stream_name":"stdout","time":7258.914894455,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.914897823,"data":"            \"cpu_system_s\": 3.83,\n"}
+,{"stream_name":"stdout","time":7258.914901175,"data":"            \"cpu_user_s\": 2134.53,\n"}
+,{"stream_name":"stdout","time":7258.914904595,"data":"            \"involuntary_ctx_switches\": 162190,\n"}
+,{"stream_name":"stdout","time":7258.914908017,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914911309,"data":"            \"voluntary_ctx_switches\": 2935\n"}
+,{"stream_name":"stdout","time":7258.914914726,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.91491795,"data":"          \"n_candidates\": 179,\n"}
+,{"stream_name":"stdout","time":7258.914921499,"data":"          \"peak_memory_bytes\": 1862467072,\n"}
+,{"stream_name":"stdout","time":7258.914924999,"data":"          \"pid\": 46,\n"}
+,{"stream_name":"stdout","time":7258.914928536,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.914931947,"data":"            3\n"}
+,{"stream_name":"stdout","time":7258.914935659,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.914939032,"data":"          \"requested_core_id\": 3,\n"}
+,{"stream_name":"stdout","time":7258.91494306,"data":"          \"steps_per_s\": 0.08095216463907227,\n"}
+,{"stream_name":"stdout","time":7258.91494644,"data":"          \"steps_run\": 196,\n"}
+,{"stream_name":"stdout","time":7258.914949976,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.914953592,"data":"          \"wall_clock_s\": 2421.1829402446747\n"}
+,{"stream_name":"stdout","time":7258.914957627,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.914961266,"data":"        \"8abad3cf\": {\n"}
+,{"stream_name":"stdout","time":7258.914964631,"data":"          \"device\": \"cuda:1\",\n"}
+,{"stream_name":"stdout","time":7258.914968028,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.914971792,"data":"            \"cpu_system_s\": 2.18,\n"}
+,{"stream_name":"stdout","time":7258.914975319,"data":"            \"cpu_user_s\": 1202.53,\n"}
+,{"stream_name":"stdout","time":7258.914979109,"data":"            \"involuntary_ctx_switches\": 259613,\n"}
+,{"stream_name":"stdout","time":7258.914983585,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.914987206,"data":"            \"voluntary_ctx_switches\": 1117\n"}
+,{"stream_name":"stdout","time":7258.914991162,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.914994785,"data":"          \"n_candidates\": 69,\n"}
+,{"stream_name":"stdout","time":7258.914998225,"data":"          \"peak_memory_bytes\": 114593792,\n"}
+,{"stream_name":"stdout","time":7258.915001686,"data":"          \"pid\": 47,\n"}
+,{"stream_name":"stdout","time":7258.915005065,"data":"          \"realised_affinity\": \"unsupported_or_failed: [Errno 22] Invalid argument\",\n"}
+,{"stream_name":"stdout","time":7258.915008816,"data":"          \"requested_core_id\": 4,\n"}
+,{"stream_name":"stdout","time":7258.915012116,"data":"          \"steps_per_s\": 0.14497073806144978,\n"}
+,{"stream_name":"stdout","time":7258.915015509,"data":"          \"steps_run\": 351,\n"}
+,{"stream_name":"stdout","time":7258.915018912,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.915022217,"data":"          \"wall_clock_s\": 2421.17826461792\n"}
+,{"stream_name":"stdout","time":7258.915033406,"data":"        }\n"}
+,{"stream_name":"stdout","time":7258.915036162,"data":"      },\n"}
+,{"stream_name":"stdout","time":7258.915038394,"data":"      \"quota_measurement\": null,\n"}
+,{"stream_name":"stdout","time":7258.915040644,"data":"      \"singleton_frequency\": 0.0,\n"}
+,{"stream_name":"stdout","time":7258.915042841,"data":"      \"singleton_test_indices\": 0,\n"}
+,{"stream_name":"stdout","time":7258.915045133,"data":"      \"thread_cap\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915047306,"data":"      \"total_candidates\": 1727,\n"}
+,{"stream_name":"stdout","time":7258.915049464,"data":"      \"total_test_indices\": 6,\n"}
+,{"stream_name":"stdout","time":7258.915051716,"data":"      \"total_unique_candidates\": 1630,\n"}
+,{"stream_name":"stdout","time":7258.915054012,"data":"      \"wall_clock_s\": 2421.189381837845\n"}
+,{"stream_name":"stdout","time":7258.915056221,"data":"    },\n"}
+,{"stream_name":"stdout","time":7258.915058375,"data":"    \"B2\": {\n"}
+,{"stream_name":"stdout","time":7258.915060509,"data":"      \"abort_reason\": null,\n"}
+,{"stream_name":"stdout","time":7258.915062804,"data":"      \"aborted\": false,\n"}
+,{"stream_name":"stdout","time":7258.915065028,"data":"      \"candidate_oracle_coverage\": 0.5,\n"}
+,{"stream_name":"stdout","time":7258.915067271,"data":"      \"completed_tasks_per_wall_clock_hour\": 3.7337444637447916,\n"}
+,{"stream_name":"stdout","time":7258.915069521,"data":"      \"config\": \"B2\",\n"}
+,{"stream_name":"stdout","time":7258.915072525,"data":"      \"failures\": [],\n"}
+,{"stream_name":"stdout","time":7258.915074753,"data":"      \"gpu_hours\": 3.346470171544287,\n"}
+,{"stream_name":"stdout","time":7258.91507708,"data":"      \"n_completed\": 5,\n"}
+,{"stream_name":"stdout","time":7258.915079209,"data":"      \"n_failed\": 0,\n"}
+,{"stream_name":"stdout","time":7258.915081374,"data":"      \"per_task\": {\n"}
+,{"stream_name":"stdout","time":7258.915083529,"data":"        \"00576224\": {\n"}
+,{"stream_name":"stdout","time":7258.915085699,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.915087934,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.915090094,"data":"            \"cpu_system_s\": 2.16,\n"}
+,{"stream_name":"stdout","time":7258.915092281,"data":"            \"cpu_user_s\": 2402.07,\n"}
+,{"stream_name":"stdout","time":7258.915094493,"data":"            \"involuntary_ctx_switches\": 26543,\n"}
+,{"stream_name":"stdout","time":7258.915096732,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915098902,"data":"            \"voluntary_ctx_switches\": 3181\n"}
+,{"stream_name":"stdout","time":7258.915101114,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.915103246,"data":"          \"n_candidates\": 858,\n"}
+,{"stream_name":"stdout","time":7258.915105442,"data":"          \"peak_memory_bytes\": 81641472,\n"}
+,{"stream_name":"stdout","time":7258.915107649,"data":"          \"pid\": 2390,\n"}
+,{"stream_name":"stdout","time":7258.915109883,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.915112094,"data":"            0\n"}
+,{"stream_name":"stdout","time":7258.915114209,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915116332,"data":"          \"requested_core_id\": 0,\n"}
+,{"stream_name":"stdout","time":7258.915118571,"data":"          \"steps_per_s\": 0.6127908278002261,\n"}
+,{"stream_name":"stdout","time":7258.915120759,"data":"          \"steps_run\": 1474,\n"}
+,{"stream_name":"stdout","time":7258.915122942,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.91514246,"data":"          \"wall_clock_s\": 2405.3884835243225\n"}
+,{"stream_name":"stdout","time":7258.915146759,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.915150738,"data":"        \"009d5c81\": {\n"}
+,{"stream_name":"stdout","time":7258.915154481,"data":"          \"device\": \"cuda:1\",\n"}
+,{"stream_name":"stdout","time":7258.915158434,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.915161781,"data":"            \"cpu_system_s\": 2.13,\n"}
+,{"stream_name":"stdout","time":7258.91516543,"data":"            \"cpu_user_s\": 2403.6,\n"}
+,{"stream_name":"stdout","time":7258.915169371,"data":"            \"involuntary_ctx_switches\": 28387,\n"}
+,{"stream_name":"stdout","time":7258.915173302,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915176302,"data":"            \"voluntary_ctx_switches\": 3022\n"}
+,{"stream_name":"stdout","time":7258.915179506,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.915182604,"data":"          \"n_candidates\": 606,\n"}
+,{"stream_name":"stdout","time":7258.915185771,"data":"          \"peak_memory_bytes\": 438010880,\n"}
+,{"stream_name":"stdout","time":7258.915189105,"data":"          \"pid\": 2391,\n"}
+,{"stream_name":"stdout","time":7258.915192252,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.915195527,"data":"            1\n"}
+,{"stream_name":"stdout","time":7258.915199106,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915202221,"data":"          \"requested_core_id\": 1,\n"}
+,{"stream_name":"stdout","time":7258.91520571,"data":"          \"steps_per_s\": 0.5870423263199295,\n"}
+,{"stream_name":"stdout","time":7258.915215561,"data":"          \"steps_run\": 1415,\n"}
+,{"stream_name":"stdout","time":7258.915219222,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.915223425,"data":"          \"wall_clock_s\": 2410.388376712799\n"}
+,{"stream_name":"stdout","time":7258.915227137,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.915230599,"data":"        \"0520fde7\": {\n"}
+,{"stream_name":"stdout","time":7258.915234626,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.915238059,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.915241439,"data":"            \"cpu_system_s\": 2.12,\n"}
+,{"stream_name":"stdout","time":7258.91524484,"data":"            \"cpu_user_s\": 2404.06,\n"}
+,{"stream_name":"stdout","time":7258.915248136,"data":"            \"involuntary_ctx_switches\": 38618,\n"}
+,{"stream_name":"stdout","time":7258.915251528,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915254907,"data":"            \"voluntary_ctx_switches\": 1970\n"}
+,{"stream_name":"stdout","time":7258.915258331,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.915261489,"data":"          \"n_candidates\": 140,\n"}
+,{"stream_name":"stdout","time":7258.915264927,"data":"          \"peak_memory_bytes\": 49199616,\n"}
+,{"stream_name":"stdout","time":7258.915268419,"data":"          \"pid\": 4746,\n"}
+,{"stream_name":"stdout","time":7258.915271757,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.915275667,"data":"            0\n"}
+,{"stream_name":"stdout","time":7258.9152799,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915283214,"data":"          \"requested_core_id\": 0,\n"}
+,{"stream_name":"stdout","time":7258.915286484,"data":"          \"steps_per_s\": 0.3538676329627189,\n"}
+,{"stream_name":"stdout","time":7258.915294394,"data":"          \"steps_run\": 853,\n"}
+,{"stream_name":"stdout","time":7258.915298483,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.915302097,"data":"          \"wall_clock_s\": 2410.5058517456055\n"}
+,{"stream_name":"stdout","time":7258.915306092,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.915310869,"data":"        \"42f83767\": {\n"}
+,{"stream_name":"stdout","time":7258.915314556,"data":"          \"device\": \"cuda:1\",\n"}
+,{"stream_name":"stdout","time":7258.915318558,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.915341885,"data":"            \"cpu_system_s\": 2.22,\n"}
+,{"stream_name":"stdout","time":7258.915352672,"data":"            \"cpu_user_s\": 2404.59,\n"}
+,{"stream_name":"stdout","time":7258.915357195,"data":"            \"involuntary_ctx_switches\": 38951,\n"}
+,{"stream_name":"stdout","time":7258.915360942,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.91536481,"data":"            \"voluntary_ctx_switches\": 618\n"}
+,{"stream_name":"stdout","time":7258.915369127,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.915372801,"data":"          \"n_candidates\": 570,\n"}
+,{"stream_name":"stdout","time":7258.915376659,"data":"          \"peak_memory_bytes\": 1862467072,\n"}
+,{"stream_name":"stdout","time":7258.915381264,"data":"          \"pid\": 4747,\n"}
+,{"stream_name":"stdout","time":7258.915385341,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.91538932,"data":"            1\n"}
+,{"stream_name":"stdout","time":7258.915393686,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915397898,"data":"          \"requested_core_id\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915402364,"data":"          \"steps_per_s\": 0.1767264236343651,\n"}
+,{"stream_name":"stdout","time":7258.915406645,"data":"          \"steps_run\": 426,\n"}
+,{"stream_name":"stdout","time":7258.915410677,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.915415193,"data":"          \"wall_clock_s\": 2410.505408525467\n"}
+,{"stream_name":"stdout","time":7258.915419276,"data":"        },\n"}
+,{"stream_name":"stdout","time":7258.915423102,"data":"        \"8abad3cf\": {\n"}
+,{"stream_name":"stdout","time":7258.915427199,"data":"          \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":7258.91543089,"data":"          \"last_proc_snapshot\": {\n"}
+,{"stream_name":"stdout","time":7258.915434045,"data":"            \"cpu_system_s\": 2.08,\n"}
+,{"stream_name":"stdout","time":7258.915437243,"data":"            \"cpu_user_s\": 2404.39,\n"}
+,{"stream_name":"stdout","time":7258.915440705,"data":"            \"involuntary_ctx_switches\": 35555,\n"}
+,{"stream_name":"stdout","time":7258.915444076,"data":"            \"num_threads\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915447559,"data":"            \"voluntary_ctx_switches\": 1670\n"}
+,{"stream_name":"stdout","time":7258.915451115,"data":"          },\n"}
+,{"stream_name":"stdout","time":7258.915454503,"data":"          \"n_candidates\": 92,\n"}
+,{"stream_name":"stdout","time":7258.915457723,"data":"          \"peak_memory_bytes\": 114593792,\n"}
+,{"stream_name":"stdout","time":7258.915461056,"data":"          \"pid\": 4748,\n"}
+,{"stream_name":"stdout","time":7258.915464793,"data":"          \"realised_affinity\": [\n"}
+,{"stream_name":"stdout","time":7258.915468075,"data":"            2\n"}
+,{"stream_name":"stdout","time":7258.915471382,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915479244,"data":"          \"requested_core_id\": 2,\n"}
+,{"stream_name":"stdout","time":7258.915482825,"data":"          \"steps_per_s\": 0.30035206359733674,\n"}
+,{"stream_name":"stdout","time":7258.915486684,"data":"          \"steps_run\": 724,\n"}
+,{"stream_name":"stdout","time":7258.915490167,"data":"          \"timed_out\": true,\n"}
+,{"stream_name":"stdout","time":7258.91549381,"data":"          \"wall_clock_s\": 2410.504497051239\n"}
+,{"stream_name":"stdout","time":7258.915498153,"data":"        }\n"}
+,{"stream_name":"stdout","time":7258.91550137,"data":"      },\n"}
+,{"stream_name":"stdout","time":7258.915504593,"data":"      \"quota_measurement\": {\n"}
+,{"stream_name":"stdout","time":7258.915508034,"data":"        \"Q\": 4,\n"}
+,{"stream_name":"stdout","time":7258.91551134,"data":"        \"components\": [\n"}
+,{"stream_name":"stdout","time":7258.915515176,"data":"          [\n"}
+,{"stream_name":"stdout","time":7258.915518462,"data":"            \"os_cpu_count\",\n"}
+,{"stream_name":"stdout","time":7258.915522012,"data":"            4\n"}
+,{"stream_name":"stdout","time":7258.915525322,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915529167,"data":"          [\n"}
+,{"stream_name":"stdout","time":7258.915532471,"data":"            \"sched_affinity_count\",\n"}
+,{"stream_name":"stdout","time":7258.915535831,"data":"            4\n"}
+,{"stream_name":"stdout","time":7258.9155391,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915542356,"data":"          [\n"}
+,{"stream_name":"stdout","time":7258.915545808,"data":"            \"psutil_logical_cpu_count\",\n"}
+,{"stream_name":"stdout","time":7258.9155494,"data":"            4\n"}
+,{"stream_name":"stdout","time":7258.915552699,"data":"          ],\n"}
+,{"stream_name":"stdout","time":7258.915555983,"data":"          [\n"}
+,{"stream_name":"stdout","time":7258.915560184,"data":"            \"cgroup_v2_effective_cpus\",\n"}
+,{"stream_name":"stdout","time":7258.91556371,"data":"            4.0\n"}
+,{"stream_name":"stdout","time":7258.915567525,"data":"          ]\n"}
+,{"stream_name":"stdout","time":7258.915570836,"data":"        ]\n"}
+,{"stream_name":"stdout","time":7258.91557441,"data":"      },\n"}
+,{"stream_name":"stdout","time":7258.915578355,"data":"      \"singleton_frequency\": 0.0,\n"}
+,{"stream_name":"stdout","time":7258.915582243,"data":"      \"singleton_test_indices\": 0,\n"}
+,{"stream_name":"stdout","time":7258.915585793,"data":"      \"thread_cap\": 1,\n"}
+,{"stream_name":"stdout","time":7258.915589296,"data":"      \"total_candidates\": 2836,\n"}
+,{"stream_name":"stdout","time":7258.915592404,"data":"      \"total_test_indices\": 6,\n"}
+,{"stream_name":"stdout","time":7258.91559553,"data":"      \"total_unique_candidates\": 2603,\n"}
+,{"stream_name":"stdout","time":7258.915598858,"data":"      \"wall_clock_s\": 4820.897673845291\n"}
+,{"stream_name":"stdout","time":7258.915602478,"data":"    }\n"}
+,{"stream_name":"stdout","time":7258.915605755,"data":"  },\n"}
+,{"stream_name":"stdout","time":7258.915609097,"data":"  \"experiment\": \"EXP002-C3 vCPU-aware throughput pilot\",\n"}
+,{"stream_name":"stdout","time":7258.915612428,"data":"  \"host_quota_measurement\": {\n"}
+,{"stream_name":"stdout","time":7258.915615658,"data":"    \"Q\": 4,\n"}
+,{"stream_name":"stdout","time":7258.915618683,"data":"    \"components\": [\n"}
+,{"stream_name":"stdout","time":7258.915621978,"data":"      [\n"}
+,{"stream_name":"stdout","time":7258.915625405,"data":"        \"os_cpu_count\",\n"}
+,{"stream_name":"stdout","time":7258.915630689,"data":"        4\n"}
+,{"stream_name":"stdout","time":7258.915639152,"data":"      ],\n"}
+,{"stream_name":"stdout","time":7258.91564283,"data":"      [\n"}
+,{"stream_name":"stdout","time":7258.915646467,"data":"        \"sched_affinity_count\",\n"}
+,{"stream_name":"stdout","time":7258.915650217,"data":"        4\n"}
+,{"stream_name":"stdout","time":7258.915653345,"data":"      ],\n"}
+,{"stream_name":"stdout","time":7258.915656802,"data":"      [\n"}
+,{"stream_name":"stdout","time":7258.915660123,"data":"        \"psutil_logical_cpu_count\",\n"}
+,{"stream_name":"stdout","time":7258.915663478,"data":"        4\n"}
+,{"stream_name":"stdout","time":7258.915666632,"data":"      ],\n"}
+,{"stream_name":"stdout","time":7258.915669958,"data":"      [\n"}
+,{"stream_name":"stdout","time":7258.915673172,"data":"        \"cgroup_v2_effective_cpus\",\n"}
+,{"stream_name":"stdout","time":7258.915676713,"data":"        4.0\n"}
+,{"stream_name":"stdout","time":7258.915680064,"data":"      ]\n"}
+,{"stream_name":"stdout","time":7258.915683565,"data":"    ]\n"}
+,{"stream_name":"stdout","time":7258.915687548,"data":"  },\n"}
+,{"stream_name":"stdout","time":7258.915691533,"data":"  \"pilot_sample\": [\n"}
+,{"stream_name":"stdout","time":7258.915694788,"data":"    \"00576224\",\n"}
+,{"stream_name":"stdout","time":7258.915698318,"data":"    \"009d5c81\",\n"}
+,{"stream_name":"stdout","time":7258.915702135,"data":"    \"0520fde7\",\n"}
+,{"stream_name":"stdout","time":7258.915705677,"data":"    \"42f83767\",\n"}
+,{"stream_name":"stdout","time":7258.915709166,"data":"    \"8abad3cf\"\n"}
+,{"stream_name":"stdout","time":7258.915712635,"data":"  ],\n"}
+,{"stream_name":"stdout","time":7258.915715984,"data":"  \"telemetry_log\": \"/kaggle/working/exp002c3_pilot/telemetry_monitor.log\",\n"}
+,{"stream_name":"stdout","time":7258.915721592,"data":"  \"time_limit_s\": 2400\n"}
+,{"stream_name":"stdout","time":7258.915725298,"data":"}\n"}
+,{"stream_name":"stderr","time":7261.673050471,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":7261.673089087,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":7261.720986692,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":7262.0014345,"data":"[NbConvertApp] Writing 158411 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":7263.27169793,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":7263.271732833,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":7263.300209294,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7264.228758853,"data":"[NbConvertApp] Writing 750414 bytes to __results__.html\n"}
+]

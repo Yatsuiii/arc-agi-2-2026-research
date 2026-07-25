@@ -72,6 +72,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | EXP002-B | Score-independent verification + confidence repair (redesign of EXP002) | **COMPLETE — verdict REDESIGN (acquisition-bound, not rejected)** | see `experiments/EXP002B/PLAN.md` commit | `experiments/EXP002B/RESULTS.md` | C2 (still not confirmed; confidence-validity sub-claim supported) |
 | EXP002-C | Clean ARC-AGI-2 candidate-corpus acquisition using CompressARC (bounded 5-task smoke pilot) | **COMPLETE — verdict PARALLELISE AND SCALE** | see `experiments/EXP002C/PLAN.md` commit | `experiments/EXP002C/PILOT_RESULTS.md` | none yet - acquisition feasibility only, feeds EXP002-D |
 | EXP002-C2 | CompressARC oversubscription and throughput pilot (C3/C4 vs. frozen C1 baseline) | **COMPLETE — verdict PARALLELISE AND SCALE (adopt C3)** | `93ed8a0` | `experiments/EXP002C2/RESULTS.md` | none yet - acquisition-throughput engineering, feeds EXP002-D |
+| EXP002-C3 | vCPU-aware CompressARC throughput pilot (B1 thread-capped, B2 vCPU-derived concurrency, vs. frozen C3) | **COMPLETE — verdict KEEP FROZEN C3** | `441e9b6` | `experiments/EXP002C3/RESULTS.md` | none yet - acquisition-throughput engineering, feeds EXP002-D |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -202,3 +203,61 @@ GPU-hour estimate), and the pre-registered power-requirement floor (170
 test-indices, `CORPUS_REQUIREMENTS.md`) is payable in ~38 GPU-hours / 2
 sessions. No further acquisition was launched, per the explicit execution
 limits this pass operated under.
+
+## EXP002-C3: the vCPU-aware throughput pilot, executed — null result
+
+Follows directly from EXP002-C2's open question: why did ~3x task-count
+throughput produce only ~1.4x candidate throughput? A Phase 1 metadata-only
+Kaggle probe (`experiments/EXP002C3/HOST_TOPOLOGY.md`) measured the answer's
+precondition directly: the 2xT4 container exposes only **4 effective
+vCPUs total, shared across both GPUs with no CPU-core partition between
+them** (confirmed three independent ways plus the cgroup v2 quota, all in
+exact agreement) — meaning EXP002-C2's C3/C4 ran 5 concurrent processes on
+4 cores, real oversubscription. PyTorch was also found to already
+self-limit to 2 intraop threads per process by default on this host,
+independent of any `*_THREADS` environment variable, narrowing the
+plausible explanation before any GPU run.
+
+Two new configurations tested this directly, both reusing the byte-
+identical solver path (zero lines of `solve_task_cli.py` or any vendored
+CompressARC module changed — only subprocess environment, CPU affinity,
+and concurrency level): **B1** (C3's exact 5-process/4-core concurrency,
+plus single-thread numerical-library caps and CPU-affinity pinning) and
+**B2** (concurrency derived at runtime from the measured 4-vCPU quota via
+a rule frozen before the run, which evaluated to `W=1`, i.e. 1
+process/GPU — a legitimate output of the pre-registered rule, not a
+failure of it).
+
+Neither configuration improved on plain C3. B1's mean per-task training
+rate (0.212 steps/s) was statistically identical to C3's own (0.213
+steps/s) despite running under the same CPU oversubscription — thread
+capping bought nothing measurable. B2 roughly doubled per-task training
+depth when uncontended (0.406 steps/s mean) but lost that gain entirely to
+having to run in two sequential waves (only 2 slots for 5 tasks), landing
+at a lower aggregate depth-adjusted throughput than B0/B1, not a higher
+one. Direct per-process telemetry (new in this pilot: context-switch
+counts, per-core CPU%) confirmed CPU contention is real and precisely
+proportional to process-count/core-count ratio (2/4=50% measured 51.2%;
+5/4 clamped to 100% measured 99.6%) — but GPU utilisation, not CPU load,
+tracked with per-task training rate (GPU0 jumped 27%→85% mean utilisation
+purely from a second process joining it, at a CPU load nowhere near
+saturated). **The throughput ceiling is GPU-level time-sharing among
+concurrent CUDA contexts on the same T4, not CPU thread-pool contention**
+— full derivation `experiments/EXP002C3/RESULTS.md` §4.
+
+Neither B1 nor B2 cleared any of the three pre-registered performance
+criteria (≥20% higher unique-candidates/min, ≥20% higher iterations/min, or
+similar throughput at materially lower CPU usage), while both cleared
+every mandatory safety/quality criterion (0 OOM, 0 archive corruption, 0
+failures, diversity preserved above the 90% floor). Verdict: **KEEP FROZEN
+C3** — no further CPU-side orchestration tuning is worth pursuing for this
+workload on this host; C3 as originally measured in EXP002-C2 remains the
+frozen operating point for any future acquisition. `experiments/EXP002C3/
+SCALING_PROJECTION.md` and `CORPUS_ACQUISITION_DECISION.md` restate the
+unrevised acquisition-cost numbers with the added confidence that C3's
+rate is close to this workload's real ceiling, not a placeholder awaiting
+an orchestration fix. `docs/MODEL_SELECTION_RESOURCE_CONSTRAINTS.md`
+records the resource constraints (4 effective vCPUs, 14.6 GiB VRAM/T4,
+GPU-sharing throughput tax) this pilot's measurements impose on any future
+MODEL-001 base-model choice. No further acquisition was launched, per the
+explicit execution limits this pass operated under.

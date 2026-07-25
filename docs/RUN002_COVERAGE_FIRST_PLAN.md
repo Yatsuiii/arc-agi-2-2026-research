@@ -93,20 +93,22 @@ the instruction that "the first version must use transparent fixed rules."
 ## Where does CompressARC fit?
 
 Evaluated against the four roles the acceptance message named, using the
-cost measurements from `experiments/EXP002C/PILOT_RESULTS.md` and (pending)
-`experiments/EXP002C2/RESULTS.md`:
+cost measurements from `experiments/EXP002C/PILOT_RESULTS.md`,
+`experiments/EXP002C2/RESULTS.md`, and `experiments/EXP002C3/RESULTS.md`:
 
 | Role | Verdict | Reasoning |
 | --- | --- | --- |
-| **Universal cheap first pass** (Stage A solver for all 120 tasks) | **No.** | CompressARC trains a fresh model per task (no shared pretraining/inference batching the way NVARC's single checkpoint does); its measured per-task cost (25-90+ min even truncated at 40 min per `experiments/EXP002C/PILOT_RESULTS.md` §1, worse than the reference RTX 4070's ~20 min/task) is far above what a "cheap" Stage A pass needs. It is structurally the wrong shape for this role: NVARC's own reduced-budget inference pass (fewer TTT augmentations, a tighter DFS cutoff) is the natural Stage A solver, not a second, more expensive system. |
-| **Complementary generator for a subset** | **Plausible, bounded.** | For the minority of tasks where Stage A+B leave spare budget, or where NVARC's candidate set is thin/uncertain (Stage B rule 2), a CompressARC pass adds a genuinely different candidate distribution (`experiments/EXP002B/CORPUS_REQUIREMENTS.md`'s whole argument for using it as a clean-corpus source). Cost-gated: only worth it where the per-task cost is affordable within Stage B's leftover budget, which `experiments/EXP002C2/` is specifically measuring. |
-| **Fallback for NVARC-unreached tasks** | **Plausible, if EXP002-C2 shows throughput gains.** | The 43 never-reached tasks are exactly the coverage gap Stage A is designed to close using NVARC's own reduced-budget pass; CompressARC is a second-line option only if throughput improves enough (EXP002-C2's whole question) to be affordable as a genuine fallback rather than displacing Stage A budget from other tasks. |
-| **Clean research-corpus source only** | **Confirmed as of this writing.** | This is `experiments/EXP002C/EXP002C2`'s actual, already-approved use — independent of whether CompressARC ever touches a real competition run. Nothing above changes this; it remains true regardless of RUN-002's eventual design. |
+| **Universal cheap first pass** (Stage A solver for all 120 tasks) | **No.** | CompressARC trains a fresh model per task (no shared pretraining/inference batching the way NVARC's single checkpoint does); its measured per-task cost (25-90+ min even truncated at 40 min per `experiments/EXP002C/PILOT_RESULTS.md` §1, worse than the reference RTX 4070's ~20 min/task) is far above what a "cheap" Stage A pass needs, even at C3's best-measured 3x-oversubscribed throughput (`experiments/EXP002C2/RESULTS.md`). EXP002-C3 additionally confirmed the throughput ceiling is GPU-sharing-bound, not a fixable CPU-orchestration inefficiency, so there is no cheap further win to close this gap. NVARC's own reduced-budget inference pass remains the natural Stage A solver. |
+| **Complementary generator for a subset** | **Plausible, bounded, cost now settled.** | For the minority of tasks where Stage A+B leave spare budget, or where NVARC's candidate set is thin/uncertain (Stage B rule 2), a CompressARC pass adds a genuinely different candidate distribution. Cost is no longer pending: `experiments/EXP002C2/SCALING_PROJECTION.md` (restated, unrevised, in `experiments/EXP002C3/SCALING_PROJECTION.md`) puts a 170-test-index pass at ~38 Kaggle quota GPU-hours using the frozen C3 configuration — affordable as a bounded, separately-scheduled complementary pass, not as an inline per-task Stage B step (CompressARC's own 40-minute-per-task ceiling is too slow for that). |
+| **Fallback for NVARC-unreached tasks** | **Plausible; throughput gain confirmed, no further gain available.** | The 43 never-reached tasks are exactly the coverage gap Stage A is designed to close using NVARC's own reduced-budget pass. `experiments/EXP002C2/RESULTS.md` confirmed C3's ~3x task-count throughput gain (clearing the pre-registered 1.75x bar); `experiments/EXP002C3/RESULTS.md` confirmed that gain is already close to this workload's ceiling on Kaggle 2xT4 (CPU-thread tuning and vCPU-derived concurrency both under-performed plain C3), so C3 is the number any fallback-role cost estimate should use, not a placeholder pending further tuning. |
+| **Clean research-corpus source only** | **Confirmed, unchanged.** | This is `experiments/EXP002C/EXP002C2/EXP002C3`'s actual, already-approved use — independent of whether CompressARC ever touches a real competition run. Nothing above changes this; it remains true regardless of RUN-002's eventual design. |
 
 **No role above is implemented by this document.** RUN-002's Stage A solver
 is NVARC at a reduced per-task budget unless and until CompressARC's
-measured cost (`experiments/EXP002C2/SCALING_PROJECTION.md`) shows it is
-competitive for one of the bounded roles above.
+measured cost (`experiments/EXP002C3/SCALING_PROJECTION.md`) shows it is
+competitive for one of the bounded roles above. That cost is now a settled
+measurement (C3, ~38 GPU-hours for the 170-test-index floor), not an
+open question awaiting further oversubscription or orchestration tuning.
 
 ## Explicitly out of scope for this document
 

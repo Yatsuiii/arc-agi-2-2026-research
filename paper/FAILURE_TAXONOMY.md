@@ -146,6 +146,21 @@ The labelling code is pinned by commit SHA in every `RESULT.md`. If a category
 definition changes, every affected table is regenerated or explicitly marked as
 produced under the old definition. No silent relabelling.
 
+## EXP002-C3: no taxonomy entries added
+
+`experiments/EXP002C3/RESULTS.md` (the vCPU-aware CompressARC throughput
+pilot) produced 0 OOMs, 0 archive corruption, and 0 hard failures across
+all 10 task-processes it ran. It is an acquisition-orchestration
+experiment, not a candidate-generation or selection result, so it has no
+G-branch or S-branch failures to categorise — every task in every
+configuration completed and produced a valid, non-empty candidate set
+(none hit G5/G6 in this taxonomy's sense; the per-task 2400s budget was
+reached, i.e. `timed_out: true`, in every run, which is the pre-existing,
+expected CompressARC behaviour already noted elsewhere, not a new failure
+mode). Recorded here, per this project's discipline of stating explicitly
+when an experiment does not change a given document rather than leaving
+the omission unexplained.
+
 ## Cross-solver comparability
 
 The taxonomy's purpose is comparing *where* different solvers fail, which is the

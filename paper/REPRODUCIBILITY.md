@@ -61,18 +61,26 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   same inputs as EXP002. `singleton_prior` is measured fresh from Fold A each
   run (deterministic given the fixed fold seed), so re-running reproduces
   `artifacts/EXP002B/exp002b_report.json` byte-for-byte.
-- EXP002-C/EXP002-C2's Kaggle notebooks are regenerated, never hand-edited,
-  from committed source: `python -m src.run002c.build_pilot_notebook` and
-  `python -m src.run002c.build_c3c4_notebook` embed
+- EXP002-C/EXP002-C2/EXP002-C3's Kaggle notebooks are regenerated, never
+  hand-edited, from committed source: `python -m src.run002c.build_pilot_notebook`,
+  `python -m src.run002c.build_c3c4_notebook`,
+  `python -m src.run002c.build_host_probe_notebook`, and
+  `python -m src.run002c.build_b1b2_notebook` embed
   `third_party/compressarc/` and `src/run002c/solve_task_cli.py` verbatim
   via `%%writefile` cells, so the code that ran on Kaggle is reproducible
-  from this repository byte-for-byte. The runs themselves are not
-  CPU-reproducible (real Kaggle 2xT4 GPU time,
-  `paper/COMPUTE_LEDGER.md`); their raw outputs are archived under
-  `artifacts/EXP002C/` and `artifacts/EXP002C2/` (including the v1 failed/
-  false-aborted kernel outputs for both, preserved rather than discarded,
-  per `experiments/EXP002C/PILOT_RESULTS.md` §0 and
-  `experiments/EXP002C2/ERROR_ANALYSIS.md` §1).
+  from this repository byte-for-byte — including EXP002-C3's B1/B2, whose
+  orchestration changes (thread caps, affinity, vCPU-derived concurrency)
+  live entirely in the generator script, never in `solve_task_cli.py` or
+  any vendored module (both remain byte-identical across all three
+  experiments). The runs themselves are not CPU-reproducible (real Kaggle
+  2xT4 GPU time, `paper/COMPUTE_LEDGER.md`); their raw outputs are archived
+  under `artifacts/EXP002C/`, `artifacts/EXP002C2/`, and `artifacts/EXP002C3/`
+  (including the v1 failed/false-aborted kernel outputs from EXP002-C2,
+  preserved rather than discarded, per `experiments/EXP002C/PILOT_RESULTS.md`
+  §0 and `experiments/EXP002C2/ERROR_ANALYSIS.md` §1). EXP002-C3's own
+  host-topology probe output (`artifacts/EXP002C3/host_probe_output/`) is
+  metadata-only and trivially re-runnable but not expected to reproduce
+  identical values across different Kaggle session allocations.
 
 ## RUN-001 environment, measured
 
