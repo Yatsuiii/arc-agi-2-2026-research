@@ -22,3 +22,5 @@ experiments/*/runs/
 !artifacts/EXP002B/**
 !artifacts/EXP002C/
 !artifacts/EXP002C/**
+!artifacts/EXP002C2/
+!artifacts/EXP002C2/**
