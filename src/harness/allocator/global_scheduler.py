@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from src.harness.allocator.marginal_value import marginal_value, rank_actions_by_value
+from src.harness.allocator.marginal_value import gain_per_cost, rank_actions_by_value
 from src.harness.allocator.stopping import StoppingRule
 from src.harness.schemas import AllocationAction, AllocationDecision, TaskState
 
@@ -55,18 +55,13 @@ class GlobalScheduler:
         if not actionable:
             return None
         # Each StoppingRule decision already carries its own gain
-        # (expected_marginal_value) and cost; marginal_value() just divides
-        # them, the same formula this module's docstring names.
+        # (expected_marginal_value) and cost.
         ranked = rank_actions_by_value(
             [
                 {
                     "task_id": d.task_id,
                     "action": d.action,
-                    "value": marginal_value(
-                        current_top1_probability=0.0,
-                        estimated_probability_after_action=d.expected_marginal_value,
-                        estimated_cost_seconds=d.estimated_cost_seconds,
-                    ),
+                    "value": gain_per_cost(d.expected_marginal_value, d.estimated_cost_seconds),
                     "decision": d,
                 }
                 for d in actionable

@@ -13,7 +13,11 @@ from src.harness.allocator.actions import (  # noqa: E402
     require_executable,
 )
 from src.harness.allocator.global_scheduler import GlobalScheduler  # noqa: E402
-from src.harness.allocator.marginal_value import marginal_value, rank_actions_by_value  # noqa: E402
+from src.harness.allocator.marginal_value import (  # noqa: E402
+    gain_per_cost,
+    marginal_value,
+    rank_actions_by_value,
+)
 from src.harness.allocator.stopping import StoppingRule  # noqa: E402
 from src.harness.schemas import AllocationAction, TaskState, VerificationResult  # noqa: E402
 
@@ -85,6 +89,14 @@ def test_marginal_value_none_for_zero_cost():
 
 def test_marginal_value_positive_gain():
     assert marginal_value(0.5, 0.9, 4.0) == pytest.approx(0.1)
+
+
+def test_gain_per_cost_none_for_zero_cost():
+    assert gain_per_cost(0.4, 0.0) is None
+
+
+def test_gain_per_cost_matches_marginal_value_for_the_same_gain():
+    assert gain_per_cost(0.4, 4.0) == marginal_value(0.5, 0.9, 4.0)
 
 
 def test_rank_actions_by_value_sorts_descending_and_none_last():

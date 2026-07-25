@@ -7,12 +7,8 @@ and any future EXP004 code share one formula rather than reimplementing it.
 from __future__ import annotations
 
 
-def marginal_value(
-    current_top1_probability: float,
-    estimated_probability_after_action: float,
-    estimated_cost_seconds: float,
-) -> float | None:
-    """Expected accuracy gain per second of additional compute.
+def gain_per_cost(gain: float, estimated_cost_seconds: float) -> float | None:
+    """The shared division both callers below need: gain per second of compute.
 
     `None` when `estimated_cost_seconds <= 0` — a free action has an
     undefined value-per-second, not infinite value, and callers must not
@@ -20,8 +16,22 @@ def marginal_value(
     """
     if estimated_cost_seconds <= 0:
         return None
-    gain = estimated_probability_after_action - current_top1_probability
     return gain / estimated_cost_seconds
+
+
+def marginal_value(
+    current_top1_probability: float,
+    estimated_probability_after_action: float,
+    estimated_cost_seconds: float,
+) -> float | None:
+    """Expected accuracy gain per second of additional compute, from two probabilities.
+
+    For a caller that already has the gain itself (a `StoppingRule` decision
+    carries `expected_marginal_value` directly), call `gain_per_cost` instead
+    of inventing a probability pair that subtracts back down to it.
+    """
+    gain = estimated_probability_after_action - current_top1_probability
+    return gain_per_cost(gain, estimated_cost_seconds)
 
 
 def rank_actions_by_value(candidates: list[dict]) -> list[dict]:
