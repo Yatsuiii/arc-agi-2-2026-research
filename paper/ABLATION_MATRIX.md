@@ -31,7 +31,7 @@ are already determined because they hold regardless of the thesis.
 
 | ID | Ablation | Baseline held fixed | Metric | Est. compute | Status |
 | --- | --- | --- | --- | --- | --- |
-| AB-S1 | Selection algorithm: `score_kgmon` vs `score_full_probmul_3` vs vote-only vs first-beam | candidate sets identical, generated once | accuracy@2 on the eval split | **CPU only** | **READY once RUN-001 lands** - RUN-001 persists `beam_score` and `score_aug[8]` per candidate, which is exactly the input this needs |
+| AB-S1 | Selection algorithm: `score_kgmon` vs `score_full_probmul_3` vs vote-only vs first-beam | candidate sets identical, generated once | accuracy@2 on the eval split | **CPU only** | **READY, first data point in** - RUN-001 `benchmark_selection_algos` gave score_kgmon 16.8 vs score_full_probmul_3 16.3 /72 (contaminated); full offline ablation pending on stored `score_aug[8]` |
 | AB-S2 | Number of scoring augmentations m ∈ {1,2,4,8} | same candidate sets | accuracy@2 | CPU, reuses stored `score_aug` | **READY once RUN-001 lands** |
 | AB-G1 | DFS cutoff ∈ {0.07, 0.10, 0.20} | same checkpoint, same TTT | candidate-set size, oracle@k, accuracy@2 | GPU, one pass per setting | PLANNED |
 | AB-G2 | TTT augmentations n ∈ {0, 4, 16} | same checkpoint | accuracy@2 | GPU | PLANNED |

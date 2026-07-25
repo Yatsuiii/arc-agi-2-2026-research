@@ -66,8 +66,8 @@ Copy into `experiments/<ID>/RESULT.md`.
 | ID | Title | Status | Preregistration SHA | Result | Claims touched |
 | --- | --- | --- | --- | --- | --- |
 | EXP001-A | Selection and compute headroom from CompressARC recorded traces (ARC-AGI-1) | **COMPLETE** | `9230ca9` | `experiments/EXP001/RESULT.md` | C2 supported, C3 supported, B5 strengthened |
-| EXP001-B | Same analysis on ARC-AGI-2 candidate records | BLOCKED on RUN-001 | `9230ca9` | pending | C1, C2, C3 |
-| RUN-001 | NVARC T4x2 baseline execution and candidate archive | RUNNING | `131eba8` | `experiments/RUN001/` | none - acquisition only |
+| EXP001-B | Same analysis on ARC-AGI-2 candidate records | **READY** (RUN-001 archive available; preview: 7.4pp headroom on 94 test-inputs) | `9230ca9` | pending | C1, C2, C3 |
+| RUN-001 | NVARC T4x2 baseline execution and candidate archive | **COMPLETE (TIMED_OUT, partial)** | `131eba8` | `experiments/RUN001/RESULTS.md` | none - acquisition only |
 | EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **PREREGISTERED**, BLOCKED on RUN-001 | `c8f08a4` | pending | C2 |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`

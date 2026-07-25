@@ -37,7 +37,7 @@ reference them.
 | ID | Claim | Required evidence | Status |
 | --- | --- | --- | --- |
 | C1 | Independent ARC-AGI-2 solvers have materially non-overlapping solve sets, so per-task routing has real headroom. | Per-task solve vectors for >= 2 solvers on a common split; Jaccard and unique-solve counts with CIs | PROPOSED |
-| C2 | A large fraction of the gap between a solver's oracle-selection accuracy and its actual accuracy is recoverable, i.e. selection is a bottleneck distinct from generation. | Candidate sets with ground-truth membership flags; oracle@k vs realised accuracy | **SUPPORTED on ARC-AGI-1** (EXP001-A: 14.25pp headroom on held-out, 17.8% of failures are selection failures). Unverified on ARC-AGI-2. |
+| C2 | A large fraction of the gap between a solver's oracle-selection accuracy and its actual accuracy is recoverable, i.e. selection is a bottleneck distinct from generation. | Candidate sets with ground-truth membership flags; oracle@k vs realised accuracy | **SUPPORTED on ARC-AGI-1** (EXP001-A: 14.25pp). **ARC-AGI-2 PREVIEW** (RUN-001: 30 generated vs 23 selected over 94 test-inputs = 7.4pp; contaminated + partial, so directional not confirmatory). EXP001-B to confirm. |
 | C3 | Task-level features computable before running an expensive solver predict that solver's success well enough to reallocate compute profitably. | Predictive AUC on held-out tasks + a compute-vs-accuracy curve beating uniform allocation | **HEADROOM SUPPORTED on ARC-AGI-1** (EXP001-A: oracle allocation matches full-budget accuracy at 1/8 the compute). The predictor half is still PROPOSED. |
 
 ## Anti-claims

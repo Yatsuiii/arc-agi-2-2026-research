@@ -1,0 +1,11 @@
+artifact	bytes	sha256	description
+candidates.jsonl.gz	185488	ae181815dd1e39d624a9c3e878cf76e63931762341af66452f7ae1c95e6f5d90	merged per-candidate archive, 1129 records, 72 tasks
+candidates.ranking.jsonl.gz	9711	508aca53866464ecfd1603a7f609a2b86a2d863828116ccb035211edc551b689	post-aggregation ranking/selection records, 595 rows
+candidates.w0.jsonl.gz	85892	925d603b7dcd1cf636319812c84dc0ae375c21dfe3bac83f64f5e9e4cda7445f	worker-0 shard (GPU 0)
+candidates.w1.jsonl.gz	99596	54b341d8cc40edfddcc58370aed6c3c6e07663aa96d6c5229c757be9a5c5c0be	worker-1 shard (GPU 1)
+run_manifest.json	3176	150fd5b14d11ca206789b03e8adc146d93dd84405b538e7d938436b46a6afb60	provenance manifest, reconstructed post-hoc (see file header)
+runtime_summary.json	73	060cd7eae91dc5af53e3cdd0a7045465d5b978768b767bfd3a0656819e69477c	run-level counters emitted by the notebook
+submission.json	200789	e77195f0e51a128e81feba5cf14163e23229582cb388a3b0f8001a5cf9b37d4d	competition submission, 120 tasks, 172 test-inputs (165/344 attempts are [[0]] placeholders)
+task_summary.csv	3099	d2d04d62f59e19fa84026a44de9998d1a58bc8e52459262f2c7cb02a8859f9b9	merged per-task summary, 77 rows
+task_summary.w0.csv	1536	0136e2fad5110be6b11dca0494547c64b7a87e136a8db79ff55ac2510dc5426a	worker-0 per-task summary
+task_summary.w1.csv	1712	3d9bf3a4bf96dd195e88aa33bce236fdb4e8c6a80324463f4f34232e1bc8ebbd	worker-1 per-task summary
