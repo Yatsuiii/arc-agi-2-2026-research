@@ -204,10 +204,17 @@ def _log_tail(log_path, n_chars=2000):
 def run_config(name, launches, time_limit_s):
     """Launches every (task_id, device) in `launches` simultaneously (one
     subprocess each), tracks PID/start/end per process, watches for the
-    early-abort conditions (OOM signature in a process's own log, no file
-    progress for 20 minutes, critical system RAM), and aborts only this
-    config (killing its own remaining processes) if triggered — never the
-    whole kernel."""
+    early-abort conditions (a process still alive well past its own
+    time_limit_s deadline — a genuine stall, since `solve_task_cli.py`
+    checks its own deadline once per training step and should self-exit at
+    or shortly after `time_limit_s` regardless of concurrency level — or
+    critical system RAM), and aborts only this config (killing its own
+    remaining processes) if triggered — never the whole kernel.
+
+    Does NOT use `out_path`'s existence/size as a progress signal:
+    `solve_task_cli.py` writes its output file exactly once, after the
+    training loop finishes, not incrementally — treating "no file yet" as
+    "stalled" would fire on every normal in-progress run."""
     config_start = time.time()
     handles = []
     for task_id, device in launches:
@@ -223,8 +230,8 @@ def run_config(name, launches, time_limit_s):
 
     aborted = False
     abort_reason = None
-    last_progress_check = time.time()
-    last_progress_sizes = {{h["task_id"]: -1 for h in handles}}
+    last_abort_check = time.time()
+    stall_deadline = config_start + time_limit_s + 1200  # 20 min grace past every process's own deadline
 
     while any(h["returncode"] is None for h in handles):
         time.sleep(5)
@@ -238,25 +245,19 @@ def run_config(name, launches, time_limit_s):
                 h["log_handle"].close()
 
         # Early-abort checks, at most every 30s.
-        if time.time() - last_progress_check > 30:
+        if time.time() - last_abort_check > 30:
             still_running = [h for h in handles if h["returncode"] is None]
-            progressed = False
-            for h in still_running:
-                size = h["out_path"].stat().st_size if h["out_path"].exists() else 0
-                if size != last_progress_sizes.get(h["task_id"], -1):
-                    progressed = True
-                last_progress_sizes[h["task_id"]] = size
-            if still_running and not progressed and (time.time() - config_start) > 1200:
-                # No task in this config has produced/changed an output file
-                # for the whole check window, 20+ minutes into the config.
+            if still_running and time.time() > stall_deadline:
+                # A process outlived its own time_limit_s by 20+ minutes:
+                # it did not self-terminate on schedule, a genuine stall.
                 aborted = True
-                abort_reason = "no task progress for 20 minutes"
+                abort_reason = "process still alive 20+ minutes past its own time_limit_s deadline"
             if HAVE_PSUTIL:
                 ram_pct = psutil.virtual_memory().percent
                 if ram_pct > 95:
                     aborted = True
                     abort_reason = f"system RAM critically exhausted ({{ram_pct}}%)"
-            last_progress_check = time.time()
+            last_abort_check = time.time()
 
         if aborted:
             for h in handles:

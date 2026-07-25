@@ -1,0 +1,68 @@
+{
+  "config": "C4",
+  "wall_clock_s": 1200.1059613227844,
+  "aborted": true,
+  "abort_reason": "no task progress for 20 minutes",
+  "processes": [
+    {
+      "task_id": "00576224",
+      "device": "cuda:0",
+      "pid": 1218,
+      "start_time": 1784993429.434342,
+      "end_time": 1784994629.5388522,
+      "wall_clock_s": 1200.104510307312,
+      "returncode": "killed_on_abort",
+      "failed": true,
+      "oom": false,
+      "log_tail": ""
+    },
+    {
+      "task_id": "009d5c81",
+      "device": "cuda:0",
+      "pid": 1219,
+      "start_time": 1784993429.4359462,
+      "end_time": 1784994629.5389032,
+      "wall_clock_s": 1200.1029570102692,
+      "returncode": "killed_on_abort",
+      "failed": true,
+      "oom": false,
+      "log_tail": ""
+    },
+    {
+      "task_id": "0520fde7",
+      "device": "cuda:0",
+      "pid": 1220,
+      "start_time": 1784993429.4363773,
+      "end_time": 1784994629.5389402,
+      "wall_clock_s": 1200.102562904358,
+      "returncode": "killed_on_abort",
+      "failed": true,
+      "oom": false,
+      "log_tail": ""
+    },
+    {
+      "task_id": "8abad3cf",
+      "device": "cuda:0",
+      "pid": 1221,
+      "start_time": 1784993429.442942,
+      "end_time": 1784994629.5389643,
+      "wall_clock_s": 1200.0960223674774,
+      "returncode": "killed_on_abort",
+      "failed": true,
+      "oom": false,
+      "log_tail": ""
+    },
+    {
+      "task_id": "42f83767",
+      "device": "cuda:1",
+      "pid": 1222,
+      "start_time": 1784993429.4465313,
+      "end_time": 1784994629.5390315,
+      "wall_clock_s": 1200.0925002098083,
+      "returncode": "killed_on_abort",
+      "failed": true,
+      "oom": false,
+      "log_tail": ""
+    }
+  ]
+}

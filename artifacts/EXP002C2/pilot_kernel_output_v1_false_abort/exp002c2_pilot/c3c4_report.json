@@ -1,0 +1,112 @@
+{
+  "configs": {
+    "C3": {
+      "abort_reason": "no task progress for 20 minutes",
+      "aborted": true,
+      "candidate_oracle_coverage": null,
+      "completed_tasks_per_wall_clock_hour": 0.0,
+      "config": "C3",
+      "failures": [
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "00576224"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "009d5c81"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "0520fde7"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "42f83767"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "8abad3cf"
+        }
+      ],
+      "gpu_hours": 1.6668376815981336,
+      "n_completed": 0,
+      "n_failed": 5,
+      "per_task": {},
+      "singleton_frequency": null,
+      "singleton_test_indices": 0,
+      "total_candidates": 0,
+      "total_test_indices": 0,
+      "total_unique_candidates": 0,
+      "wall_clock_s": 1200.1307308673859
+    },
+    "C4": {
+      "abort_reason": "no task progress for 20 minutes",
+      "aborted": true,
+      "candidate_oracle_coverage": null,
+      "completed_tasks_per_wall_clock_hour": 0.0,
+      "config": "C4",
+      "failures": [
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "00576224"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "009d5c81"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "0520fde7"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "8abad3cf"
+        },
+        {
+          "log_tail": "",
+          "oom": false,
+          "returncode": "killed_on_abort",
+          "task_id": "42f83767"
+        }
+      ],
+      "gpu_hours": 1.6668051535553403,
+      "n_completed": 0,
+      "n_failed": 5,
+      "per_task": {},
+      "singleton_frequency": null,
+      "singleton_test_indices": 0,
+      "total_candidates": 0,
+      "total_test_indices": 0,
+      "total_unique_candidates": 0,
+      "wall_clock_s": 1200.1059613227844
+    }
+  },
+  "experiment": "EXP002-C2 oversubscription pilot",
+  "pilot_sample": [
+    "00576224",
+    "009d5c81",
+    "0520fde7",
+    "42f83767",
+    "8abad3cf"
+  ],
+  "telemetry_log": "/kaggle/working/exp002c2_pilot/telemetry_monitor.log",
+  "time_limit_s": 2400
+}
