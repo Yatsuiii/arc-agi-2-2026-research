@@ -1,0 +1,152 @@
+{
+  "configs": {
+    "C3": {
+      "abort_reason": null,
+      "aborted": false,
+      "candidate_oracle_coverage": 0.5,
+      "completed_tasks_per_wall_clock_hour": 7.422138228986275,
+      "config": "C3",
+      "failures": [],
+      "gpu_hours": 3.366909487711059,
+      "n_completed": 5,
+      "n_failed": 0,
+      "per_task": {
+        "00576224": {
+          "device": "cuda:0",
+          "n_candidates": 587,
+          "peak_memory_bytes": 81641472,
+          "pid": 43,
+          "steps_per_s": 0.2491554380979634,
+          "steps_run": 603,
+          "timed_out": true,
+          "wall_clock_s": 2420.1759536266327
+        },
+        "009d5c81": {
+          "device": "cuda:0",
+          "n_candidates": 441,
+          "peak_memory_bytes": 438010880,
+          "pid": 44,
+          "steps_per_s": 0.2354468591349147,
+          "steps_run": 571,
+          "timed_out": true,
+          "wall_clock_s": 2425.1756939888
+        },
+        "0520fde7": {
+          "device": "cuda:0",
+          "n_candidates": 111,
+          "peak_memory_bytes": 49199616,
+          "pid": 45,
+          "steps_per_s": 0.2729699604370968,
+          "steps_run": 662,
+          "timed_out": true,
+          "wall_clock_s": 2425.1752791404724
+        },
+        "42f83767": {
+          "device": "cuda:1",
+          "n_candidates": 183,
+          "peak_memory_bytes": 1862467072,
+          "pid": 46,
+          "steps_per_s": 0.07133506373820554,
+          "steps_run": 173,
+          "timed_out": true,
+          "wall_clock_s": 2425.174814939499
+        },
+        "8abad3cf": {
+          "device": "cuda:1",
+          "n_candidates": 84,
+          "peak_memory_bytes": 114593792,
+          "pid": 47,
+          "steps_per_s": 0.23379781029660918,
+          "steps_run": 567,
+          "timed_out": true,
+          "wall_clock_s": 2425.1724140644073
+        }
+      },
+      "singleton_frequency": 0.0,
+      "singleton_test_indices": 0,
+      "total_candidates": 1589,
+      "total_test_indices": 6,
+      "total_unique_candidates": 1493,
+      "wall_clock_s": 2425.1771450042725
+    },
+    "C4": {
+      "abort_reason": null,
+      "aborted": false,
+      "candidate_oracle_coverage": 0.3333333333333333,
+      "completed_tasks_per_wall_clock_hour": 7.452847006322029,
+      "config": "C4",
+      "failures": [],
+      "gpu_hours": 3.3544195228152804,
+      "n_completed": 5,
+      "n_failed": 0,
+      "per_task": {
+        "00576224": {
+          "device": "cuda:0",
+          "n_candidates": 703,
+          "peak_memory_bytes": 81641472,
+          "pid": 2394,
+          "steps_per_s": 0.24718617497493972,
+          "steps_run": 597,
+          "timed_out": true,
+          "wall_clock_s": 2415.183616399765
+        },
+        "009d5c81": {
+          "device": "cuda:0",
+          "n_candidates": 338,
+          "peak_memory_bytes": 438010880,
+          "pid": 2395,
+          "steps_per_s": 0.2347648040141825,
+          "steps_run": 567,
+          "timed_out": true,
+          "wall_clock_s": 2415.183154821396
+        },
+        "0520fde7": {
+          "device": "cuda:0",
+          "n_candidates": 110,
+          "peak_memory_bytes": 49199616,
+          "pid": 2396,
+          "steps_per_s": 0.2662324396573078,
+          "steps_run": 643,
+          "timed_out": true,
+          "wall_clock_s": 2415.1827659606934
+        },
+        "42f83767": {
+          "device": "cuda:1",
+          "n_candidates": 180,
+          "peak_memory_bytes": 1862467072,
+          "pid": 2398,
+          "steps_per_s": 0.07121627162118312,
+          "steps_run": 172,
+          "timed_out": true,
+          "wall_clock_s": 2415.1783866882324
+        },
+        "8abad3cf": {
+          "device": "cuda:0",
+          "n_candidates": 61,
+          "peak_memory_bytes": 114593792,
+          "pid": 2397,
+          "steps_per_s": 0.22938226511309726,
+          "steps_run": 554,
+          "timed_out": true,
+          "wall_clock_s": 2415.182358264923
+        }
+      },
+      "singleton_frequency": 0.0,
+      "singleton_test_indices": 0,
+      "total_candidates": 1572,
+      "total_test_indices": 6,
+      "total_unique_candidates": 1470,
+      "wall_clock_s": 2415.1844234466553
+    }
+  },
+  "experiment": "EXP002-C2 oversubscription pilot",
+  "pilot_sample": [
+    "00576224",
+    "009d5c81",
+    "0520fde7",
+    "42f83767",
+    "8abad3cf"
+  ],
+  "telemetry_log": "/kaggle/working/exp002c2_pilot/telemetry_monitor.log",
+  "time_limit_s": 2400
+}

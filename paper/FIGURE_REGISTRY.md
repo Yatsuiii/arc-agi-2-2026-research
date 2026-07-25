@@ -29,6 +29,14 @@ paper.
 | F10 | Score-independent-only feature ablation | `src/analysis/exp002b_figures.py` (`g3`) | same | C2 | **AVAILABLE** — re-run of F7's ablation with score-derived features excluded by construction |
 | F11 | Singleton-candidate confidence, before vs. after the Part-1 fix | `src/analysis/exp002b_figures.py` (`g4`) | same | C2-confidence | **AVAILABLE** — the headline evidence for `paper/CLAIM_LEDGER.md`'s new C2-confidence sub-claim |
 
+## EXP002-C / EXP002-C2: no figure
+
+Acquisition-throughput engineering, not a verifier/selection result — the
+numeric tables in `experiments/EXP002C/PILOT_RESULTS.md` and
+`experiments/EXP002C2/RESULTS.md`/`RESOURCE_ANALYSIS.md` are the full
+record. No plotting script exists for either and none is planned; per rule
+1, this is stated explicitly rather than left silent.
+
 ## Note on F1/F2/T1
 
 These three are producible today, CPU-only, from data already on disk. They are

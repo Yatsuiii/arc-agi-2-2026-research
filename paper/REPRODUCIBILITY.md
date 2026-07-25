@@ -61,6 +61,18 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   same inputs as EXP002. `singleton_prior` is measured fresh from Fold A each
   run (deterministic given the fixed fold seed), so re-running reproduces
   `artifacts/EXP002B/exp002b_report.json` byte-for-byte.
+- EXP002-C/EXP002-C2's Kaggle notebooks are regenerated, never hand-edited,
+  from committed source: `python -m src.run002c.build_pilot_notebook` and
+  `python -m src.run002c.build_c3c4_notebook` embed
+  `third_party/compressarc/` and `src/run002c/solve_task_cli.py` verbatim
+  via `%%writefile` cells, so the code that ran on Kaggle is reproducible
+  from this repository byte-for-byte. The runs themselves are not
+  CPU-reproducible (real Kaggle 2xT4 GPU time,
+  `paper/COMPUTE_LEDGER.md`); their raw outputs are archived under
+  `artifacts/EXP002C/` and `artifacts/EXP002C2/` (including the v1 failed/
+  false-aborted kernel outputs for both, preserved rather than discarded,
+  per `experiments/EXP002C/PILOT_RESULTS.md` §0 and
+  `experiments/EXP002C2/ERROR_ANALYSIS.md` §1).
 
 ## RUN-001 environment, measured
 

@@ -38,6 +38,7 @@ are already determined because they hold regardless of the thesis.
 | AB-G2 | TTT augmentations n ∈ {0, 4, 16} | same checkpoint | accuracy@2 | GPU | PLANNED |
 | AB-X1 | Intervention removed | — | — | — | BLOCKED |
 | AB-X2 | Intervention with each of its own sub-components removed | — | — | — | BLOCKED |
+| AB-A1 | Acquisition concurrency: 1 / 3 / 4 CompressARC processes per T4 (C1/C3/C4) | identical 5-task sample, identical solver freeze list (`experiments/EXP002C2/BASELINE_SPEC.md` §2) | task-count throughput, candidate diversity, oracle coverage | Kaggle 2xT4, ~1.3h total (v2) | **DONE** — `experiments/EXP002C2/RESULTS.md`: task-count/test-index throughput scales ~linearly with concurrency (2.98x-2.99x at 3x/4x), candidate diversity and oracle coverage unchanged; a compute-bound candidate-rate metric scales only ~1.4x, attributed to measured host CPU saturation (`RESOURCE_ANALYSIS.md`), not GPU limits. Acquisition-engineering ablation, not a solver/selection one — feeds `experiments/EXP002C2/SCALING_PROJECTION.md`'s corpus-cost revision, not `paper/CLAIM_LEDGER.md` directly. |
 
 AB-S1 and AB-S2 are the important structural point: **once candidate sets with
 per-augmentation scores are persisted, a whole family of selection ablations

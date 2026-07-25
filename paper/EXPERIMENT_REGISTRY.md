@@ -71,6 +71,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **COMPLETE — verdict REDESIGN** | `c8f08a4` | `experiments/EXP002/RESULTS.md` | C2 (extended, not confirmed) |
 | EXP002-B | Score-independent verification + confidence repair (redesign of EXP002) | **COMPLETE — verdict REDESIGN (acquisition-bound, not rejected)** | see `experiments/EXP002B/PLAN.md` commit | `experiments/EXP002B/RESULTS.md` | C2 (still not confirmed; confidence-validity sub-claim supported) |
 | EXP002-C | Clean ARC-AGI-2 candidate-corpus acquisition using CompressARC (bounded 5-task smoke pilot) | **COMPLETE — verdict PARALLELISE AND SCALE** | see `experiments/EXP002C/PLAN.md` commit | `experiments/EXP002C/PILOT_RESULTS.md` | none yet - acquisition feasibility only, feeds EXP002-D |
+| EXP002-C2 | CompressARC oversubscription and throughput pilot (C3/C4 vs. frozen C1 baseline) | **COMPLETE — verdict PARALLELISE AND SCALE (adopt C3)** | `93ed8a0` | `experiments/EXP002C2/RESULTS.md` | none yet - acquisition-throughput engineering, feeds EXP002-D |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -164,3 +165,40 @@ GPU). Verdict: **PARALLELISE AND SCALE**, with a smaller-corpus fallback
 oversubscription pilot does not pay off. No further acquisition was
 launched; the next experiment (an oversubscribed-parallelism pilot) is
 specified but not started, per explicit instruction.
+
+## EXP002-C2: the oversubscription pilot, executed
+
+Executes exactly the follow-up `experiments/EXP002C/PILOT_RESULTS.md`
+specified: C1 (1 process/GPU) reused unchanged from that pilot, C3 (3
+processes/GPU) and C4 (4 processes/GPU) newly run against the identical
+5-task sample, same frozen solver
+(`experiments/EXP002C2/{PLAN,BASELINE_SPEC}.md`).
+
+A first kernel version (v1) had a false-positive stall-detection bug (its
+progress check read a file `solve_task_cli.py` only writes once, at the
+end, so "no output yet" was indistinguishable from "stalled") that killed
+every process at exactly 20 minutes, burning ~3.33 GPU-hours before the fix
+was found and re-pushed as v2 — full account in
+`experiments/EXP002C2/ERROR_ANALYSIS.md`.
+
+v2's real measurement: task-count/test-index throughput scales ~linearly
+with concurrency (C3 2.98x, C4 2.99x over C1, both clearing the
+preregistered 1.75x threshold), because wave duration stays fixed at the
+2400s cap regardless of concurrency — an empirically observed fact, not an
+assumption. A second, compute-bound metric (candidates/minute) scales only
+~1.4x, explained by measured host CPU saturation (~99.6-99.8%, exceeding
+GPU0's own 88.0-97.7%) limiting per-task training depth, not task breadth.
+Candidate diversity (93.5-94.0% unique fraction) and oracle coverage
+(33-50% on n=6, within noise) held steady across every configuration — the
+throughput gain did not cost measurable quality. Verdict: **PARALLELISE AND
+SCALE**, adopting C3 (not C4, which was only tested asymmetrically) as the
+next operating point. Full numbers: `experiments/EXP002C2/RESULTS.md`,
+`RESOURCE_ANALYSIS.md`, `SCALING_PROJECTION.md`.
+
+`experiments/EXP002C2/SCALING_PROJECTION.md` revises the acquisition cost
+downward: the preregistered 500-test-index target now projects to
+112-334 Kaggle quota GPU-hours (vs. the pre-oversubscription 454-675 serial
+GPU-hour estimate), and the pre-registered power-requirement floor (170
+test-indices, `CORPUS_REQUIREMENTS.md`) is payable in ~38 GPU-hours / 2
+sessions. No further acquisition was launched, per the explicit execution
+limits this pass operated under.
