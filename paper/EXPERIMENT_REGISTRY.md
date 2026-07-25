@@ -70,6 +70,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | RUN-001 | NVARC T4x2 baseline execution and candidate archive | **COMPLETE (TIMED_OUT, partial)** | `131eba8` | `experiments/RUN001/RESULTS.md` | none - acquisition only |
 | EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **COMPLETE — verdict REDESIGN** | `c8f08a4` | `experiments/EXP002/RESULTS.md` | C2 (extended, not confirmed) |
 | EXP002-B | Score-independent verification + confidence repair (redesign of EXP002) | **COMPLETE — verdict REDESIGN (acquisition-bound, not rejected)** | see `experiments/EXP002B/PLAN.md` commit | `experiments/EXP002B/RESULTS.md` | C2 (still not confirmed; confidence-validity sub-claim supported) |
+| EXP002-C | Clean ARC-AGI-2 candidate-corpus acquisition using CompressARC | **PREREGISTERED — not executed, gated on GPU-run approval** | see `experiments/EXP002C/PLAN.md` commit | not run | none yet - acquisition only, feeds EXP002-D |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -131,3 +132,20 @@ V0-vs-V2 bootstrap CI at n=18/n=94 overlaps every other, which is a
 quantitatively different (and more conclusive) statement than EXP002's
 qualitative small-sample caveat. Not REJECT: the data cannot show V2 fails
 any more than it can show V2 succeeds.
+
+## EXP002-C: acquisition, preregistered, gated before the GPU run itself
+
+Executes `experiments/EXP002B/CORPUS_REQUIREMENTS.md`'s recommendation:
+CompressARC, vendored into `third_party/compressarc/` under its MIT licence
+and instrumented to persist full candidate grids (not just hashes, closing
+that document's option-A gap), run against ARC-AGI-2's training split. This
+pass preregistered the plan (`experiments/EXP002C/PLAN.md`), vendored and
+instrumented the solver, wrote the acquisition driver
+(`src/run002c/{solve_task_cli,sample_tasks,acquire_corpus}.py`), and verified
+feasibility (`experiments/EXP002C/FEASIBILITY.md`): a local GPU exists (RTX
+4050 Laptop, 6 GB, previously "not verified" in `paper/COMPUTE_LEDGER.md`),
+but `torch`/CUDA are not installed, and the corrected compute estimate for the
+preregistered 500-test-index target is ~210-290 GPU-hours serially on this
+card — far beyond a single Kaggle-style session. No GPU call was made. The
+actual acquisition run (even a small timed pilot) remains gated on explicit
+approval, separate from the preregistration itself.

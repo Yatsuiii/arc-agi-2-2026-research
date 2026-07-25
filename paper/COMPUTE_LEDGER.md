@@ -42,7 +42,7 @@ the whole project, including calibration, ablations and the final submission.
 | Kaggle GPU quota | ~30 h/week, subject to change | Hard constraint on iteration speed |
 | Kaggle submissions | 1/day historically | The binding constraint on leaderboard feedback, and the reason `paper/CLAIM_LEDGER.md` A4 exists |
 | Local CPU | this machine | Sufficient for all Phase 3 analysis and for the whole selection-ablation family |
-| Local GPU | **not verified** | To be recorded before any local training is planned |
+| Local GPU | **verified 2026-07-25**: NVIDIA RTX 4050 Laptop, 6 GB VRAM | Weaker than CompressARC's reference RTX 4070; `torch`/CUDA not yet installed (`experiments/EXP002C/FEASIBILITY.md`) |
 
 ## Ledger
 
@@ -56,6 +56,7 @@ the whole project, including calibration, ablations and the final submission.
 | 2026-07-25 | Harness build (Phase 1/2: schemas, ingestion, features, verifiers B0-B7, allocator interfaces) | local CPU | ~10 min incl. tests | 0 | 184 tests, no GPU, no network. Frozen-baseline mode verified to reproduce all 179 non-placeholder RUN-001 submitted attempts exactly. |
 | 2026-07-25 | EXP002 execution (verifier evaluation + figures) | local CPU | 2.05 s (eval) + ~1 s (figures) | 0 | 8 baselines (B0-B7) + oracle over the 94-test-index RUN-001 archive; per-feature AUC over 487 grid-level rows. ~20,000x faster than the 11h43m GPU run that produced its input. |
 | 2026-07-25 | EXP002-B (confidence fix, independence enforcement, V0-V3, bounded mechanism test) | local CPU | ~5 min incl. 228-test suite | 0 | No new GPU candidates generated, per this pass's explicit scope. `CORPUS_REQUIREMENTS.md`'s acquisition recommendation (CompressARC on ARC-AGI-2 training folds, ~20 min/task on 1x RTX 4070 per the reference-system table above) is **not launched** — local GPU availability is itself unverified and this is a plan pending separate approval, not executed compute. |
+| 2026-07-25 | EXP002-C (preregistration, vendoring, instrumentation, driver code, feasibility check) | local CPU | minutes | 0 | Vendored CompressARC into `third_party/compressarc/`, instrumented for grid persistence, wrote `src/run002c/`. Verified local GPU exists (RTX 4050 Laptop, 6 GB) but `torch` is not installed and no GPU call was made. Revised acquisition estimate: ~210-290 GPU-hours serially for the preregistered 500-test-index target on this card — **not launched**, gated on explicit approval per `experiments/EXP002C/PLAN.md` §16. |
 
 ## Budgeting principle
 
