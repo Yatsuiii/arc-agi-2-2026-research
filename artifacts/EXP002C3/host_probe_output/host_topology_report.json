@@ -1,0 +1,58 @@
+{
+  "os_cpu_count": 4,
+  "sched_affinity_count": 4,
+  "sched_affinity_set": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "psutil_logical_cpu_count": 4,
+  "psutil_physical_cpu_count": 2,
+  "load_average": [
+    0.39990234375,
+    0.322265625,
+    0.146484375
+  ],
+  "ram_total_mib": 32100,
+  "ram_available_mib": 30859,
+  "swap_total_mib": 0,
+  "cgroup_v2_cpu_max": "400000 100000",
+  "cgroup_v1_cfs_quota_us": null,
+  "cgroup_v1_cfs_period_us": null,
+  "cgroup_v2_effective_cpus": 4.0,
+  "cpuset_cpus": "0-3",
+  "cpuset_cpus_v1": null,
+  "numa_hardware": "numactl not installed",
+  "env_OMP_NUM_THREADS": null,
+  "env_MKL_NUM_THREADS": null,
+  "env_OPENBLAS_NUM_THREADS": null,
+  "env_NUMEXPR_NUM_THREADS": null,
+  "env_VECLIB_MAXIMUM_THREADS": null,
+  "env_BLIS_NUM_THREADS": null,
+  "python_version": "3.11.13 (main, Jun  4 2025, 08:57:29) [GCC 11.4.0]",
+  "multiprocessing_start_method": null,
+  "multiprocessing_default_start_method": "fork",
+  "torch_version": "2.6.0+cu124",
+  "torch_num_threads_default": 2,
+  "torch_num_interop_threads_default": 2,
+  "torch_cuda_available": true,
+  "torch_cuda_device_count": 2,
+  "torch_cuda_devices": [
+    {
+      "index": 0,
+      "name": "Tesla T4",
+      "total_memory_mib": 14911
+    },
+    {
+      "index": 1,
+      "name": "Tesla T4",
+      "total_memory_mib": 14911
+    }
+  ],
+  "nvidia_smi_topo": "\t\u001b[4mGPU0\tGPU1\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \tPHB\t0-3\t0\t\tN/A\nGPU1\tPHB\t X \t0-3\t0\t\tN/A\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n",
+  "torch_threads_with_env_vars_stripped": {
+    "num_threads": 2,
+    "num_interop_threads": 2
+  }
+}

@@ -1,0 +1,75 @@
+[{"stream_name":"stderr","time":6.677653843,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.6777161,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.677721163,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.677724019,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.454121975,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.454153349,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.454157846,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.454163032,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":16.48593003,"data":"{\n"}
+,{"stream_name":"stdout","time":16.485966828,"data":"  \"os_cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":16.485971257,"data":"  \"sched_affinity_count\": 4,\n"}
+,{"stream_name":"stdout","time":16.485974836,"data":"  \"sched_affinity_set\": [\n"}
+,{"stream_name":"stdout","time":16.485978503,"data":"    0,\n"}
+,{"stream_name":"stdout","time":16.48598188,"data":"    1,\n"}
+,{"stream_name":"stdout","time":16.485986705,"data":"    2,\n"}
+,{"stream_name":"stdout","time":16.485993967,"data":"    3\n"}
+,{"stream_name":"stdout","time":16.485996422,"data":"  ],\n"}
+,{"stream_name":"stdout","time":16.485998577,"data":"  \"psutil_logical_cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":16.486000931,"data":"  \"psutil_physical_cpu_count\": 2,\n"}
+,{"stream_name":"stdout","time":16.486003288,"data":"  \"load_average\": [\n"}
+,{"stream_name":"stdout","time":16.486005549,"data":"    0.39990234375,\n"}
+,{"stream_name":"stdout","time":16.486007745,"data":"    0.322265625,\n"}
+,{"stream_name":"stdout","time":16.486009898,"data":"    0.146484375\n"}
+,{"stream_name":"stdout","time":16.486012087,"data":"  ],\n"}
+,{"stream_name":"stdout","time":16.486014216,"data":"  \"ram_total_mib\": 32100,\n"}
+,{"stream_name":"stdout","time":16.486016435,"data":"  \"ram_available_mib\": 30859,\n"}
+,{"stream_name":"stdout","time":16.486018635,"data":"  \"swap_total_mib\": 0,\n"}
+,{"stream_name":"stdout","time":16.486020925,"data":"  \"cgroup_v2_cpu_max\": \"400000 100000\",\n"}
+,{"stream_name":"stdout","time":16.48602325,"data":"  \"cgroup_v1_cfs_quota_us\": null,\n"}
+,{"stream_name":"stdout","time":16.486025459,"data":"  \"cgroup_v1_cfs_period_us\": null,\n"}
+,{"stream_name":"stdout","time":16.48602767,"data":"  \"cgroup_v2_effective_cpus\": 4.0,\n"}
+,{"stream_name":"stdout","time":16.486029969,"data":"  \"cpuset_cpus\": \"0-3\",\n"}
+,{"stream_name":"stdout","time":16.486032249,"data":"  \"cpuset_cpus_v1\": null,\n"}
+,{"stream_name":"stdout","time":16.48603445,"data":"  \"numa_hardware\": \"numactl not installed\",\n"}
+,{"stream_name":"stdout","time":16.486036729,"data":"  \"env_OMP_NUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486038925,"data":"  \"env_MKL_NUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486041173,"data":"  \"env_OPENBLAS_NUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486043448,"data":"  \"env_NUMEXPR_NUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486045639,"data":"  \"env_VECLIB_MAXIMUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486056805,"data":"  \"env_BLIS_NUM_THREADS\": null,\n"}
+,{"stream_name":"stdout","time":16.486059287,"data":"  \"python_version\": \"3.11.13 (main, Jun  4 2025, 08:57:29) [GCC 11.4.0]\",\n"}
+,{"stream_name":"stdout","time":16.486061675,"data":"  \"multiprocessing_start_method\": null,\n"}
+,{"stream_name":"stdout","time":16.486063897,"data":"  \"multiprocessing_default_start_method\": \"fork\",\n"}
+,{"stream_name":"stdout","time":16.486066279,"data":"  \"torch_version\": \"2.6.0+cu124\",\n"}
+,{"stream_name":"stdout","time":16.4860686,"data":"  \"torch_num_threads_default\": 2,\n"}
+,{"stream_name":"stdout","time":16.486070782,"data":"  \"torch_num_interop_threads_default\": 2,\n"}
+,{"stream_name":"stdout","time":16.48607302,"data":"  \"torch_cuda_available\": true,\n"}
+,{"stream_name":"stdout","time":16.486075213,"data":"  \"torch_cuda_device_count\": 2,\n"}
+,{"stream_name":"stdout","time":16.486077416,"data":"  \"torch_cuda_devices\": [\n"}
+,{"stream_name":"stdout","time":16.48607962,"data":"    {\n"}
+,{"stream_name":"stdout","time":16.48608174,"data":"      \"index\": 0,\n"}
+,{"stream_name":"stdout","time":16.48608401,"data":"      \"name\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":16.486086652,"data":"      \"total_memory_mib\": 14911\n"}
+,{"stream_name":"stdout","time":16.48608898,"data":"    },\n"}
+,{"stream_name":"stdout","time":16.486091092,"data":"    {\n"}
+,{"stream_name":"stdout","time":16.486093243,"data":"      \"index\": 1,\n"}
+,{"stream_name":"stdout","time":16.486095423,"data":"      \"name\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":16.486097623,"data":"      \"total_memory_mib\": 14911\n"}
+,{"stream_name":"stdout","time":16.486099813,"data":"    }\n"}
+,{"stream_name":"stdout","time":16.486101972,"data":"  ],\n"}
+,{"stream_name":"stdout","time":16.486105033,"data":"  \"nvidia_smi_topo\": \"\\t\\u001b[4mGPU0\\tGPU1\\tCPU Affinity\\tNUMA Affinity\\tGPU NUMA ID\\u001b[0m\\nGPU0\\t X \\tPHB\\t0-3\\t0\\t\\tN/A\\nGPU1\\tPHB\\t X \\t0-3\\t0\\t\\tN/A\\n\\nLegend:\\n\\n  X    = Self\\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\\n  PIX  = Connection traversing at most a single PCIe bridge\\n  NV#  = Connection traversing a bonded set of # NVLinks\\n\",\n"}
+,{"stream_name":"stdout","time":16.486112479,"data":"  \"torch_threads_with_env_vars_stripped\": {\n"}
+,{"stream_name":"stdout","time":16.486114842,"data":"    \"num_threads\": 2,\n"}
+,{"stream_name":"stdout","time":16.486117158,"data":"    \"num_interop_threads\": 2\n"}
+,{"stream_name":"stdout","time":16.486119392,"data":"  }\n"}
+,{"stream_name":"stdout","time":16.486121522,"data":"}\n"}
+,{"stream_name":"stderr","time":19.026365409,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":19.026398404,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":19.058389475,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":19.326571481,"data":"[NbConvertApp] Writing 11475 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":20.552607979,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":20.552678166,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":20.583223619,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":21.299657725,"data":"[NbConvertApp] Writing 300030 bytes to __results__.html\n"}
+]
