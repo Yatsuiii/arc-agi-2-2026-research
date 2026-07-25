@@ -66,7 +66,9 @@ class IndependentHeuristicVerifier(Verifier):
                 scores[sha1] = _consistency_score(features)
         else:
             scores = dict.fromkeys(representative_grid, 0.0)
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 def _consistency_score(features: dict) -> float:

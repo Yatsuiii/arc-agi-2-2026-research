@@ -69,6 +69,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | EXP001-B | Same analysis on ARC-AGI-2 candidate records | **READY** (RUN-001 archive available; preview: 7.4pp headroom on 94 test-inputs) | `9230ca9` | pending | C1, C2, C3 |
 | RUN-001 | NVARC T4x2 baseline execution and candidate archive | **COMPLETE (TIMED_OUT, partial)** | `131eba8` | `experiments/RUN001/RESULTS.md` | none - acquisition only |
 | EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **COMPLETE — verdict REDESIGN** | `c8f08a4` | `experiments/EXP002/RESULTS.md` | C2 (extended, not confirmed) |
+| EXP002-B | Score-independent verification + confidence repair (redesign of EXP002) | **COMPLETE — verdict REDESIGN (acquisition-bound, not rejected)** | see `experiments/EXP002B/PLAN.md` commit | `experiments/EXP002B/RESULTS.md` | C2 (still not confirmed; confidence-validity sub-claim supported) |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -105,3 +106,28 @@ experiment within a larger, gated roadmap. Only `AllocationAction.STOP` has
 an executor (`src/harness/allocator/actions.py`); no allocator policy has
 been evaluated by any experiment, consistent with Gate 1 not yet having
 passed.
+
+## EXP002-B: the user-directed redesign, same corpus, four fixes
+
+Accepted EXP002's REDESIGN verdict and specified the redesign directly
+(`experiments/EXP002B/PLAN.md`): (1) fix a confidence bug EXP002's own error
+analysis found — singleton candidate sets always reported `probability_correct
+= 1.0` regardless of correctness, measured as a 77.8% false-confidence rate
+at the p>=0.8 threshold before the fix, undefined/absent after; (2) enforce
+score-independence by name (`src/harness/features/independence.py`) rather
+than by convention, since EXP002's strongest "independent" features turned
+out to be reconstructions of NVARC's own selector; (3) define four verifier
+tracks (V0 frozen, V1 native-score control, V2 strict-independent, V3 hybrid)
+so a pipeline-reproduction check (V1) is never confused with the actual
+hypothesis (V2); (4) recommend, but not execute, a clean-corpus acquisition
+plan (`experiments/EXP002B/CORPUS_REQUIREMENTS.md`) with a McNemar-based
+minimum sample size (>=500 test-indices, >=100 in the held-out fold) derived
+from RUN-001's own measured V0/V2 disagreement rate.
+
+Result: `experiments/EXP002B/RESULTS.md`. The confidence fix is a completed,
+measured contribution. The verification question (H1/H2) remains REDESIGN,
+but the redesign this pass converges on is "acquire more data" — every
+V0-vs-V2 bootstrap CI at n=18/n=94 overlaps every other, which is a
+quantitatively different (and more conclusive) statement than EXP002's
+qualitative small-sample caveat. Not REJECT: the data cannot show V2 fails
+any more than it can show V2 succeeds.

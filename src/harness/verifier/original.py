@@ -21,9 +21,13 @@ class OriginalSelectionVerifier(Verifier):
     def rank(self, evidence: TaskEvidence) -> VerificationResult:
         rank_by_grid = {r.grid_sha1: r.rank for r in evidence.candidate_set.selection}
         if not rank_by_grid:
-            return build_result(evidence.task_id, evidence.test_index, {}, self.name)
+            return build_result(
+                evidence.task_id, evidence.test_index, {}, self.name, singleton_prior=self.singleton_prior
+            )
         # 1/rank is monotonic in the archived rank, so softmax(scores) preserves
         # NVARC's own order exactly; it is a rank-derived proxy, not a claim
         # that NVARC's selector emits calibrated probabilities.
         scores = {sha1: 1.0 / rank for sha1, rank in rank_by_grid.items()}
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )

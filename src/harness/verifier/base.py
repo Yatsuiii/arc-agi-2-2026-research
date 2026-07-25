@@ -46,6 +46,11 @@ class Verifier(ABC):
     """A verifier ranks the grids already in a `CandidateSet`. It generates nothing."""
 
     name: str = "base"
+    singleton_prior: float = DEFAULT_SINGLETON_PRIOR
+    """Empirical P(correct) to report for an abstained (<=1 unique candidate)
+    ranking. Left at the uninformative default until a caller sets it from a
+    measured base rate — see `experiments/EXP002B/CONFIDENCE_SEMANTICS.md`
+    "The empirical prior"."""
 
     @abstractmethod
     def rank(self, evidence: TaskEvidence) -> VerificationResult: ...

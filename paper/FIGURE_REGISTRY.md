@@ -25,6 +25,9 @@ paper.
 | F6 | Failure-category counts per solver | `[BLOCKED]` | labelled predictions | §8 | **PARTIALLY AVAILABLE** for RUN-001/NVARC only: branch G/S split reported in `experiments/EXP002/ERROR_ANALYSIS.md`; full G1-G6/S1-S4 automatic labeller not yet built |
 | F7 | Selection-algorithm ablation | `src/analysis/exp002_figures.py` (`f1`, `f2`, `f6`) | `artifacts/EXP002/exp002_report.json` | §7 | **AVAILABLE** — B0/B1/B2/B5 comparison and per-feature AUC ablation, `experiments/EXP002/RESULTS.md` |
 | F8 | Verifier reliability diagram, correct-candidate rank distribution, accuracy by task family, margin vs. correctness | `src/analysis/exp002_figures.py` (`f3`, `f4`, `f5`, `f7`) | `artifacts/EXP002/exp002_report.json` | C2, thesis T2 | **AVAILABLE** |
+| F9 | V0-V3 accuracy with bootstrap CIs, selective accuracy vs. coverage | `src/analysis/exp002b_figures.py` (`g1`, `g2`) | `artifacts/EXP002B/exp002b_report.json` | C2 | **AVAILABLE** — the CI-overlap figure is the primary visual evidence for EXP002-B's "acquisition-bound, not rejected" verdict |
+| F10 | Score-independent-only feature ablation | `src/analysis/exp002b_figures.py` (`g3`) | same | C2 | **AVAILABLE** — re-run of F7's ablation with score-derived features excluded by construction |
+| F11 | Singleton-candidate confidence, before vs. after the Part-1 fix | `src/analysis/exp002b_figures.py` (`g4`) | same | C2-confidence | **AVAILABLE** — the headline evidence for `paper/CLAIM_LEDGER.md`'s new C2-confidence sub-claim |
 
 ## Note on F1/F2/T1
 

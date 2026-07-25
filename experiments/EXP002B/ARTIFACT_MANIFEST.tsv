@@ -1,0 +1,6 @@
+artifact	bytes	sha256	description
+exp002b_report.json	41562	3dd56651716ccb43f696f1132a06f9ae5ac947d31b79cebc4579068246239429	full numeric report: H0 check, V0-V3+oracle accuracy with bootstrap CIs, selective-accuracy curves, singleton-subset stats, independent-only feature AUC
+figures/g1_track_accuracy_ci.png	65268	d2ec03334ae0315a641f20c2d4be9ef19378bddf3df3daa5bd46ebe243992df7	V0-V3 vs oracle accuracy@2, Fold C, 95% bootstrap CI
+figures/g2_selective_accuracy.png	73109	a4b3b248fd30dc9708bfff2be27ded20c9352f87213ca86cf22c83193b8df663	selective accuracy vs coverage, V0 vs V2-learned, Fold C
+figures/g3_independent_feature_ablation.png	133442	747cb758b854f4eb69063158daa56a5a491ddda86d31370b1ecab50c62f14892	per-feature AUC restricted to INDEPENDENT_FEATURES only, Fold A+B
+figures/g4_singleton_confidence_before_after.png	48098	36d2638ad7445c39bc9e2b185b64a3365598613266d033d5310e7eab84cbe312	Part-1 confidence fix, before (always 1.0) vs after (backed off to measured prior)

@@ -18,3 +18,5 @@ experiments/*/runs/
 !artifacts/run001/**
 !artifacts/EXP002/
 !artifacts/EXP002/**
+!artifacts/EXP002B/
+!artifacts/EXP002B/**

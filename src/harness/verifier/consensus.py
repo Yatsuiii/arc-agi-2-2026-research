@@ -33,7 +33,9 @@ class RawScoreVerifier(Verifier):
         scores = {
             sha1: f["original_score"] for sha1, f in features.items() if f["original_score"] is not None
         }
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 class DuplicateFrequencyVerifier(Verifier):
@@ -44,7 +46,9 @@ class DuplicateFrequencyVerifier(Verifier):
     def rank(self, evidence: TaskEvidence) -> VerificationResult:
         by_grid = _grouped_by_grid(evidence)
         scores = {sha1: float(len(group)) for sha1, group in by_grid.items()}
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 class AugmentationConsensusVerifier(Verifier):
@@ -58,7 +62,9 @@ class AugmentationConsensusVerifier(Verifier):
             sha1: float(len({c.augmentation_key for c in group if c.augmentation_key is not None}))
             for sha1, group in by_grid.items()
         }
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 class SeedConsensusVerifier(Verifier):
@@ -79,7 +85,9 @@ class SeedConsensusVerifier(Verifier):
             sha1: float(len({c.seed for c in group if c.seed is not None}))
             for sha1, group in by_grid.items()
         }
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 class ScoreWeightedConsensusVerifier(Verifier):
@@ -94,7 +102,9 @@ class ScoreWeightedConsensusVerifier(Verifier):
             value = reconstruct_score_kgmon(group)
             if value is not None:
                 scores[sha1] = value
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 class TransformationConsistencyVerifier(Verifier):
@@ -118,7 +128,9 @@ class TransformationConsistencyVerifier(Verifier):
                 scores[sha1] = _consistency_score(features)
         else:
             scores = {sha1: 0.0 for sha1 in by_grid}
-        return build_result(evidence.task_id, evidence.test_index, scores, self.name)
+        return build_result(
+            evidence.task_id, evidence.test_index, scores, self.name, singleton_prior=self.singleton_prior
+        )
 
 
 def _consistency_score(features: dict) -> float:

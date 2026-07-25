@@ -51,11 +51,16 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   only `artifacts/run001/run001/` and `competition_2026/extracted/`. Fold
   assignment is seeded (`FOLD_SEED = 20260725`) and deterministic; rerunning
   reproduces `artifacts/EXP002/exp002_report.json` byte-for-byte.
-- The harness itself: `python -m pytest tests/harness/` (114 tests across
-  schemas, features, verifiers, allocator interfaces, and an integration test
-  against the real RUN-001 archive proving frozen-baseline mode reproduces
-  its submission exactly). `python -m pytest` at the repo root runs the full
-  184-test suite, harness included.
+- The harness itself: `python -m pytest tests/harness/` (150 tests across
+  schemas, features, verifiers (B0-B7 and V0-V3), allocator interfaces, and
+  an integration test against the real RUN-001 archive proving frozen-
+  baseline mode reproduces its submission exactly). `python -m pytest` at the
+  repo root runs the full 228-test suite, harness included.
+- EXP002-B's full mechanism test: `python -m src.analysis.exp002b_verifier_eval`
+  (~2.3 s) then `python -m src.analysis.exp002b_figures` (~1 s), CPU only,
+  same inputs as EXP002. `singleton_prior` is measured fresh from Fold A each
+  run (deterministic given the fixed fold seed), so re-running reproduces
+  `artifacts/EXP002B/exp002b_report.json` byte-for-byte.
 
 ## RUN-001 environment, measured
 

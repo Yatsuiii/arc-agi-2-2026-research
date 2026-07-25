@@ -24,7 +24,7 @@ class LearnedVerifier(Verifier):
 
     def __init__(self, feature_names: list[str], C: float = 1.0):
         self.feature_names = feature_names
-        self.model = LogisticRegression(C=C, max_iter=1000)
+        self.model = LogisticRegression(C=C, max_iter=5000)
         self._fitted = False
 
     def vectorize(self, features: dict[str, float | None]) -> list[float]:
@@ -65,6 +65,7 @@ class LearnedVerifier(Verifier):
             probabilities,
             self.name,
             provenance={name: "learned" for name in self.feature_names},
+            singleton_prior=self.singleton_prior,
         )
 
     def feature_importances(self) -> dict[str, float]:

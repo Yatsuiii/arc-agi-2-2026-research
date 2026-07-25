@@ -44,6 +44,25 @@ The correct grid was never produced.
 G1-G4 are mutually exclusive and jointly exhaustive given a non-empty candidate
 set, which is what makes them safe to automate.
 
+### G6 and verifier confidence: a measured interaction
+
+`experiments/EXP002B/ERROR_ANALYSIS.md` found that G6 (compute exhaustion) has
+a specific, measurable failure signature at the candidate-set level: a task
+that hits its time guard early enough sometimes yields exactly one unique
+candidate (9.6% of RUN-001's 94 test-indices). A verifier that naively
+softmaxes over whatever candidates exist reports maximal confidence on
+exactly these cases — 100% "confidence," 77.8% actually wrong, measured
+directly (`experiments/EXP002B/CONFIDENCE_SEMANTICS.md`). This is a G6
+symptom wearing a selection-confidence costume, the same pattern S3/S4 were
+defined to keep separate from genuine selection failure: **a verifier cannot
+rerank its way out of a task that only generated one candidate**, and
+reporting high confidence there is a bug in the verifier, not evidence about
+the task. `VerificationResult.abstain`/`candidate_set_sufficiency`
+(`src/harness/schemas.py`) is the fix, and it is now the automatable rule for
+detecting this specific G6/confidence interaction: `abstain=True` and
+`n_unique_candidates <= 1` together are sufficient to flag it in any future
+per-task labelling pass.
+
 ## Branch S: selection failures
 
 The correct grid was generated and not chosen.
