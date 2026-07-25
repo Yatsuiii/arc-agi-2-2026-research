@@ -117,17 +117,57 @@ class TaskEvidence:
 
 @dataclass
 class VerificationResult:
-    """A verifier's output for one `TaskEvidence`. Never touches ground truth."""
+    """A verifier's output for one `TaskEvidence`. Never touches ground truth.
+
+    Two questions get conflated by a naive "just softmax the scores" verifier,
+    and `experiments/EXP002/ERROR_ANALYSIS.md` caught it doing exactly that: a
+    candidate set with one unique grid always softmaxes to probability 1.0,
+    which answers "does this grid outrank its alternatives" (trivially yes,
+    there are none) while looking like an answer to "is this grid correct"
+    (no evidence either way). `ranking_confidence` and `correctness_confidence`
+    below are kept as separate fields so a caller cannot accidentally read one
+    as the other; `probability_correct` remains for backward compatibility
+    with the first EXP002 pass and always equals whichever of the two a given
+    verifier is actually reporting (heuristic verifiers: ranking; calibrated
+    verifiers: correctness) — see `verifier/base.py` for which is which.
+    """
 
     task_id: str
     test_index: int
     ranked_grid_shas: list[str]
     probability_correct: dict[str, float]
-    """grid_sha1 -> estimated P(correct), from whatever the verifier is."""
+    """grid_sha1 -> whatever probability-shaped number this verifier reports.
+    Kept for backward compatibility; new code should read
+    `ranking_confidence`/`correctness_confidence` instead, which say which
+    question the number answers."""
     uncertainty: float
     """Higher means less confident overall about this test index's ranking."""
     confidence_margin: float
     """probability_correct of rank-1 minus rank-2. Small margin, low confidence."""
+    ranking_confidence: float = 0.0
+    """P(the top-ranked grid outranks the other candidates present), given
+    only the candidates that were generated. Well-defined even for a
+    singleton candidate set (trivially 1.0 — there is nothing to lose to) and
+    therefore NOT a claim about correctness on its own."""
+    correctness_confidence: dict[str, float] = field(default_factory=dict)
+    """grid_sha1 -> estimated absolute P(this grid is the correct answer).
+    For an uncalibrated (heuristic) verifier this is not a true calibrated
+    probability and `uncertainty_reason` says so. For a singleton or empty
+    candidate set it is backed off to an externally supplied empirical prior
+    rather than left at whatever `ranking_confidence` computed to, which is
+    the fix for the bug above."""
+    candidate_set_sufficiency: float = 0.0
+    """0 (no usable ranking evidence: 0 or 1 unique candidates) to 1 (several
+    genuinely distinguishable candidates). See `verifier/base.py`'s
+    `_sufficiency` for the exact formula."""
+    abstain: bool = False
+    """True when there are too few unique candidates to rank meaningfully
+    (`candidate_set_sufficiency` below its threshold). A caller building a
+    stopping rule on this result must check `abstain` before trusting
+    `ranking_confidence`."""
+    uncertainty_reason: str = ""
+    """Human-readable explanation of why confidence is low or why `abstain`
+    is set, e.g. "1 unique candidate: no ranking evidence available"."""
     supporting_signals: dict[str, float] = field(default_factory=dict)
     contradicting_signals: dict[str, float] = field(default_factory=dict)
     calibration_metadata: dict = field(default_factory=dict)
