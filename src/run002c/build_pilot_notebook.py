@@ -41,8 +41,20 @@ VENDORED_MODULES = [
    # functions (confirmed by the flat-directory smoke test below).
 
 RUN_DIR = "/kaggle/working/exp002c_pilot"
-CHALLENGES_PATH = "/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_challenges.json"
-SOLUTIONS_PATH = "/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_solutions.json"
+# Two forms observed across this project's kernels for where a competition
+# mounts (`kaggle/run001_nvarc_frozen/run001_instrumented.ipynb` uses the
+# `competitions/` form; this pilot's first push, `artifacts/EXP002C/
+# pilot_kernel_output/exp002c-compressarc-pilot.log`, shows the bare form
+# 404ing) — resolved at runtime rather than hardcoded, so a second drift
+# doesn't cost another wasted push.
+CHALLENGES_CANDIDATES = (
+    "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_training_challenges.json",
+    "/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_challenges.json",
+)
+SOLUTIONS_CANDIDATES = (
+    "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_training_solutions.json",
+    "/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_solutions.json",
+)
 
 
 def _code_cell(source: str) -> dict:
@@ -75,14 +87,25 @@ SUMMARY_PATH = RUN_DIR / "summary.json"
 
 PILOT_TASK_IDS = {json.dumps(json.loads(PILOT_SAMPLE.read_text())["task_ids"])}
 
+
+def _resolve(candidates):
+    for candidate in candidates:
+        if Path(candidate).is_file():
+            return candidate
+    raise FileNotFoundError(f"none of {{candidates}} exist")
+
+
+CHALLENGES_PATH = _resolve({CHALLENGES_CANDIDATES!r})
+SOLUTIONS_PATH = _resolve({SOLUTIONS_CANDIDATES!r})
+
 print("torch:", end=" ")
 import torch
 print(torch.__version__, "cuda available:", torch.cuda.is_available(), "device count:", torch.cuda.device_count())
 for i in range(torch.cuda.device_count()):
     print(f"  cuda:{{i}} = {{torch.cuda.get_device_name(i)}}")
 
-challenges = json.loads(Path("{CHALLENGES_PATH}").read_text())
-solutions = json.loads(Path("{SOLUTIONS_PATH}").read_text())
+challenges = json.loads(Path(CHALLENGES_PATH).read_text())
+solutions = json.loads(Path(SOLUTIONS_PATH).read_text())
 for task_id in PILOT_TASK_IDS:
     assert task_id in challenges, f"{{task_id}} missing from mounted training challenges"
 
@@ -128,7 +151,7 @@ def launch_task(task_id, device, time_limit_s):
             sys.executable,
             "solve_task_cli.py",
             "--task-id", task_id,
-            "--challenges", "{CHALLENGES_PATH}",
+            "--challenges", CHALLENGES_PATH,
             "--out", str(out_path),
             "--n-iterations", "2000",
             "--time-limit-s", str(time_limit_s),

@@ -1,0 +1,64 @@
+[{"stream_name":"stderr","time":7.190802583,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.191626997,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.191637655,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.191641707,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.950667306,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.950698466,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.950704029,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.950708504,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.47646917,"data":"Writing multitensor_systems.py\n"}
+,{"stream_name":"stdout","time":10.493289246,"data":"Writing initializers.py\n"}
+,{"stream_name":"stdout","time":10.518349584,"data":"Writing layers.py\n"}
+,{"stream_name":"stdout","time":10.535313618,"data":"Writing preprocessing.py\n"}
+,{"stream_name":"stdout","time":10.553346671,"data":"Writing arc_compressor.py\n"}
+,{"stream_name":"stdout","time":10.568573289,"data":"Writing scoring.py\n"}
+,{"stream_name":"stdout","time":10.586767731,"data":"Writing visualization.py\n"}
+,{"stream_name":"stdout","time":10.60513142,"data":"Writing solution_selection.py\n"}
+,{"stream_name":"stdout","time":10.622814996,"data":"Writing train.py\n"}
+,{"stream_name":"stdout","time":10.639334834,"data":"Writing solve_task_cli.py\n"}
+,{"stream_name":"stdout","time":15.240945857,"data":"torch: 2.6.0+cu124 cuda available: True device count: 2\n"}
+,{"stream_name":"stdout","time":15.240972119,"data":"  cuda:0 = Tesla T4\n"}
+,{"stream_name":"stdout","time":15.240976954,"data":"  cuda:1 = Tesla T4\n"}
+,{"stream_name":"stderr","time":17.396971509,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":17.39700281,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":17.397007094,"data":"  File \"/usr/local/lib/python3.11/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":17.397161314,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":17.397220218,"data":"  File \"/usr/local/lib/python3.11/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":17.397389632,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":17.397799882,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":17.397812638,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":17.39781673,"data":"Exception encountered at \"In [11]\":\n"}
+,{"stream_name":"stderr","time":17.39782024,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":17.397823853,"data":"FileNotFoundError                         Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":17.39782737,"data":"/tmp/ipykernel_19/223815874.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":17.397831108,"data":"     22     print(f\"  cuda:{i} = {torch.cuda.get_device_name(i)}\")\n"}
+,{"stream_name":"stderr","time":17.397862808,"data":"     23 \n"}
+,{"stream_name":"stderr","time":17.397867077,"data":"---\u003e 24 challenges = json.loads(Path(\"/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_challenges.json\").read_text())\n"}
+,{"stream_name":"stderr","time":17.39787098,"data":"     25 solutions = json.loads(Path(\"/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_solutions.json\").read_text())\n"}
+,{"stream_name":"stderr","time":17.397874615,"data":"     26 for task_id in PILOT_TASK_IDS:\n"}
+,{"stream_name":"stderr","time":17.397877933,"data":"\n"}
+,{"stream_name":"stderr","time":17.397881138,"data":"/usr/lib/python3.11/pathlib.py in read_text(self, encoding, errors)\n"}
+,{"stream_name":"stderr","time":17.397884559,"data":"   1056         \"\"\"\n"}
+,{"stream_name":"stderr","time":17.39788802,"data":"   1057         encoding = io.text_encoding(encoding)\n"}
+,{"stream_name":"stderr","time":17.397891446,"data":"-\u003e 1058         with self.open(mode='r', encoding=encoding, errors=errors) as f:\n"}
+,{"stream_name":"stderr","time":17.397895092,"data":"   1059             return f.read()\n"}
+,{"stream_name":"stderr","time":17.397898429,"data":"   1060 \n"}
+,{"stream_name":"stderr","time":17.397901726,"data":"\n"}
+,{"stream_name":"stderr","time":17.397906543,"data":"/usr/lib/python3.11/pathlib.py in open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":17.397913575,"data":"   1042         if \"b\" not in mode:\n"}
+,{"stream_name":"stderr","time":17.397916423,"data":"   1043             encoding = io.text_encoding(encoding)\n"}
+,{"stream_name":"stderr","time":17.397918691,"data":"-\u003e 1044         return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":17.397921038,"data":"   1045 \n"}
+,{"stream_name":"stderr","time":17.397923165,"data":"   1046     def read_bytes(self):\n"}
+,{"stream_name":"stderr","time":17.397925453,"data":"\n"}
+,{"stream_name":"stderr","time":17.39792758,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_training_challenges.json'\n"}
+,{"stream_name":"stderr","time":17.397929962,"data":"\n"}
+,{"stream_name":"stderr","time":19.741803674,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":19.741839353,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":19.786456546,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":20.064758236,"data":"[NbConvertApp] Writing 138908 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":21.545898895,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":21.54593728,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":21.579589458,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":22.48638463,"data":"[NbConvertApp] Writing 703957 bytes to __results__.html\n"}
+]
