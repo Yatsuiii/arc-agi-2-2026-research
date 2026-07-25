@@ -1,0 +1,9 @@
+artifact	bytes	sha256	description
+exp002_report.json	112505	e1426170bcc24ffc58bc2ee23b258850a7ea938fec3baae582c7df125128b1b8	full numeric report: H0 check, per-baseline accuracy/rank/calibration, feature AUC, fold assignment
+figures/f1_accuracy_comparison.png	114906	34ed348253a117cbae9bf732a9278eaccc4943e7e132e2b82c844f19f20b7178	original vs oracle vs verifier accuracy@2, full corpus and Fold C
+figures/f2_recovered_headroom.png	96318	97b34c53ca493b1518c86cfdf8f0bb5ba41082608880f7b2e676097a6e349ee2	recovered selection headroom per verifier, Fold C
+figures/f3_reliability_diagram.png	49665	0bce5a6e9e2bf2dbced4953975a4fc9d035af97af3740e73e9d8b60024c8427b	B7 reliability diagram, Fold C
+figures/f4_rank_distribution.png	37886	c47d9c6ae2c73fbdb651a4b3ff0baae08b00fabe513a84ae67c0b782d4157d0a	correct-candidate rank distribution, B0 vs B8 oracle, full corpus
+figures/f5_accuracy_by_family.png	39133	94225df26b2506850b014b4e549a8acfead44f8646dce113272782f123051652	B0 accuracy by task-family proxy (size_relation)
+figures/f6_feature_ablation.png	159975	c7952364d9a047595cb6e0929a174f34d7df3144e595afdd269d4407e1b9b863	per-feature AUC, Fold A+B, the H1 check
+figures/f7_margin_vs_correctness.png	39929	e7c07a07631aa5ac6a0b368b2535bc3a0678670787a20367276f9b3d05d7131a	B0 confidence margin vs correctness, full corpus

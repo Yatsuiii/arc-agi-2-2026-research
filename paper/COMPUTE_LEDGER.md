@@ -53,6 +53,8 @@ the whole project, including calibration, ablations and the final submission.
 | 2026-07-25 | Kaggle metadata sweep | local CPU | ~2 min | 0 | Licence and file-listing queries for 6 datasets, 1 model instance, 2 kernels. Metadata only; **nothing downloaded**. |
 | 2026-07-25 | RUN-001 access probes | Kaggle CPU + 2xT4 | ~15 min | ~0.2 | 5 probe kernel versions establishing Persona, accelerator, mounts and the import chain. |
 | 2026-07-25 | RUN-001 baseline | Kaggle 2x T4 | 11 h 43 m (actual) | ~23 | COMPLETE/TIMED_OUT. 77/120 tasks, 1129 candidates archived. One version, one run. |
+| 2026-07-25 | Harness build (Phase 1/2: schemas, ingestion, features, verifiers B0-B7, allocator interfaces) | local CPU | ~10 min incl. tests | 0 | 184 tests, no GPU, no network. Frozen-baseline mode verified to reproduce all 179 non-placeholder RUN-001 submitted attempts exactly. |
+| 2026-07-25 | EXP002 execution (verifier evaluation + figures) | local CPU | 2.05 s (eval) + ~1 s (figures) | 0 | 8 baselines (B0-B7) + oracle over the 94-test-index RUN-001 archive; per-feature AUC over 487 grid-level rows. ~20,000x faster than the 11h43m GPU run that produced its input. |
 
 ## Budgeting principle
 

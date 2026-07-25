@@ -16,3 +16,5 @@ experiments/*/runs/
 .ruff_cache/
 !artifacts/run001/
 !artifacts/run001/**
+!artifacts/EXP002/
+!artifacts/EXP002/**

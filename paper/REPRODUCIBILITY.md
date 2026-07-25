@@ -46,6 +46,16 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   `python -m src.run001.build_notebook` and checkable with
   `python -m src.run001.validate_notebook`. The build asserts each patch anchor
   matches exactly once, so the notebook cannot drift silently.
+- EXP002's full verifier evaluation: `python -m src.analysis.exp002_verifier_eval`
+  (2 s) then `python -m src.analysis.exp002_figures` (~1 s), CPU only, reading
+  only `artifacts/run001/run001/` and `competition_2026/extracted/`. Fold
+  assignment is seeded (`FOLD_SEED = 20260725`) and deterministic; rerunning
+  reproduces `artifacts/EXP002/exp002_report.json` byte-for-byte.
+- The harness itself: `python -m pytest tests/harness/` (114 tests across
+  schemas, features, verifiers, allocator interfaces, and an integration test
+  against the real RUN-001 archive proving frozen-baseline mode reproduces
+  its submission exactly). `python -m pytest` at the repo root runs the full
+  184-test suite, harness included.
 
 ## RUN-001 environment, measured
 

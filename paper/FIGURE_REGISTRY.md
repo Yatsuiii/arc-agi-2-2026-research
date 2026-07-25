@@ -20,10 +20,11 @@ paper.
 | T1 | Dataset and split table with contamination status per split | `src/data_audit/schema_report.py` | same | §5.2 | **AVAILABLE** |
 | T2 | Cross-system comparison matrix | hand-assembled from `docs/SYSTEM_COMPARISON.md`, cited not generated | audit docs | §3 | AVAILABLE (prose table) |
 | F3 | Solve-set overlap between solvers (upset or Venn) | `[BLOCKED]` EXP001 | per-task solve vectors | C1 | BLOCKED |
-| F4 | Oracle@k vs realised accuracy@2 as a function of k | `src/analysis/headroom.py` (ARC-AGI-1, done); EXP001-B for ARC-AGI-2 | `artifacts/exp001/headroom.json`; RUN-001 `candidates.jsonl.gz` | C2 | **ARC-AGI-1 AVAILABLE**, ARC-AGI-2 pending RUN-001 |
-| F5 | Compute-vs-accuracy curve, uniform vs routed allocation | `[BLOCKED]` | per-task time and outcome | C3 | BLOCKED |
-| F6 | Failure-category counts per solver | `[BLOCKED]` | labelled predictions | §8 | BLOCKED |
-| F7 | Selection-algorithm ablation | `[BLOCKED]` AB-S1 | RUN-001 `candidates.jsonl.gz` (`beam_score` + `score_aug[8]` per candidate) | §7 | **UNBLOCKED once RUN-001 lands** |
+| F4 | Oracle@k vs realised accuracy@2 as a function of k | `src/analysis/headroom.py` (ARC-AGI-1, done); EXP001-B for ARC-AGI-2 | `artifacts/exp001/headroom.json`; RUN-001 `candidates.jsonl.gz` | C2 | **ARC-AGI-1 AVAILABLE**; ARC-AGI-2 preview available as rank-1 accuracy (`artifacts/EXP002/figures/f1_accuracy_comparison.png`), full k-curve still pending EXP001-B |
+| F5 | Compute-vs-accuracy curve, uniform vs routed allocation | `[BLOCKED]` | per-task time and outcome | C3 | BLOCKED — needs EXP003/EXP004, not yet run |
+| F6 | Failure-category counts per solver | `[BLOCKED]` | labelled predictions | §8 | **PARTIALLY AVAILABLE** for RUN-001/NVARC only: branch G/S split reported in `experiments/EXP002/ERROR_ANALYSIS.md`; full G1-G6/S1-S4 automatic labeller not yet built |
+| F7 | Selection-algorithm ablation | `src/analysis/exp002_figures.py` (`f1`, `f2`, `f6`) | `artifacts/EXP002/exp002_report.json` | §7 | **AVAILABLE** — B0/B1/B2/B5 comparison and per-feature AUC ablation, `experiments/EXP002/RESULTS.md` |
+| F8 | Verifier reliability diagram, correct-candidate rank distribution, accuracy by task family, margin vs. correctness | `src/analysis/exp002_figures.py` (`f3`, `f4`, `f5`, `f7`) | `artifacts/EXP002/exp002_report.json` | C2, thesis T2 | **AVAILABLE** |
 
 ## Note on F1/F2/T1
 
