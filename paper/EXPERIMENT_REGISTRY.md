@@ -70,7 +70,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | RUN-001 | NVARC T4x2 baseline execution and candidate archive | **COMPLETE (TIMED_OUT, partial)** | `131eba8` | `experiments/RUN001/RESULTS.md` | none - acquisition only |
 | EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **COMPLETE — verdict REDESIGN** | `c8f08a4` | `experiments/EXP002/RESULTS.md` | C2 (extended, not confirmed) |
 | EXP002-B | Score-independent verification + confidence repair (redesign of EXP002) | **COMPLETE — verdict REDESIGN (acquisition-bound, not rejected)** | see `experiments/EXP002B/PLAN.md` commit | `experiments/EXP002B/RESULTS.md` | C2 (still not confirmed; confidence-validity sub-claim supported) |
-| EXP002-C | Clean ARC-AGI-2 candidate-corpus acquisition using CompressARC | **PREREGISTERED — not executed, gated on GPU-run approval** | see `experiments/EXP002C/PLAN.md` commit | not run | none yet - acquisition only, feeds EXP002-D |
+| EXP002-C | Clean ARC-AGI-2 candidate-corpus acquisition using CompressARC (bounded 5-task smoke pilot) | **COMPLETE — verdict PARALLELISE AND SCALE** | see `experiments/EXP002C/PLAN.md` commit | `experiments/EXP002C/PILOT_RESULTS.md` | none yet - acquisition feasibility only, feeds EXP002-D |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -144,8 +144,23 @@ instrumented the solver, wrote the acquisition driver
 (`src/run002c/{solve_task_cli,sample_tasks,acquire_corpus}.py`), and verified
 feasibility (`experiments/EXP002C/FEASIBILITY.md`): a local GPU exists (RTX
 4050 Laptop, 6 GB, previously "not verified" in `paper/COMPUTE_LEDGER.md`),
-but `torch`/CUDA are not installed, and the corrected compute estimate for the
-preregistered 500-test-index target is ~210-290 GPU-hours serially on this
-card — far beyond a single Kaggle-style session. No GPU call was made. The
-actual acquisition run (even a small timed pilot) remains gated on explicit
-approval, separate from the preregistration itself.
+but `torch`/CUDA are not installed locally, and the preregistered
+500-test-index target was estimated at ~210-290 GPU-hours before any
+measurement existed.
+
+The user then approved a bounded, explicitly scoped 5-task smoke pilot on
+Kaggle 2xT4 (not the full acquisition). Result:
+`experiments/EXP002C/PILOT_RESULTS.md`. Real measurement revised the cost
+estimate **upward**: every task hit a 40-minute safety cap before completing
+2000 iterations, and extrapolated full-length per-task cost puts the 500-task
+target at 454-675 serial GPU-hours, not 210-290. But the same pilot measured
+~26-28% mean GPU utilisation and sub-2GB VRAM per task on 16GB T4s, plus
+clean, interference-free concurrent execution across both GPUs — direct
+evidence of a large, untested oversubscription opportunity (matching why
+CompressARC's own upstream `parallel_train.py` schedules many puzzles per
+GPU). Verdict: **PARALLELISE AND SCALE**, with a smaller-corpus fallback
+(~140 tasks, ~170 test-indices, the pre-registered floor of
+`CORPUS_REQUIREMENTS.md`'s McNemar range) already justified if a follow-on
+oversubscription pilot does not pay off. No further acquisition was
+launched; the next experiment (an oversubscribed-parallelism pilot) is
+specified but not started, per explicit instruction.

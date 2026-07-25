@@ -1,0 +1,187 @@
+{
+  "experiment": "EXP002-C smoke pilot",
+  "objective_1_runtime": {
+    "per_task_elapsed_s": {
+      "00576224": 2401.3610055446625,
+      "009d5c81": 2401.730465888977,
+      "0520fde7": 2401.0849001407623,
+      "42f83767": 2401.175259590149,
+      "8abad3cf": 2400.2005875110626
+    },
+    "per_task_per_test_index_s": {
+      "00576224": 2401.3610055446625,
+      "009d5c81": 2401.730465888977,
+      "0520fde7": 2401.0849001407623,
+      "42f83767": 1200.5876297950745,
+      "8abad3cf": 2400.2005875110626
+    }
+  },
+  "objective_2_vram": {
+    "gpu_monitor_log": "/kaggle/working/exp002c_pilot/gpu_monitor.log",
+    "per_task_peak_memory_mib": {
+      "00576224": 77.859375,
+      "009d5c81": 417.7197265625,
+      "0520fde7": 46.92041015625,
+      "42f83767": 1776.18701171875,
+      "8abad3cf": 109.28515625
+    }
+  },
+  "objective_3_concurrency": {
+    "concurrent_pair_elapsed_s": [
+      2401.730465888977,
+      2401.0849001407623,
+      2401.175259590149,
+      2400.2005875110626
+    ],
+    "interpretation": "concurrent tasks finished within ~1x solo time: two T4s process independently",
+    "phase2_wall_clock_s": 2406.828224182129,
+    "phase3_wall_clock_s": 2406.420469760895,
+    "solo_baseline_elapsed_s": 2401.3610055446625
+  },
+  "objective_4_candidates": {
+    "archive_integrity": {
+      "expected_tasks": 5,
+      "per_task_files_present": {
+        "00576224": true,
+        "009d5c81": true,
+        "0520fde7": true,
+        "42f83767": true,
+        "8abad3cf": true
+      },
+      "recovered_tasks": 5
+    },
+    "candidate_oracle_coverage": 0.5,
+    "failures": [
+      {
+        "reason": "timed out at 1506 steps",
+        "task_id": "00576224"
+      },
+      {
+        "reason": "timed out at 1389 steps",
+        "task_id": "009d5c81"
+      },
+      {
+        "reason": "timed out at 1613 steps",
+        "task_id": "0520fde7"
+      },
+      {
+        "reason": "timed out at 428 steps",
+        "task_id": "42f83767"
+      },
+      {
+        "reason": "timed out at 1388 steps",
+        "task_id": "8abad3cf"
+      }
+    ],
+    "native_score_distribution": {
+      "max": 6.422091452842947,
+      "mean": -4.720943727030298,
+      "min": -33.812281131744385,
+      "n": 2729,
+      "stdev": 6.460185053219853
+    },
+    "singleton_frequency": 0.0,
+    "singleton_test_indices": 0,
+    "total_candidates": 3399,
+    "total_test_indices": 6,
+    "total_unique_candidates": 3194
+  },
+  "objective_5_6_extrapolation": {
+    "dual_t4_wall_clock_hours_if_perfectly_parallel": {
+      "100_tasks": 33.34875616298781,
+      "250_tasks": 83.37189040746954,
+      "500_tasks": 166.74378081493907
+    },
+    "mean_observed_task_s": 2401.1104437351228,
+    "preregistered_estimate_range_gpu_hours": [
+      210,
+      290
+    ],
+    "serial_gpu_hours": {
+      "100_tasks": 66.69751232597562,
+      "250_tasks": 166.74378081493907,
+      "500_tasks": 333.48756162987814
+    }
+  },
+  "per_task": {
+    "00576224": {
+      "elapsed_s": 2401.3610055446625,
+      "n_candidates": 906,
+      "n_test": 1,
+      "n_unique_by_test_index": [
+        906
+      ],
+      "oracle_hit_by_test_index": [
+        true
+      ],
+      "peak_memory_bytes": 81641472,
+      "steps_run": 1506,
+      "timed_out": true
+    },
+    "009d5c81": {
+      "elapsed_s": 2401.730465888977,
+      "n_candidates": 625,
+      "n_test": 1,
+      "n_unique_by_test_index": [
+        625
+      ],
+      "oracle_hit_by_test_index": [
+        true
+      ],
+      "peak_memory_bytes": 438010880,
+      "steps_run": 1389,
+      "timed_out": true
+    },
+    "0520fde7": {
+      "elapsed_s": 2401.0849001407623,
+      "n_candidates": 185,
+      "n_test": 1,
+      "n_unique_by_test_index": [
+        185
+      ],
+      "oracle_hit_by_test_index": [
+        true
+      ],
+      "peak_memory_bytes": 49199616,
+      "steps_run": 1613,
+      "timed_out": true
+    },
+    "42f83767": {
+      "elapsed_s": 2401.175259590149,
+      "n_candidates": 670,
+      "n_test": 2,
+      "n_unique_by_test_index": [
+        558,
+        577
+      ],
+      "oracle_hit_by_test_index": [
+        false,
+        false
+      ],
+      "peak_memory_bytes": 1862467072,
+      "steps_run": 428,
+      "timed_out": true
+    },
+    "8abad3cf": {
+      "elapsed_s": 2400.2005875110626,
+      "n_candidates": 343,
+      "n_test": 1,
+      "n_unique_by_test_index": [
+        343
+      ],
+      "oracle_hit_by_test_index": [
+        false
+      ],
+      "peak_memory_bytes": 114593792,
+      "steps_run": 1388,
+      "timed_out": true
+    }
+  },
+  "pilot_sample": [
+    "00576224",
+    "009d5c81",
+    "0520fde7",
+    "42f83767",
+    "8abad3cf"
+  ]
+}
