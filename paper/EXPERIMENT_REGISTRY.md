@@ -68,6 +68,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | EXP001-A | Selection and compute headroom from CompressARC recorded traces (ARC-AGI-1) | **COMPLETE** | `9230ca9` | `experiments/EXP001/RESULT.md` | C2 supported, C3 supported, B5 strengthened |
 | EXP001-B | Same analysis on ARC-AGI-2 candidate records | BLOCKED on RUN-001 | `9230ca9` | pending | C1, C2, C3 |
 | RUN-001 | NVARC T4x2 baseline execution and candidate archive | RUNNING | `131eba8` | `experiments/RUN001/` | none - acquisition only |
+| EXP002 | Model-independent candidate verification feasibility (thesis T2's decisive experiment) | **PREREGISTERED**, BLOCKED on RUN-001 | `c8f08a4` | pending | C2 |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).
@@ -79,3 +80,16 @@ competition-baseline capture**, not a hypothesis test. It supports no claim on
 its own. Its purpose is to produce the candidate archive that EXP001-B needs,
 and its accuracy number is contaminated by construction because the checkpoint
 was trained on the split it scores (`docs/systems/NVARC.md` §9).
+
+## EXP002, and why it is preregistered before RUN-001 has landed
+
+EXP002 (`experiments/EXP002/PLAN.md`) is a real hypothesis test, not
+acquisition, but its plan is committed and its status set to
+`PREREGISTERED, BLOCKED on RUN-001` while RUN-001 is still running, so the
+design cannot be tuned after the fact to whatever the archive turns out to
+contain. Its own preconditions (`experiments/RUN001/POST_RUN_CHECKLIST.md`)
+gate execution on RUN-001 reaching a terminal state and passing
+`src/run001/validate_outputs.validate`. No code beyond the ingestion and
+headroom-analysis tooling it depends on (`src/run001/download_outputs.py`,
+`src/run001/validate_outputs.py`, `src/analysis/candidate_headroom.py`) has
+been written for it.
