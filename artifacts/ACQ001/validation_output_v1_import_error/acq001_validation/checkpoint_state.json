@@ -1,0 +1,32 @@
+{
+  "00576224": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.156355857849
+  },
+  "045e512c": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2425.1551656723022
+  },
+  "09c534e7": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1520187854767
+  },
+  "0e206a2e": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2425.1506524086
+  },
+  "12422b43": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.147053718567
+  }
+}

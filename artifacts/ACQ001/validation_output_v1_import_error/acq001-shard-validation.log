@@ -1,0 +1,62 @@
+[{"stream_name":"stderr","time":8.099170089,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.09925839,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.099265405,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.099270045,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.954161622,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.954195837,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.954201366,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.95420556,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.754457543000001,"data":"Writing multitensor_systems.py\n"}
+,{"stream_name":"stdout","time":11.773740606,"data":"Writing initializers.py\n"}
+,{"stream_name":"stdout","time":11.800725058,"data":"Writing layers.py\n"}
+,{"stream_name":"stdout","time":11.819317271,"data":"Writing preprocessing.py\n"}
+,{"stream_name":"stdout","time":11.83680712,"data":"Writing arc_compressor.py\n"}
+,{"stream_name":"stdout","time":11.853785998,"data":"Writing scoring.py\n"}
+,{"stream_name":"stdout","time":11.872834408,"data":"Writing visualization.py\n"}
+,{"stream_name":"stdout","time":11.892458473,"data":"Writing solution_selection.py\n"}
+,{"stream_name":"stdout","time":11.911903453,"data":"Writing train.py\n"}
+,{"stream_name":"stdout","time":11.93016883,"data":"Writing solve_task_cli.py\n"}
+,{"stream_name":"stdout","time":11.950756955,"data":"Writing archive.py\n"}
+,{"stream_name":"stdout","time":11.973180514,"data":"Writing acquire_shard.py\n"}
+,{"stream_name":"stdout","time":17.122078462,"data":"torch: 2.6.0+cu124 cuda available: True device count: 2\n"}
+,{"stream_name":"stdout","time":17.122121247,"data":"  cuda:0 = Tesla T4\n"}
+,{"stream_name":"stdout","time":17.122129187,"data":"  cuda:1 = Tesla T4\n"}
+,{"stream_name":"stdout","time":17.323611053,"data":"0 already complete, 5 remaining\n"}
+,{"stream_name":"stdout","time":17.323642592,"data":"wave 0: launched 5 processes: 00576224@cuda:0(pid=43,attempt=1), 045e512c@cuda:0(pid=45,attempt=1), 09c534e7@cuda:0(pid=46,attempt=1), 0e206a2e@cuda:1(pid=47,attempt=1), 12422b43@cuda:1(pid=48,attempt=1)\n"}
+,{"stream_name":"stdout","time":2442.296954204,"data":"wave 0: 2425.2s, aborted=False\n"}
+,{"stream_name":"stderr","time":2443.239517229,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":2443.23954959,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":2443.239556495,"data":"  File \"/usr/local/lib/python3.11/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":2443.239662862,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":2443.239842271,"data":"  File \"/usr/local/lib/python3.11/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":2443.239864117,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":2443.240246546,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":2443.240258261,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":2443.240292615,"data":"Exception encountered at \"In [13]\":\n"}
+,{"stream_name":"stderr","time":2443.240297456,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":2443.240301193,"data":"ModuleNotFoundError                       Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":2443.240305005,"data":"/tmp/ipykernel_21/1769955809.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":2443.24030929,"data":"     98 telemetry_thread.join(timeout=5)\n"}
+,{"stream_name":"stderr","time":2443.24031337,"data":"     99 \n"}
+,{"stream_name":"stderr","time":2443.240404809,"data":"--\u003e 100 archive_summary = ingest_archive(\n"}
+,{"stream_name":"stderr","time":2443.2404088,"data":"    101     TASK_IDS, shard_result[\"checkpoint\"], ARCHIVE_DIR, RUN_DIR, SHARD_NAME,\n"}
+,{"stream_name":"stderr","time":2443.24041162,"data":"    102     slots_per_gpu=SLOTS_PER_GPU, time_limit_s=TIME_LIMIT_S, n_iterations=N_ITERATIONS,\n"}
+,{"stream_name":"stderr","time":2443.240414196,"data":"\n"}
+,{"stream_name":"stderr","time":2443.24041664,"data":"/kaggle/working/acquire_shard.py in ingest_archive(task_ids, checkpoint, archive_dir, run_dir, shard_name, slots_per_gpu, time_limit_s, n_iterations)\n"}
+,{"stream_name":"stderr","time":2443.240419367,"data":"    233     dict; also writes `completed_tasks.json` and re-saves the checkpoint\n"}
+,{"stream_name":"stderr","time":2443.240421776,"data":"    234     into `run_dir`.\"\"\"\n"}
+,{"stream_name":"stderr","time":2443.240424556,"data":"--\u003e 235     from src.run001.archive import CandidateArchive, grid_digest\n"}
+,{"stream_name":"stderr","time":2443.24042702,"data":"    236 \n"}
+,{"stream_name":"stderr","time":2443.240429292,"data":"    237     archive = CandidateArchive(\n"}
+,{"stream_name":"stderr","time":2443.240431687,"data":"\n"}
+,{"stream_name":"stderr","time":2443.240433876,"data":"ModuleNotFoundError: No module named 'src'\n"}
+,{"stream_name":"stderr","time":2443.240436205,"data":"\n"}
+,{"stream_name":"stderr","time":2445.456292099,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":2445.456327526,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":2445.502890381,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2445.816610234,"data":"[NbConvertApp] Writing 155651 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2447.220704291,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":2447.220741893,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":2447.253458675,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2448.303875539,"data":"[NbConvertApp] Writing 769713 bytes to __results__.html\n"}
+]

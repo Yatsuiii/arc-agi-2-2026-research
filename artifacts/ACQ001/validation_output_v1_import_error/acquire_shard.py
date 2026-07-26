@@ -225,46 +225,6 @@ def run_shard(task_ids: list[str], checkpoint_path: Path, launcher,
     return {"checkpoint": checkpoint, "any_aborted": any_aborted}
 
 
-def _ingest_one_task(archive, task_id: str, record: dict, archive_dir: Path, grid_digest) -> bool:
-    """Reads one task's `solve_task_cli.py` output and writes it into
-    `archive`. Returns whether ingestion succeeded (missing file or
-    unparseable JSON are recorded as archive errors, not raised)."""
-    out_path = archive_dir / f"{task_id}.json"
-    if not out_path.exists():
-        archive.record_error(task_id, "archive_ingest", RuntimeError("checkpoint says complete but output file missing"))
-        return False
-    try:
-        result = json.loads(out_path.read_text())
-    except json.JSONDecodeError as exc:
-        archive.record_error(task_id, "archive_ingest_parse", exc)
-        return False
-
-    n_candidates = 0
-    for test_index in range(result["n_test"]):
-        for candidate in result["candidates"]:
-            grid = candidate["grid"][test_index]
-            sha1 = grid_digest(grid)
-            archive.record_candidate(
-                task_id=task_id, test_index=test_index, grid=grid, grid_sha1=sha1,
-                solver_branch="compressarc", beam_score=candidate["accumulated_score"],
-            )
-        for rank, attempt in enumerate((result["attempt_1"], result["attempt_2"]), start=1):
-            grid = attempt[test_index]
-            archive.record_selection(
-                task_id=task_id, test_index=test_index, grid_sha1=grid_digest(grid),
-                rank=rank, selected=True, algorithm="compressarc_top2",
-            )
-        n_candidates += len(result["candidates"])
-
-    archive.flush_task(
-        task_id, n_test_inputs=result["n_test"], n_candidates=n_candidates,
-        solve_seconds=result["elapsed_s"], hit_time_guard=result["timed_out"],
-        peak_mem_train_mib=result["peak_memory_bytes"] / (1024 * 1024),
-        gpu_index=record.get("device", ""),
-    )
-    return True
-
-
 def ingest_archive(task_ids: list[str], checkpoint: dict, archive_dir: Path, run_dir: Path,
                     shard_name: str, slots_per_gpu: int = SLOTS_PER_GPU,
                     time_limit_s: float = TIME_LIMIT_S, n_iterations: int = N_ITERATIONS) -> dict:
@@ -272,15 +232,7 @@ def ingest_archive(task_ids: list[str], checkpoint: dict, archive_dir: Path, run
     `CandidateArchive` schema RUN-001's own archive uses. Returns a summary
     dict; also writes `completed_tasks.json` and re-saves the checkpoint
     into `run_dir`."""
-    try:
-        # Repo layout (local tests, `python -m src.run002c...`).
-        from src.run001.archive import CandidateArchive, grid_digest
-    except ModuleNotFoundError:
-        # Kaggle's flat /kaggle/working layout: archive.py is %%writefile'd
-        # alongside this module, not under a `src` package (matches
-        # `solve_task_cli.py`'s own precedent of a runtime path/import
-        # fallback rather than two divergent copies of the same logic).
-        from archive import CandidateArchive, grid_digest
+    from src.run001.archive import CandidateArchive, grid_digest
 
     archive = CandidateArchive(
         run_dir / "archive", shard=shard_name,
@@ -294,11 +246,44 @@ def ingest_archive(task_ids: list[str], checkpoint: dict, archive_dir: Path, run
     )
 
     started = time.time()
-    completed_tasks = [
-        task_id for task_id, record in sorted(checkpoint.items())
-        if record.get("status") == "complete"
-        and _ingest_one_task(archive, task_id, record, archive_dir, grid_digest)
-    ]
+    completed_tasks = []
+    for task_id, record in sorted(checkpoint.items()):
+        if record.get("status") != "complete":
+            continue
+        out_path = archive_dir / f"{task_id}.json"
+        if not out_path.exists():
+            archive.record_error(task_id, "archive_ingest", RuntimeError("checkpoint says complete but output file missing"))
+            continue
+        try:
+            result = json.loads(out_path.read_text())
+        except json.JSONDecodeError as exc:
+            archive.record_error(task_id, "archive_ingest_parse", exc)
+            continue
+
+        n_candidates = 0
+        for test_index in range(result["n_test"]):
+            for candidate in result["candidates"]:
+                grid = candidate["grid"][test_index]
+                sha1 = grid_digest(grid)
+                archive.record_candidate(
+                    task_id=task_id, test_index=test_index, grid=grid, grid_sha1=sha1,
+                    solver_branch="compressarc", beam_score=candidate["accumulated_score"],
+                )
+            for rank, attempt in enumerate((result["attempt_1"], result["attempt_2"]), start=1):
+                grid = attempt[test_index]
+                archive.record_selection(
+                    task_id=task_id, test_index=test_index, grid_sha1=grid_digest(grid),
+                    rank=rank, selected=True, algorithm="compressarc_top2",
+                )
+            n_candidates += len(result["candidates"])
+
+        archive.flush_task(
+            task_id, n_test_inputs=result["n_test"], n_candidates=n_candidates,
+            solve_seconds=result["elapsed_s"], hit_time_guard=result["timed_out"],
+            peak_mem_train_mib=result["peak_memory_bytes"] / (1024 * 1024),
+            gpu_index=record.get("device", ""),
+        )
+        completed_tasks.append(task_id)
 
     for task_id, record in sorted(checkpoint.items()):
         if record.get("status") == "failed":
