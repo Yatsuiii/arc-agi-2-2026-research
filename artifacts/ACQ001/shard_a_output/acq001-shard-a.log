@@ -1,0 +1,67 @@
+[{"stream_name":"stderr","time":6.920086719,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.920132841,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.920137059,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.920139541,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.657449809,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.6574811149999995,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.657485792,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.657489451,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.120965181,"data":"Writing multitensor_systems.py\n"}
+,{"stream_name":"stdout","time":10.137856386,"data":"Writing initializers.py\n"}
+,{"stream_name":"stdout","time":10.162726737,"data":"Writing layers.py\n"}
+,{"stream_name":"stdout","time":10.179739224,"data":"Writing preprocessing.py\n"}
+,{"stream_name":"stdout","time":10.196871064,"data":"Writing arc_compressor.py\n"}
+,{"stream_name":"stdout","time":10.212091408,"data":"Writing scoring.py\n"}
+,{"stream_name":"stdout","time":10.230014667,"data":"Writing visualization.py\n"}
+,{"stream_name":"stdout","time":10.248529645,"data":"Writing solution_selection.py\n"}
+,{"stream_name":"stdout","time":10.265937841,"data":"Writing train.py\n"}
+,{"stream_name":"stdout","time":10.282815348,"data":"Writing solve_task_cli.py\n"}
+,{"stream_name":"stdout","time":10.300639351,"data":"Writing archive.py\n"}
+,{"stream_name":"stdout","time":10.32191434,"data":"Writing acquire_shard.py\n"}
+,{"stream_name":"stdout","time":14.929270387,"data":"torch: 2.6.0+cu124 cuda available: True device count: 2\n"}
+,{"stream_name":"stdout","time":14.929295127,"data":"  cuda:0 = Tesla T4\n"}
+,{"stream_name":"stdout","time":14.929300695,"data":"  cuda:1 = Tesla T4\n"}
+,{"stream_name":"stdout","time":15.131752332,"data":"0 already complete, 80 remaining\n"}
+,{"stream_name":"stdout","time":15.131777342,"data":"wave 0: launched 6 processes: 00576224@cuda:0(pid=40,attempt=1), 045e512c@cuda:0(pid=42,attempt=1), 09c534e7@cuda:0(pid=43,attempt=1), 0e206a2e@cuda:1(pid=44,attempt=1), 12422b43@cuda:1(pid=45,attempt=1), 1478ab18@cuda:1(pid=46,attempt=1)\n"}
+,{"stream_name":"stdout","time":2440.306918954,"data":"wave 0: 2425.1s, aborted=False\n"}
+,{"stream_name":"stdout","time":2440.306953716,"data":"wave 1: launched 6 processes: 195ba7dc@cuda:0(pid=2394,attempt=1), 1a2e2828@cuda:0(pid=2395,attempt=1), 1b59e163@cuda:0(pid=2396,attempt=1), 1f0c79e5@cuda:1(pid=2397,attempt=1), 1f85a75f@cuda:1(pid=2398,attempt=1), 25c199f5@cuda:1(pid=2399,attempt=1)\n"}
+,{"stream_name":"stdout","time":4860.45061975,"data":"wave 1: 2420.1s, aborted=False\n"}
+,{"stream_name":"stdout","time":4860.450671892,"data":"wave 2: launched 6 processes: 27f8ce4f@cuda:0(pid=4744,attempt=1), 29700607@cuda:0(pid=4745,attempt=1), 2c0b0aff@cuda:0(pid=4746,attempt=1), 2de01db2@cuda:1(pid=4747,attempt=1), 332202d5@cuda:1(pid=4748,attempt=1), 3490cc26@cuda:1(pid=4749,attempt=1)\n"}
+,{"stream_name":"stdout","time":7280.620985858,"data":"wave 2: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":7280.621020913,"data":"wave 3: launched 6 processes: 34cfa167@cuda:0(pid=7090,attempt=1), 3906de3d@cuda:0(pid=7091,attempt=1), 3979b1a8@cuda:0(pid=7092,attempt=1), 3d31c5b3@cuda:1(pid=7093,attempt=1), 41ace6b5@cuda:1(pid=7094,attempt=1), 4364c1c4@cuda:1(pid=7095,attempt=1)\n"}
+,{"stream_name":"stdout","time":9700.761918105,"data":"wave 3: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":9700.761983681,"data":"wave 4: launched 6 processes: 48d8fb45@cuda:0(pid=9436,attempt=1), 4a1cacc2@cuda:0(pid=9437,attempt=1), 4ff4c9da@cuda:0(pid=9438,attempt=1), 50c07299@cuda:1(pid=9439,attempt=1), 53b68214@cuda:1(pid=9440,attempt=1), 543a7ed5@cuda:1(pid=9441,attempt=1)\n"}
+,{"stream_name":"stdout","time":12120.924448599,"data":"wave 4: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":12120.924496401,"data":"wave 5: launched 6 processes: 5587a8d0@cuda:0(pid=11782,attempt=1), 56dc2b01@cuda:0(pid=11783,attempt=1), 58e15b12@cuda:0(pid=11784,attempt=1), 5daaa586@cuda:1(pid=11785,attempt=1), 60b61512@cuda:1(pid=11786,attempt=1), 689c358e@cuda:1(pid=11787,attempt=1)\n"}
+,{"stream_name":"stdout","time":14541.075962138,"data":"wave 5: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":14541.075995373,"data":"wave 6: launched 6 processes: 6ca952ad@cuda:0(pid=14128,attempt=1), 6ecd11f4@cuda:0(pid=14129,attempt=1), 6f8cd79b@cuda:0(pid=14130,attempt=1), 780d0b14@cuda:1(pid=14131,attempt=1), 78e78cff@cuda:1(pid=14132,attempt=1), 7c9b52a0@cuda:1(pid=14134,attempt=1)\n"}
+,{"stream_name":"stdout","time":16961.263481255,"data":"wave 6: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":16961.263528444,"data":"wave 7: launched 6 processes: 8719f442@cuda:0(pid=16476,attempt=1), 8886d717@cuda:0(pid=16477,attempt=1), 88a62173@cuda:0(pid=16478,attempt=1), 902510d5@cuda:1(pid=16479,attempt=1), 913fb3ed@cuda:1(pid=16480,attempt=1), 928ad970@cuda:1(pid=16481,attempt=1)\n"}
+,{"stream_name":"stdout","time":19381.443090836,"data":"wave 7: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":19381.443148651,"data":"wave 8: launched 6 processes: 93c31fbe@cuda:0(pid=18822,attempt=1), 94133066@cuda:0(pid=18823,attempt=1), 981add89@cuda:0(pid=18824,attempt=1), 9aec4887@cuda:1(pid=18825,attempt=1), 9b2a60aa@cuda:1(pid=18826,attempt=1), 9f669b64@cuda:1(pid=18827,attempt=1)\n"}
+,{"stream_name":"stdout","time":21801.603424593,"data":"wave 8: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":21801.603481571,"data":"wave 9: launched 6 processes: a09f6c25@cuda:0(pid=21168,attempt=1), a3325580@cuda:0(pid=21169,attempt=1), a64e4611@cuda:0(pid=21170,attempt=1), a68b268e@cuda:1(pid=21171,attempt=1), a8c38be5@cuda:1(pid=21172,attempt=1), ad3b40cf@cuda:1(pid=21173,attempt=1)\n"}
+,{"stream_name":"stdout","time":24221.763964537,"data":"wave 9: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":24221.763997982,"data":"wave 10: launched 6 processes: ad7e01d0@cuda:0(pid=23514,attempt=1), b27ca6d3@cuda:0(pid=23515,attempt=1), b745798f@cuda:0(pid=23516,attempt=1), b7999b51@cuda:1(pid=23517,attempt=1), bb43febb@cuda:1(pid=23518,attempt=1), c1990cce@cuda:1(pid=23519,attempt=1)\n"}
+,{"stream_name":"stdout","time":26641.92124805,"data":"wave 10: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":26641.92129148,"data":"wave 11: launched 6 processes: c62e2108@cuda:0(pid=25862,attempt=1), c8b7cc0f@cuda:0(pid=25863,attempt=1), d4a91cb9@cuda:0(pid=25864,attempt=1), d56f2372@cuda:1(pid=25865,attempt=1), db615bd4@cuda:1(pid=25866,attempt=1), e133d23d@cuda:1(pid=25867,attempt=1)\n"}
+,{"stream_name":"stdout","time":29062.073174752,"data":"wave 11: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":29062.073215942,"data":"wave 12: launched 6 processes: e633a9e5@cuda:0(pid=28208,attempt=1), ea786f4a@cuda:0(pid=28209,attempt=1), edcc2ff0@cuda:0(pid=28210,attempt=1), f1cefba8@cuda:1(pid=28211,attempt=1), f3e14006@cuda:1(pid=28212,attempt=1), f76d97a5@cuda:1(pid=28213,attempt=1)\n"}
+,{"stream_name":"stdout","time":31482.216734737,"data":"wave 12: 2420.2s, aborted=False\n"}
+,{"stream_name":"stdout","time":31482.216783238,"data":"wave 13: launched 2 processes: f8c80d96@cuda:0(pid=30554,attempt=1), ff805c23@cuda:0(pid=30555,attempt=1)\n"}
+,{"stream_name":"stdout","time":33892.345506914,"data":"wave 13: 2410.1s, aborted=False\n"}
+,{"stream_name":"stdout","time":33899.845654583,"data":"{\n"}
+,{"stream_name":"stdout","time":33899.845691286,"data":"  \"shard\": \"A\",\n"}
+,{"stream_name":"stdout","time":33899.845698551,"data":"  \"n_tasks\": 80,\n"}
+,{"stream_name":"stdout","time":33899.845703955,"data":"  \"n_completed\": 80,\n"}
+,{"stream_name":"stdout","time":33899.845709373,"data":"  \"n_failed\": 0\n"}
+,{"stream_name":"stdout","time":33899.845715185,"data":"}\n"}
+,{"stream_name":"stderr","time":33903.226568231,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":33903.226614499,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":33903.278238961,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":33903.62889279,"data":"[NbConvertApp] Writing 158579 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":33905.216933916,"data":"/usr/local/lib/python3.11/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":33905.216999743,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":33905.250942075,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":33906.409598628,"data":"[NbConvertApp] Writing 777621 bytes to __results__.html\n"}
+]

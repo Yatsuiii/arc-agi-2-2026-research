@@ -1,0 +1,9 @@
+{
+  "n_completed": 80,
+  "n_failed": 0,
+  "records_total": 36378,
+  "shard": "A",
+  "shard_task_count": 80,
+  "tasks_flushed": 80,
+  "wall_clock_s": 7.736597061157227
+}

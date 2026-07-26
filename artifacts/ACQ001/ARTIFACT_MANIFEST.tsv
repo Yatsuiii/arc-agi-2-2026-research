@@ -1,0 +1,13 @@
+path	sha256	size_bytes	description
+artifacts/ACQ001/shard_a_output/acq001_a/archive/candidates.A.jsonl.gz	580c764f16e843656e431a55baa5dc68eec792e4cae2a56fd1b52de978c306d9	2040610	Raw candidate + selection records, 36378 total (36208 candidate + 170 selection)
+artifacts/ACQ001/shard_a_output/acq001_a/archive/task_summary.A.csv	1d2c6d012067d2395ece4d371ffb46173e2e1d253df6c969b7e77fc1ade5a3c5	4146	Per-task summary, 80 rows
+artifacts/ACQ001/shard_a_output/acq001_a/archive/run_manifest.A.json	2002ff38a8caf3eee37a21b38f9d871c7b3017d2bc96c7be61132e99893c1196	1514	Frozen-config provenance: C3, 2000 iterations, 2400s timeout, 80 task IDs
+artifacts/ACQ001/shard_a_output/acq001_a/archive/runtime_summary.A.json	eaea3db4b1dea3c5ae0d291b22b04b968a96ef516092263ed2f44bf5095ec209	169	n_completed=80, n_failed=0, records_total=36378
+artifacts/ACQ001/shard_a_output/acq001_a/checkpoint_state.json	94e7165139e7c4ef484fc989c0f8d6019e3d0ea7d9c836e7fbc53286454fb9ac	10271	Per-task status/attempts/device/wall_clock_s, 80 entries, all complete
+artifacts/ACQ001/shard_a_output/acq001_a/completed_tasks.json	f2e01df5b81139ed105d19f14734855452ccedd9cabb86bb2e3c05f0038cc132	1122	80 unique completed task IDs
+artifacts/ACQ001/shard_a_output/acq001_a/telemetry_monitor.log	fb52c2f7f94e997ee7001dcfaf4fb469aeef358658222cb4ec9bb57ab315709b	2496988	nvidia-smi + psutil telemetry samples across the run
+artifacts/ACQ001/shard_a_output/acq001-shard-a.log	14b05e9b160adb9aee9a4ee54418493816b99d94f7a6342e42c2a931929647fe	9682	Kaggle kernel stdout/stderr log (wave launches, timings, final summary)
+artifacts/ACQ001/shard_a_oracle_analysis.json	12b8470272cbd0994455d5b013171f1fd4de791fe5b869fb3337f5a6254fc8d9	16634	Offline oracle-coverage analysis (separate script, run post-generation, legal ground truth only)
+artifacts/ACQ001/shard_a.json	96d586c3828c7e42d130e6f95b30d12ab50806a982bec6bea3be2766626654be	1435	Frozen Shard A task list (Phase 2, pre-generation)
+artifacts/ACQ001/corpus_manifest.json	f5f1564eb91037683c2481b72681decc96ed3165529fd83bec8a2dd8cd402afb	726	Frozen TRAIN/DEV/TEST fold + shard summary (Phase 1, pre-generation)
+artifacts/ACQ001/folds.json	c589f60f1a7da31bbd184466b73a353e84c2ee5e2dd1ff55b99a63c78830cfd8	16340	Full fold assignment, per-task-ID (Phase 1, pre-generation)
