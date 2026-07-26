@@ -1,0 +1,6 @@
+task_id,n_records,n_test_inputs,n_candidates,n_unique_grids,ttt_seconds,solve_seconds,hit_time_guard,gpu_index,peak_mem_train_mib,peak_mem_infer_mib
+00576224,728,1,726,,,2400.1550,1,cuda:0,77.8594,
+045e512c,522,1,520,,,2400.3119,1,cuda:0,813.8228,
+09c534e7,755,1,753,,,2402.2029,1,cuda:0,1412.5420,
+0e206a2e,492,1,490,,,2400.7659,1,cuda:1,736.3452,
+12422b43,719,1,717,,,2400.4506,1,cuda:1,302.5498,

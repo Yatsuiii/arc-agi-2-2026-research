@@ -1,0 +1,15 @@
+{
+  "acquisition": "ACQ-001",
+  "concurrency": "C3 frozen: 3 processes/T4",
+  "n_iterations": 2000,
+  "shard": "VALIDATION",
+  "solver": "CompressARC (vendored + grid-persistence instrumentation)",
+  "task_ids": [
+    "00576224",
+    "045e512c",
+    "09c534e7",
+    "0e206a2e",
+    "12422b43"
+  ],
+  "time_limit_s": 2400
+}

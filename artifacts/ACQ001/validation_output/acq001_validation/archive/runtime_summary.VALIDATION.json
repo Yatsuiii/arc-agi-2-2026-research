@@ -1,0 +1,9 @@
+{
+  "n_completed": 5,
+  "n_failed": 0,
+  "records_total": 3216,
+  "shard": "VALIDATION",
+  "shard_task_count": 5,
+  "tasks_flushed": 5,
+  "wall_clock_s": 0.7895386219024658
+}
