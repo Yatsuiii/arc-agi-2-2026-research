@@ -63,7 +63,7 @@ EXP002-C2.
 
 ## Candidate-oracle coverage (separate offline analysis)
 
-Computed by `src/analysis/acq001_oracle_shard_a.py`, a standalone script
+Computed by `src/analysis/acq001_oracle.py`, a standalone script
 run only after generation completed, using legal ground truth
 (`arc-agi_training_solutions.json` — training split, never the public
 evaluation split, never a Kaggle placeholder). This script was not run

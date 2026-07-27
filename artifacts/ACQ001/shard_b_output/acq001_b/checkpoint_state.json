@@ -1,0 +1,482 @@
+{
+  "05269061": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1535296440125
+  },
+  "0a1d4ef5": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2425.152920484543
+  },
+  "0d3d703e": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2425.1501047611237
+  },
+  "1190bc91": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2425.1496596336365
+  },
+  "12997ef3": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2425.1469719409943
+  },
+  "13713586": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1454594135284
+  },
+  "15696249": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1477978229523
+  },
+  "184a9768": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.147166490555
+  },
+  "19bb5feb": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.14701962471
+  },
+  "1b2d62fb": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1436343193054
+  },
+  "1e5d6875": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.143219232559
+  },
+  "20981f0e": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.136543750763
+  },
+  "234bbc79": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.147619009018
+  },
+  "2c737e39": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1469049453735
+  },
+  "310f3251": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.14678812027
+  },
+  "31aa019c": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1464393138885
+  },
+  "342ae2ed": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1427261829376
+  },
+  "351d6448": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1423165798187
+  },
+  "36fdfd69": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1440262794495
+  },
+  "396d80d7": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1439459323883
+  },
+  "3cd86f4f": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.143459558487
+  },
+  "414297c0": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1430723667145
+  },
+  "423a55dc": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1400990486145
+  },
+  "46c35fc7": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1372244358063
+  },
+  "4e45f183": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.147120475769
+  },
+  "506d28a5": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1464252471924
+  },
+  "50846271": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1461942195892
+  },
+  "52fd389e": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1440143585205
+  },
+  "54d82841": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1435952186584
+  },
+  "57aa92db": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1413264274597
+  },
+  "5a5a2103": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1486790180206
+  },
+  "5d2a5c43": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1485247612
+  },
+  "642248e4": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.147724866867
+  },
+  "6430c8c4": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.144424200058
+  },
+  "69889d6e": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.144286632538
+  },
+  "6df30ad6": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.137351512909
+  },
+  "6f473927": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1410298347473
+  },
+  "6ffe8f07": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1406133174896
+  },
+  "72322fa7": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.140311717987
+  },
+  "72ca375d": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1398940086365
+  },
+  "79cce52d": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.13640832901
+  },
+  "7e4d4f7c": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1359915733337
+  },
+  "7ee1c6ea": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.148583173752
+  },
+  "8a004b2b": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.14852142334
+  },
+  "8ee62060": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1480536460876
+  },
+  "90347967": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.147361755371
+  },
+  "91714a58": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.143984556198
+  },
+  "92e50de0": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.143632888794
+  },
+  "94be5b80": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1424984931946
+  },
+  "992798f6": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1421415805817
+  },
+  "99b1bc43": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.14168715477
+  },
+  "9af7a82c": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1413128376007
+  },
+  "9b30e358": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1373863220215
+  },
+  "9ba4a9aa": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.137242078781
+  },
+  "a3f84088": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.149129152298
+  },
+  "a644e277": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.148257493973
+  },
+  "a78176bb": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1478106975555
+  },
+  "a87f7484": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.147429704666
+  },
+  "af902bf9": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1439912319183
+  },
+  "b0722778": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1439113616943
+  },
+  "b457fec5": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.148003578186
+  },
+  "b4a43f3b": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1473190784454
+  },
+  "b74ca5d1": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.147171497345
+  },
+  "b7fb29bc": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.1467916965485
+  },
+  "b9b7f026": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.142780303955
+  },
+  "bd283c4a": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1424267292023
+  },
+  "c9e6f938": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1514160633087
+  },
+  "ce039d91": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1510899066925
+  },
+  "ce4f8723": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.150648355484
+  },
+  "d631b094": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.150494337082
+  },
+  "d753a70b": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1461498737335
+  },
+  "d9fac9be": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2420.146003484726
+  },
+  "e0fb7511": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2415.1414427757263
+  },
+  "ecb67b6d": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1413407325745
+  },
+  "ed98d772": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2420.1409525871277
+  },
+  "f0f8a26d": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.140184879303
+  },
+  "f35d900a": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.1366908550262
+  },
+  "f823c43c": {
+    "attempts": 1,
+    "device": "cuda:1",
+    "status": "complete",
+    "wall_clock_s": 2415.13631439209
+  },
+  "f8ff0b80": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2410.0797514915466
+  },
+  "fd4b2b02": {
+    "attempts": 1,
+    "device": "cuda:0",
+    "status": "complete",
+    "wall_clock_s": 2410.0793771743774
+  }
+}

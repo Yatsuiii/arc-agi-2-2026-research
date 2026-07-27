@@ -11,3 +11,14 @@ artifacts/ACQ001/shard_a_oracle_analysis.json	12b8470272cbd0994455d5b013171f1fd4
 artifacts/ACQ001/shard_a.json	96d586c3828c7e42d130e6f95b30d12ab50806a982bec6bea3be2766626654be	1435	Frozen Shard A task list (Phase 2, pre-generation)
 artifacts/ACQ001/corpus_manifest.json	f5f1564eb91037683c2481b72681decc96ed3165529fd83bec8a2dd8cd402afb	726	Frozen TRAIN/DEV/TEST fold + shard summary (Phase 1, pre-generation)
 artifacts/ACQ001/folds.json	c589f60f1a7da31bbd184466b73a353e84c2ee5e2dd1ff55b99a63c78830cfd8	16340	Full fold assignment, per-task-ID (Phase 1, pre-generation)
+artifacts/ACQ001/shard_b_output/acq001_b/archive/candidates.B.jsonl.gz	499e84286368a7bbfc08fd86bc0cbbca1ef59276948b78f7b08061811c29d8d6	2078213	Raw candidate + selection records, 37111 total (36939 candidate + 172 selection)
+artifacts/ACQ001/shard_b_output/acq001_b/archive/task_summary.B.csv	8de899a8f06aa670664b5209e2f5125fc36dd050b3fbfec3e7e45fcb28896fe1	4146	Per-task summary, 80 rows
+artifacts/ACQ001/shard_b_output/acq001_b/archive/run_manifest.B.json	21a4916de4db5394117b9860832140547e677b750a9d0c60cc9640260548d43d	1514	Frozen-config provenance: C3, 2000 iterations, 2400s timeout, 80 task IDs
+artifacts/ACQ001/shard_b_output/acq001_b/archive/runtime_summary.B.json	bfad198099f7a085820f4ab5869ee1072b28765fb20839bd05611de2fbcb1e6e	169	n_completed=80, n_failed=0, records_total=37111
+artifacts/ACQ001/shard_b_output/acq001_b/checkpoint_state.json	44d7ca75221489d06753b8c7496b98f7191651038fb49e4105647d20e9433cb1	10271	Per-task status/attempts/device/wall_clock_s, 80 entries, all complete
+artifacts/ACQ001/shard_b_output/acq001_b/completed_tasks.json	213cf961a990391eb0bd10d27fa0a29cc278faf4c9abd837265732b194651ee4	1122	80 unique completed task IDs
+artifacts/ACQ001/shard_b_output/acq001_b/telemetry_monitor.log	4e2806142e80667a4c69a822b45aaa209acaee3599f64c965fe1770d6f125f07	2495584	nvidia-smi + psutil telemetry samples across the run
+artifacts/ACQ001/shard_b_output/acq001-shard-b.log	c4c5abd744000899b2ebb7e1f77e0eacbfcb9067f2b4f39d50f79455f0d3a3d1	9669	Kaggle kernel stdout/stderr log (wave launches, timings, final summary)
+artifacts/ACQ001/shard_b_oracle_analysis.json	a61044613e7115b893c4ab4aeceddb4085d980b7e9fd5102f42e7304a5b660ef	16744	Offline oracle-coverage analysis (separate script, run post-generation, legal ground truth only)
+artifacts/ACQ001/shard_b.json	c904a551fb74e1c27dcdc5281cefc091e3074c4e2781daf5872dc72ce8cec759	1435	Frozen Shard B task list (Phase 2, pre-generation)
+artifacts/ACQ001/merged_corpus_manifest.json	e49a0956e21bade81a4c1376b0988352b3e54354dd16ee4aa8f7ce8cd86e42ab	1745	Combined Shard A + Shard B totals, checksums, and provenance (Phase 5, post-generation)

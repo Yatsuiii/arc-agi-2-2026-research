@@ -1,0 +1,46 @@
+{
+  "acquisition": "ACQ-001",
+  "status": "COMPLETE",
+  "shards": {
+    "A": {
+      "kernel": "redlotusthepotus/acq001-shard-a",
+      "kernel_version": 1,
+      "n_tasks": 80,
+      "n_test_indices": 85,
+      "n_candidates": 36208,
+      "n_selection_records": 170,
+      "n_unique_grids": 35270,
+      "wall_clock_s": 33899.85,
+      "n_oracle_hit": 23,
+      "archive": "artifacts/ACQ001/shard_a_output/acq001_a/archive/candidates.A.jsonl.gz",
+      "archive_sha256": "580c764f16e843656e431a55baa5dc68eec792e4cae2a56fd1b52de978c306d9"
+    },
+    "B": {
+      "kernel": "redlotusthepotus/acq001-shard-b",
+      "kernel_version": 1,
+      "n_tasks": 80,
+      "n_test_indices": 86,
+      "n_candidates": 36939,
+      "n_selection_records": 172,
+      "n_unique_grids": 35410,
+      "wall_clock_s": 33901.05,
+      "n_oracle_hit": 19,
+      "archive": "artifacts/ACQ001/shard_b_output/acq001_b/archive/candidates.B.jsonl.gz",
+      "archive_sha256": "499e84286368a7bbfc08fd86bc0cbbca1ef59276948b78f7b08061811c29d8d6"
+    }
+  },
+  "disjoint_task_ids": true,
+  "union_matches_frozen_test_corpus": true,
+  "combined": {
+    "n_tasks": 160,
+    "n_test_indices": 171,
+    "n_candidates": 73147,
+    "n_unique_grids": 70680,
+    "unique_fraction": 0.9662733946710049,
+    "n_oracle_hit": 42,
+    "oracle_coverage": 0.24561403508771928,
+    "total_wall_clock_s": 67800.9,
+    "total_kaggle_quota_gpu_hours": 37.667166666666665
+  },
+  "note": "Kept as two per-shard archive files (candidates.A.jsonl.gz, candidates.B.jsonl.gz) rather than concatenated into one, matching CandidateArchive's per-shard schema and the RUN-001/EXP002-C2 precedent. This manifest is the single source of truth for the combined 171-index corpus's totals and provenance."
+}

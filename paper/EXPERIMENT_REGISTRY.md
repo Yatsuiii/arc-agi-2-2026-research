@@ -85,16 +85,22 @@ its own. Its purpose is to produce the candidate archive that EXP001-B needs,
 and its accuracy number is contaminated by construction because the checkpoint
 was trained on the split it scores (`docs/systems/NVARC.md` §9).
 
-ACQ-001 (Shard A) is likewise dataset acquisition, not a hypothesis test — it
-supports no claim on its own. Frozen TRAIN/DEV/TEST folds and a 171-index
-TEST corpus (`experiments/ACQ001/SPLIT_MANIFEST.md`), production driver built
-and validated (`experiments/ACQ001/VALIDATION_GATE.md`, PASS), Shard A (80
-tasks/85 test-indices) acquired under frozen C3
-(`experiments/ACQ001/SHARD_A_RESULTS.md`): COMPLETE, 80/80 tasks, 0 failures,
-36,378 archive records, 0 leakage across TRAIN/DEV/TEST. This is the clean,
-non-contaminated corpus EXP001-B/C2 need — Shard B (the remaining ~half of
-the 171-index target) is documented as ready (all 7 success-gate criteria
-pass) but **not launched**, per this task's explicit stop point.
+ACQ-001 is likewise dataset acquisition, not a hypothesis test — it supports
+no claim on its own. Frozen TRAIN/DEV/TEST folds and a 171-index TEST corpus
+(`experiments/ACQ001/SPLIT_MANIFEST.md`), production driver built and
+validated (`experiments/ACQ001/VALIDATION_GATE.md`, PASS), both shards
+acquired under the identical frozen C3 configuration and verified
+byte-for-byte identical to each other's executed code before Shard B's
+launch: Shard A (80 tasks/85 test-indices,
+`experiments/ACQ001/SHARD_A_RESULTS.md`) and Shard B (80 tasks/86
+test-indices, `experiments/ACQ001/SHARD_B_RESULTS.md`), both COMPLETE,
+160/160 tasks, 0 failures, 73,489 combined archive records, 0 leakage across
+TRAIN/DEV/TEST, disjoint task-ID sets whose union matches the frozen
+160-task/171-test-index TEST corpus exactly
+(`experiments/ACQ001/FINAL_CORPUS_REPORT.md`). **This is the clean,
+non-contaminated 171-index corpus EXP001-B/C2 need — corpus acquisition is
+now COMPLETE.** No verifier training, MODEL-001, or RUN-002 work has begun;
+those remain separate, not-yet-started tasks.
 
 ## EXP002: preregistered before RUN-001 landed, executed after
 
