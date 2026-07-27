@@ -132,9 +132,9 @@ def union_candidates(
                 (item.generator_id, item.source_record_id)
                 for item in merged[key].provenance
             }
-            merged[key].provenance.extend(
-                item
-                for item in candidate.provenance
-                if (item.generator_id, item.source_record_id) not in seen
-            )
+            for item in candidate.provenance:
+                provenance_key = (item.generator_id, item.source_record_id)
+                if provenance_key not in seen:
+                    merged[key].provenance.append(item)
+                    seen.add(provenance_key)
     return list(merged.values())
