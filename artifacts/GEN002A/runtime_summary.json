@@ -1,0 +1,10 @@
+{
+  "config_hash": "001373764edde65b",
+  "max_workers": 4,
+  "n_pilot_indices": 24,
+  "n_s0_candidates": 0,
+  "n_s1_candidates": 0,
+  "n_tasks": 24,
+  "n_tasks_completed": 24,
+  "total_wall_clock_s": 16.11
+}

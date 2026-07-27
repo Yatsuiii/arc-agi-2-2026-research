@@ -1,0 +1,10 @@
+{
+  "acquisition": "GEN002A",
+  "beam_width": 25,
+  "config_hash": "001373764edde65b",
+  "max_cost": 12,
+  "max_depth": 3,
+  "n_pilot_indices": 24,
+  "s0_timeout_s": 20.0,
+  "s1_timeout_s": 45.0
+}
