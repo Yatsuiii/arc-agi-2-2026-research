@@ -103,6 +103,25 @@ non-contaminated 171-index corpus EXP001-B/C2 need — corpus acquisition is
 now COMPLETE.** No verifier training, MODEL-001, or RUN-002 work has begun;
 those remain separate, not-yet-started tasks.
 
+GEN001-A is preparation for a possible future generator-complementarity
+pilot, not a hypothesis test on its own — no NVARC inference has run.
+CPU/local only: reconciled ACQ-001/EXP002-D's record counts (no data loss,
+`experiments/GEN001A/CORPUS_COUNT_RECONCILIATION.md`); traced RUN-001's
+NVARC lineage without restoring anything new
+(`experiments/GEN001A/NVARC_LINEAGE_AUDIT.md`); found all 160/160 ACQ-001
+tasks are members of the exact file glob NVARC's SDG pipeline used to build
+its `arc2_training` fine-tuning set, with test-pair outputs directly in the
+training mixture — classified **SCIENTIFICALLY CONTAMINATED**
+(`experiments/GEN001A/CONTAMINATION_AUDIT.md`); froze a deterministic
+24-index pilot sample (`experiments/GEN001A/PILOT_SAMPLE.md`); built and
+locally validated (never launched) a Kaggle 2xT4 pilot kernel package
+restricted to the training-split corpus with all ground-truth-loading code
+paths removed (`experiments/GEN001A/KERNEL_PREFLIGHT.md`). Full suite: 258
+passed. No accuracy or oracle number exists yet — none can be reported
+until a pilot is separately launched, and any future pilot result is
+permanently contamination-labelled and barred from paper claims or from
+the EXP002-D clean-verifier corpus (`experiments/GEN001A/CONTAMINATION_POLICY.md`).
+
 ## EXP002: preregistered before RUN-001 landed, executed after
 
 EXP002's plan (`experiments/EXP002/PLAN.md`) was committed at `c8f08a4` while

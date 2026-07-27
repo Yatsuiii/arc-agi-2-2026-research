@@ -80,7 +80,15 @@ project's negative-result discipline (Appendix B). The dominant finding,
 75.44% of held-out test-indices having no correct candidate at all
 regardless of selection mechanism, redirects the paper's likely
 contribution toward generation-side analysis rather than a verifier
-result, per `docs/POST_ACQ001_STRATEGIC_DECISION.md`.
+result, per `docs/POST_ACQ001_STRATEGIC_DECISION.md`. GEN001-A
+(`experiments/GEN001A/PLAN.md`, `docs/GENERATOR_EXPANSION_STRATEGY.md`)
+is CPU-only preparation for testing that generation-side hypothesis with
+a second, architecturally distinct generator (a restored NVARC-lineage
+branch); no pilot has run, and the restored checkpoint has independently
+been found scientifically contaminated against ACQ-001's exact 160-task
+corpus (`experiments/GEN001A/CONTAMINATION_AUDIT.md`), so no accuracy
+claim exists yet and any future pilot result from it can never be clean
+paper evidence.
 
 ## 7. Ablations
 

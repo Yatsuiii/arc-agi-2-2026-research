@@ -177,6 +177,21 @@ consistent with this document's own reason for keeping the two branches
 separate rather than conflating "task is hard" with "solver ranked
 correctly but was misgraded."
 
+## GEN001-A: no taxonomy entries yet
+
+GEN001-A's pilot preflight (`experiments/GEN001A/PLAN.md`) built and locally
+validated a Kaggle pilot kernel but did not launch it — no NVARC prediction
+exists on ACQ-001's corpus. There is therefore nothing to label under this
+taxonomy yet. Once (if) a pilot runs, its candidates are eligible only for
+the G-branch/T-branch labels this document's "cross-solver comparability"
+guard already anticipates for a solver we do not fully control (NVARC
+supplies `ranked` output; per-augmentation `score_aug` is available since
+the pilot inherits RUN-001's own archiving instrumentation, so S3/S4 remain
+computable too, unlike CompressARC's `.npz`-only predictions) — and every
+label produced from it must carry the contamination status established in
+`experiments/GEN001A/CONTAMINATION_AUDIT.md`, never presented as
+taxonomy evidence on par with a clean solver's labels.
+
 ## Cross-solver comparability
 
 The taxonomy's purpose is comparing *where* different solvers fail, which is the

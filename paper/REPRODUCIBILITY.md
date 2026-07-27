@@ -95,6 +95,19 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   bit-identical across different BLAS/thread-count environments (a
   scikit-learn-level caveat, not one this project's own code introduces).
 
+- GEN001-A's pilot preflight is fully CPU-only and reproducible from
+  committed source: `python -m src.gen001.build_pilot_manifest`,
+  `python -m src.gen001.build_pilot_notebook`,
+  `python -m src.gen001.validate_pilot_notebook`, and
+  `python -m src.gen001.pilot_runner` (the last runs a mock, schema-valid
+  dry run with `checkpoint_id="MOCK"`, never a real NVARC result). Together
+  with `tests/gen001/` (22 tests), these reproduce
+  `artifacts/GEN001A/pilot_manifest.json`,
+  `kaggle/gen001_nvarc_pilot/gen001a_pilot.ipynb`, and
+  `artifacts/GEN001A/mock_pilot_output/` byte-for-byte. No GEN001-A pilot
+  has actually been launched on Kaggle; there is no real-run output to
+  reproduce yet.
+
 ## RUN-001 environment, measured
 
 Pinning the reference docker image is required, not cosmetic: under the default

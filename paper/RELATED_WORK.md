@@ -202,6 +202,17 @@ produces a search that cannot fail.
 | --- | --- | --- | --- |
 | — | — | — | — |
 
+## GEN001-A cross-reference
+
+`experiments/GEN001A/NVARC_LINEAGE_AUDIT.md` traces exactly which NVARC
+branch this project restored (RUN-001: branch 1 only, Qwen3-4B, no TRM, no
+ensembling) and what was and was not modified in restoring it. It is a
+public NVARC-lineage branch, not evidence about any current private
+competition system — no claim in this repository asserts otherwise, and
+`experiments/GEN001A/NVARC_LINEAGE_AUDIT.md` and
+`docs/GENERATOR_EXPANSION_STRATEGY.md` repeat that distinction explicitly
+wherever the restored checkpoint is discussed.
+
 ## Closest-prior-work statement
 
 To be written once a thesis is selected. Must name the single nearest published
