@@ -131,7 +131,7 @@ def compute_candidate_features(candidate_index: pd.DataFrame) -> pd.DataFrame:
         cand_grid = _to_nested_list(rec.grid)
         struct = structural_features(cand_grid, test_input, demo_pairs)
 
-        rank = rec.native_rank if rec.native_rank is not None else 0
+        rank = rec.native_rank if pd.notna(rec.native_rank) else 0
         row = {
             "task_id": rec.task_id,
             "test_index": rec.test_index,

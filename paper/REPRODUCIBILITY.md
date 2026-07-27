@@ -82,6 +82,19 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   metadata-only and trivially re-runnable but not expected to reproduce
   identical values across different Kaggle session allocations.
 
+- ACQ-001's clean-corpus reconciliation and EXP002-D's full verifier
+  evaluation are both CPU-only and reproducible from committed source and
+  the immutable ACQ-001 archives: `python -m src.analysis.exp002d.corpus`,
+  `.folds`, `.features`, `.run_eval`, `.stats`, `.calibration`,
+  `.ablation`, `.error_taxonomy`, in that order, ~3.2 minutes total
+  (`experiments/EXP002D/RESOURCE_ANALYSIS.md`). Every fold seed
+  (`20260727`) and negative-sampling seed is fixed; rerunning reproduces
+  `artifacts/EXP002D/metrics.json` and every other artifact byte-for-byte,
+  except `HistGradientBoostingClassifier`'s own internal parallelism,
+  which is deterministic given `random_state` but not guaranteed
+  bit-identical across different BLAS/thread-count environments (a
+  scikit-learn-level caveat, not one this project's own code introduces).
+
 ## RUN-001 environment, measured
 
 Pinning the reference docker image is required, not cosmetic: under the default

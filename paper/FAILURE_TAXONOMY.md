@@ -161,6 +161,22 @@ mode). Recorded here, per this project's discipline of stating explicitly
 when an experiment does not change a given document rather than leaving
 the omission unexplained.
 
+## EXP002-D: generation-vs-selection split, applied at scale
+
+EXP002-D's own error taxonomy (`experiments/EXP002D/ERROR_ANALYSIS.md`,
+`artifacts/EXP002D/error_taxonomy.csv`) applies this document's core
+generation/selection split to all 171 of ACQ-001's held-out test-indices:
+**129 (75.44%) are generation failures** (no correct candidate exists,
+this document's G-branch, not yet sub-classified into G1-G6 in this
+pass), 17 are ranking failures with a correct candidate present
+(S-branch), 17 both-succeed, and only 8 total show any disagreement
+between the native selector and the best alternative verifier tested (6
+native-only-success, 2 verifier-rescue). The overwhelming majority of
+this corpus's error budget is G-branch, not S-branch — directly
+consistent with this document's own reason for keeping the two branches
+separate rather than conflating "task is hard" with "solver ranked
+correctly but was misgraded."
+
 ## Cross-solver comparability
 
 The taxonomy's purpose is comparing *where* different solvers fail, which is the

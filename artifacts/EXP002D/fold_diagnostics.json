@@ -1,0 +1,87 @@
+{
+  "0": {
+    "n_test_tasks": 34,
+    "n_fit_tasks": 102,
+    "n_calib_tasks": 24,
+    "n_fit_positives": 30,
+    "n_calib_positives": 4,
+    "n_test_positives": 8,
+    "v2_best_model": "logreg",
+    "v4_best_model": "hgb",
+    "ensemble_weights": {
+      "score_native": 0.5,
+      "score_V2": 0.5,
+      "score_V4": 0.0,
+      "consensus_frequency": 0.0
+    },
+    "v1_reproduces_v0_direction": true
+  },
+  "1": {
+    "n_test_tasks": 33,
+    "n_fit_tasks": 102,
+    "n_calib_tasks": 25,
+    "n_fit_positives": 28,
+    "n_calib_positives": 4,
+    "n_test_positives": 10,
+    "v2_best_model": "logreg",
+    "v4_best_model": "hgb",
+    "ensemble_weights": {
+      "score_native": 0.0,
+      "score_V2": 0.0,
+      "score_V4": 0.5,
+      "consensus_frequency": 0.5
+    },
+    "v1_reproduces_v0_direction": true
+  },
+  "2": {
+    "n_test_tasks": 31,
+    "n_fit_tasks": 103,
+    "n_calib_tasks": 26,
+    "n_fit_positives": 27,
+    "n_calib_positives": 9,
+    "n_test_positives": 6,
+    "v2_best_model": "logreg",
+    "v4_best_model": "logreg",
+    "ensemble_weights": {
+      "score_native": 1.0,
+      "score_V2": 0.0,
+      "score_V4": 0.0,
+      "consensus_frequency": 0.0
+    },
+    "v1_reproduces_v0_direction": true
+  },
+  "3": {
+    "n_test_tasks": 31,
+    "n_fit_tasks": 103,
+    "n_calib_tasks": 26,
+    "n_fit_positives": 30,
+    "n_calib_positives": 7,
+    "n_test_positives": 5,
+    "v2_best_model": "logreg",
+    "v4_best_model": "hgb",
+    "ensemble_weights": {
+      "score_native": 0.5,
+      "score_V2": 0.5,
+      "score_V4": 0.0,
+      "consensus_frequency": 0.0
+    },
+    "v1_reproduces_v0_direction": true
+  },
+  "4": {
+    "n_test_tasks": 31,
+    "n_fit_tasks": 103,
+    "n_calib_tasks": 26,
+    "n_fit_positives": 22,
+    "n_calib_positives": 7,
+    "n_test_positives": 13,
+    "v2_best_model": "logreg",
+    "v4_best_model": "hgb",
+    "ensemble_weights": {
+      "score_native": 0.3333333333333333,
+      "score_V2": 0.6666666666666666,
+      "score_V4": 0.0,
+      "consensus_frequency": 0.0
+    },
+    "v1_reproduces_v0_direction": true
+  }
+}

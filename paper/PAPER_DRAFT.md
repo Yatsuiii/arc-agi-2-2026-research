@@ -69,7 +69,18 @@ per-idea organisation there is deliberate and should survive into the paper.
 
 ## 6. Results
 
-`[BLOCKED]`
+`[BLOCKED]` for the paper's headline result. One component result is
+available: EXP002-D's powered verifier evaluation
+(`experiments/EXP002D/RESULTS.md`) found that no model-independent or
+hybrid verifier recovers any of the measured 11.1pp gap between
+candidate-set oracle coverage (24.56%) and CompressARC's native top-2
+selection (13.45%) on ACQ-001's clean 171-index corpus — a negative
+result for the selection-side thesis (C2), reported honestly per this
+project's negative-result discipline (Appendix B). The dominant finding,
+75.44% of held-out test-indices having no correct candidate at all
+regardless of selection mechanism, redirects the paper's likely
+contribution toward generation-side analysis rather than a verifier
+result, per `docs/POST_ACQ001_STRATEGIC_DECISION.md`.
 
 ## 7. Ablations
 
@@ -108,3 +119,10 @@ they cannot be quietly dropped later:
 
 `[SCAFFOLD]` Every killed experiment from `paper/EXPERIMENT_REGISTRY.md` appears
 here with its original preregistered hypothesis. This appendix is not optional.
+
+One entry available now: **EXP002-D** preregistered 6 verifier tracks
+(`experiments/EXP002D/PLAN.md`) against a >=2.8pp top-2 accuracy success
+threshold; every non-trivial track scored below the frozen native
+baseline instead, most significantly (`experiments/EXP002D/RESULTS.md`).
+Reported here in full per this project's negative-result discipline, not
+omitted because the hypothesis failed.

@@ -39,6 +39,17 @@ numeric tables in `experiments/EXP002C/PILOT_RESULTS.md`,
 of the three and none is planned; per rule 1, this is stated explicitly
 rather than left silent.
 
+## EXP002-D: no figure
+
+Verifier evaluation over ACQ-001's corpus — the numeric tables in
+`experiments/EXP002D/RESULTS.md`, `ABLATION_RESULTS.md`, and
+`CALIBRATION_RESULTS.md` are the full record (reliability-diagram data is
+present in `artifacts/EXP002D/calibration.json`'s `reliability_bins`
+field but not yet plotted). No plotting script exists for this pass and
+none is planned unless a future pass revisits the negative result with a
+different generator/feature family; per rule 1, stated explicitly rather
+than left silent.
+
 ## Note on F1/F2/T1
 
 These three are producible today, CPU-only, from data already on disk. They are

@@ -1,0 +1,13 @@
+path	sha256	size_bytes	description
+artifacts/EXP002D/canonical_candidate_index.parquet	e3a002fa23fea9ea16f5d39b3fb5e1b4baae74aae8d709df80c32103e9257477	5981413	Phase 1: 70,680 unique candidates, one row per (task_id, test_index, grid_sha1)
+artifacts/EXP002D/test_index_summary.parquet	e966cd47da4e9761a71dd94364507e6eb46d4d87910d3da5d4996e30a0b4c639	9695	Phase 1: 171 test-indices, oracle/native-hit indicators
+artifacts/EXP002D/fold_assignments.json	1a1d3b25ff4c7cb1f77bdbabc208d1ce70687240855d3366245acf9c7a89d731	5663	Phase 2: 5 outer task-grouped folds + inner-calibration splits, seed 20260727
+artifacts/EXP002D/candidate_features.parquet	990691964d8e5448f78382091e843c204cd82251ff55e6263cdc89e8620f3b0f	4903238	Phase 4: F0-F5 feature vectors, 70,680 rows x 34 columns
+artifacts/EXP002D/model_predictions.parquet	8ca7777730de3b237dac4878b602f5121400164ebac5f86e6f81231bd2a75ab4	8185713	Phase 5: V1-V6 pooled out-of-fold scores for every candidate
+artifacts/EXP002D/test_index_track_results.parquet	c01c89a953a0f438852b06ce4defa2338f55c119e7a08c844158a7ce4b5971fa	9053	Phase 7: per-test-index top1/top2/mrr for every track (naive + diversity-aware)
+artifacts/EXP002D/fold_diagnostics.json	1b2be285678c8bd4403c0bfb10af485665033b14df2b4673ea1e0e90bb6d725a	2067	Phase 6: per-fold task/positive counts, model selections, ensemble weights
+artifacts/EXP002D/candidate_level_diagnostics.json	98c1e2d7cef0c4bc0e4946f96cdba77486fb05aad268d1f50d7f9a1a6c9155ce	530	Phase 9: candidate-row AUROC/AUPRC diagnostics (dependent rows, not a significance claim)
+artifacts/EXP002D/metrics.json	d81d095d9f3d0121a59ce049aa2842c2bbb3faaf491afbae798ad1731eee9708	9194	Phase 9: top1/top2/MRR/oracle-gap-recovery/McNemar/bootstrap CI per track
+artifacts/EXP002D/calibration.json	f67f3cbe99a257b1383ce2c2ae3f92a1f685e2960ee9af7c780faa28da16b022	16421	Phase 8: rank-1 calibration + candidate-set sufficiency per track
+artifacts/EXP002D/ablation_results.json	1046b12b11b1ca62004545e3549282296535dddccac1c7869c9f5846171b99ae	3719	Phase 10: A0-A6 bounded ablation matrix
+artifacts/EXP002D/error_taxonomy.csv	0f766b226b0eb889ec4366c0f9a4cd17c56b5213efa37a2ff4fadc2a268d61e9	10476	Phase 11: per-test-index error classification, V0 vs V4
