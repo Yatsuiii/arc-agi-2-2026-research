@@ -295,7 +295,7 @@ def copy_object(grid: Grid, objs: ObjectSet, direction: Direction, distance: int
     cells = [
         (r + direction.dr * distance, c + direction.dc * distance, colour)
         for o in objs
-        for (r, c), colour in o.colours.items()
+        for (r, c), colour in o.colours
     ]
     h, w = gridmod.dims(grid)
     out = [list(row) for row in grid]
