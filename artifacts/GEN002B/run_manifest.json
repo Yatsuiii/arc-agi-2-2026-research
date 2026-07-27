@@ -1,0 +1,23 @@
+{
+  "acquisition": "GEN002B",
+  "config": {
+    "acquisition": "GEN002B",
+    "background_hypotheses_per_task": 2,
+    "connectivity_hypotheses": [
+      4,
+      8
+    ],
+    "fallback": {
+      "s0_max_states": 2000,
+      "s0_timeout_s": 2.0,
+      "s1_max_states": 5000,
+      "s1_timeout_s": 6.0
+    },
+    "stage_order": [
+      "S2-A",
+      "S2-B",
+      "S2-C"
+    ]
+  },
+  "manifest_id": "GEN002B_VALIDATION_V1_TASK_DISJOINT_STRIDE24"
+}

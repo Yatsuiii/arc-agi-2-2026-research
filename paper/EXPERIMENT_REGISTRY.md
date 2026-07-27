@@ -75,6 +75,7 @@ Copy into `experiments/<ID>/RESULT.md`.
 | EXP002-C3 | vCPU-aware CompressARC throughput pilot (B1 thread-capped, B2 vCPU-derived concurrency, vs. frozen C3) | **COMPLETE — verdict KEEP FROZEN C3** | `441e9b6` | `experiments/EXP002C3/RESULTS.md` | none yet - acquisition-throughput engineering, feeds EXP002-D |
 | EXP002-D | Powered clean-corpus verifier evaluation: V0-V6 over ACQ-001's 171-index corpus, task-grouped 5-fold CV | **COMPLETE — verdict FREEZE VERIFIER RESEARCH; GENERATION IS THE DOMINANT BOTTLENECK** | `21ccd59` | `experiments/EXP002D/RESULTS.md` | C2 (negative result: no tested verifier recovered any of the 11.1pp oracle gap; every non-trivial track underperformed the frozen native baseline, most significantly) |
 | GEN002-A | Clean CPU-only typed object-centric program-synthesis generator on GEN001-A's frozen 24-index pilot | **COMPLETE — NULL; STOP THIS FROZEN DSL/SEARCH CONFIGURATION** | `14dea9f` | `experiments/GEN002A/RESULTS.md` | C5 rejected at this bounded implementation (0/12 Group-A rescues; no candidate emitted) |
+| GEN002-B | Train/dev-driven symbolic generator redesign on a fresh task-disjoint 24-index validation pilot | **COMPLETE — NULL; FREEZE SYMBOLIC RESEARCH** | `367f0f2` | `experiments/GEN002B/RESULTS.md` | C5 further rejected at the redesigned CPU-only implementation (0/12 Group-A2 rescues; no candidate emitted) |
 
 Status values: `PREREGISTERED`, `RUNNING`, `COMPLETE`, `KILLED`, `ABANDONED`
 (with reason).

@@ -107,6 +107,16 @@ Three sources of non-determinism, handled explicitly rather than hoped away:
   `artifacts/GEN001A/mock_pilot_output/` byte-for-byte. No GEN001-A pilot
   has actually been launched on Kaggle; there is no real-run output to
   reproduce yet.
+- GEN002-B is fully CPU-only and reproducible from committed source:
+  `python -m src.gen002b.build_validation_manifest`, the benchmark and
+  validation runner entrypoints in `src.gen002b.runner`, and
+  `python -m src.gen002b.offline_analysis`. The frozen benchmark task IDs,
+  fallback budgets, and fresh validation manifest are persisted in
+  `artifacts/GEN002B/frozen_config.json` and
+  `artifacts/GEN002B/validation_manifest.json`. The run is deterministic
+  because every stage is pure and there is no stochastic search or learned
+  ranking. Expected outputs are the files listed in
+  `experiments/GEN002B/ARTIFACT_MANIFEST.tsv`.
 
 ## RUN-001 environment, measured
 

@@ -177,7 +177,10 @@ recursive forward passes in the training loop) and did not have time to try it.
 Taken together: **program synthesis that works on ARC-AGI-1 has not been shown
 to transfer to ARC-AGI-2 by anyone in the local evidence.** That is a strong,
 specific, citable gap, and it means "do SOAR on ARC-AGI-2" is a high-risk thesis
-rather than an obvious one.
+rather than an obvious one. Our own two CPU-only symbolic-generator pilots
+reinforce the difficulty from the negative side: GEN002-A and GEN002-B both
+failed to emit a single correct candidate on fresh ARC-AGI-2 held-out pilots
+despite clean-room typed DSL search and a fresh manifest for GEN002-B.
 
 ## Idea 8: Compression / MDL as the objective
 

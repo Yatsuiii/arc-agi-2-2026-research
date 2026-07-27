@@ -1,0 +1,266 @@
+{
+  "classification_counts": {
+    "missing_language": 22,
+    "search_failure": 2
+  },
+  "compressarc_oracle": 12,
+  "exact_program_total": 0,
+  "gen002b_oracle": 0,
+  "group_a2_rescues": 0,
+  "group_b2_rescues": 0,
+  "group_c2_successes": 0,
+  "incremental_indices": [],
+  "indices_with_candidates": 0,
+  "manifest_id": "GEN002B_VALIDATION_V1_TASK_DISJOINT_STRIDE24",
+  "n_validation_indices": 24,
+  "rows": [
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "5587a8d0",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "c1990cce",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "a3f84088",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "c62e2108",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "5a5a2103",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "396d80d7",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "46c35fc7",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "6ca952ad",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "2c737e39",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "5daaa586",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "5d2a5c43",
+      "test_index": 1
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": false,
+      "correct": false,
+      "group": "A2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "a8c38be5",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "60b61512",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "6df30ad6",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "913fb3ed",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "642248e4",
+      "test_index": 0
+    },
+    {
+      "classification": "search_failure",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "88a62173",
+      "test_index": 0
+    },
+    {
+      "classification": "search_failure",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "B2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "c8b7cc0f",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "00576224",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "1478ab18",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "69889d6e",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "7ee1c6ea",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "ea786f4a",
+      "test_index": 0
+    },
+    {
+      "classification": "missing_language",
+      "compressarc_oracle_hit": true,
+      "correct": false,
+      "group": "C2",
+      "n_candidates": 0,
+      "n_exact_programs": 0,
+      "task_id": "9ba4a9aa",
+      "test_index": 0
+    }
+  ],
+  "runtime_summary": {
+    "n_completed_indices": 24,
+    "peak_ram_mb": 136.105,
+    "states_explored": 168000,
+    "total_runtime_s": 6.937
+  },
+  "union_oracle": 12,
+  "unique_candidates": 0
+}

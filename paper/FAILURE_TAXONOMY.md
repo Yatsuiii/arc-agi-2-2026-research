@@ -192,6 +192,19 @@ label produced from it must carry the contamination status established in
 `experiments/GEN001A/CONTAMINATION_AUDIT.md`, never presented as
 taxonomy evidence on par with a clean solver's labels.
 
+## GEN002-B: clean symbolic-generator null on a fresh pilot
+
+GEN002-B's fresh task-disjoint validation pilot
+(`experiments/GEN002B/RESULTS.md`, `artifacts/GEN002B/offline_analysis.json`)
+extends the same observable-discipline to a symbolic generator. The clean
+held-out result is 24/24 completed indices, 0 emitted candidates, 0
+correct candidates, 22 `missing_language`, 2 `search_failure`, 0
+`generalization_failure`, 0 `representation_failure`, and 0 Group-A2
+rescues. The key point for the paper is methodological rather than
+celebratory: even after a preregistered redesign on TRAIN/DEV and a fresh
+manifest, the dominant observed failure remains generation-side language
+coverage, not ranking.
+
 ## Cross-solver comparability
 
 The taxonomy's purpose is comparing *where* different solvers fail, which is the

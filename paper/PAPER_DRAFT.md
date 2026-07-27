@@ -69,8 +69,7 @@ per-idea organisation there is deliberate and should survive into the paper.
 
 ## 6. Results
 
-`[BLOCKED]` for the paper's headline result. One component result is
-available: EXP002-D's powered verifier evaluation
+`[EVIDENCE]` The negative-result picture is now clearer. EXP002-D's powered verifier evaluation
 (`experiments/EXP002D/RESULTS.md`) found that no model-independent or
 hybrid verifier recovers any of the measured 11.1pp gap between
 candidate-set oracle coverage (24.56%) and CompressARC's native top-2
@@ -88,7 +87,14 @@ branch); no pilot has run, and the restored checkpoint has independently
 been found scientifically contaminated against ACQ-001's exact 160-task
 corpus (`experiments/GEN001A/CONTAMINATION_AUDIT.md`), so no accuracy
 claim exists yet and any future pilot result from it can never be clean
-paper evidence.
+paper evidence. GEN002-B (`experiments/GEN002B/RESULTS.md`) then tested a
+fresh task-disjoint symbolic-generator redesign on a new 24-index pilot and
+also returned a clean null: 24/24 completed, 0 candidates, 0/12 Group-A2
+rescues, 22 `missing_language`, 2 `search_failure`, and union oracle
+unchanged at 12/24. The defensible paper result is therefore a negative one:
+under small-compute, CPU-only, auditable conditions, neither selection-side
+verification nor the executed symbolic-generator line moved held-out
+ARC-AGI-2 coverage.
 
 ## 7. Ablations
 
