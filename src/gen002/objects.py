@@ -55,17 +55,25 @@ def _count_components(cells: set[Cell]) -> int:
 
 @dataclass(frozen=True)
 class Object:
-    """One connected component. `cells` and `colours` are keyed by absolute
-    grid coordinates; `mask` is a background-normalised (0/1) view local to
-    the bounding box, used for shape identity independent of position."""
+    """One connected component. `cells` is keyed by absolute grid
+    coordinates; `colours` is a sorted tuple of `(cell, colour)` pairs
+    (not a `dict` — a dataclass field must be hashable for `Object` itself
+    to be hashable, which the search engine's semantic-hash dedup
+    requires, `search/cache.py`). `mask` is a background-normalised (0/1)
+    view local to the bounding box, used for shape identity independent
+    of position."""
 
     cells: frozenset[Cell]
-    colours: dict[Cell, int]
+    colours: tuple[tuple[Cell, int], ...]
     bbox: tuple[int, int, int, int]  # (min_row, min_col, max_row, max_col)
 
     @property
+    def colours_dict(self) -> dict[Cell, int]:
+        return dict(self.colours)
+
+    @property
     def colour_set(self) -> frozenset[int]:
-        return frozenset(self.colours.values())
+        return frozenset(colour for _, colour in self.colours)
 
     @property
     def area(self) -> int:
@@ -187,6 +195,10 @@ def extract_objects(
             rs = [cc[0] for cc in cells]
             cs = [cc[1] for cc in cells]
             objects.append(
-                Object(cells=cells, colours=component, bbox=(min(rs), min(cs), max(rs), max(cs)))
+                Object(
+                    cells=cells,
+                    colours=tuple(sorted(component.items())),
+                    bbox=(min(rs), min(cs), max(rs), max(cs)),
+                )
             )
     return tuple(objects)
