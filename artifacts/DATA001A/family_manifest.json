@@ -1,0 +1,49 @@
+{
+  "bucket_counts": {
+    "connect_markers:horizontal": 436,
+    "connect_markers:vertical": 429,
+    "crop_to_content:core": 433,
+    "delete_smallest_object:core": 438,
+    "duplicate_then_crop:core": 438,
+    "duplicate_to_markers:core": 439,
+    "fill_container:core": 438,
+    "recolor_primary:core": 439,
+    "symmetry_completion:horizontal": 439,
+    "symmetry_completion:vertical": 439,
+    "tile_by_markers:horizontal": 377,
+    "tile_by_markers:vertical": 378,
+    "translate_then_recolor:core": 438,
+    "translate_to_marker:core": 439
+  },
+  "family_counts": {
+    "connect_markers": 865,
+    "crop_to_content": 433,
+    "delete_smallest_object": 438,
+    "duplicate_then_crop": 438,
+    "duplicate_to_markers": 439,
+    "fill_container": 438,
+    "recolor_primary": 439,
+    "symmetry_completion": 878,
+    "tile_by_markers": 755,
+    "translate_then_recolor": 438,
+    "translate_to_marker": 439
+  },
+  "train_buckets": [
+    "connect_markers:horizontal",
+    "crop_to_content:core",
+    "delete_smallest_object:core",
+    "duplicate_to_markers:core",
+    "fill_container:core",
+    "recolor_primary:core",
+    "symmetry_completion:vertical",
+    "tile_by_markers:horizontal",
+    "translate_then_recolor:core",
+    "translate_to_marker:core"
+  ],
+  "validation_buckets": [
+    "connect_markers:vertical",
+    "duplicate_then_crop:core",
+    "symmetry_completion:horizontal",
+    "tile_by_markers:vertical"
+  ]
+}

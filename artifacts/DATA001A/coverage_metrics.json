@@ -1,0 +1,232 @@
+{
+  "acq001_held_out": {
+    "largest_gaps": [
+      {
+        "count": 35,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 27,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "4-6",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 27,
+        "descriptor": [
+          "smaller",
+          "145+",
+          "7+",
+          "7+",
+          "output-change"
+        ]
+      },
+      {
+        "count": 25,
+        "descriptor": [
+          "same",
+          "145+",
+          "5-6",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 19,
+        "descriptor": [
+          "same",
+          "145+",
+          "3-4",
+          "7+",
+          "shape-preserve"
+        ]
+      }
+    ],
+    "nearest_distance_mean": 1.91,
+    "unique_descriptor_coverage": 0.14035087719298245,
+    "weighted_descriptor_coverage": 0.08743169398907104
+  },
+  "arc_train": {
+    "largest_gaps": [
+      {
+        "count": 103,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 68,
+        "descriptor": [
+          "smaller",
+          "145+",
+          "7+",
+          "7+",
+          "output-change"
+        ]
+      },
+      {
+        "count": 48,
+        "descriptor": [
+          "same",
+          "145+",
+          "5-6",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 47,
+        "descriptor": [
+          "same",
+          "145+",
+          "3-4",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 40,
+        "descriptor": [
+          "same",
+          "65-144",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      }
+    ],
+    "nearest_distance_mean": 1.754,
+    "unique_descriptor_coverage": 0.1171875,
+    "weighted_descriptor_coverage": 0.145
+  },
+  "compressarc_generation_failures": {
+    "largest_gaps": [
+      {
+        "count": 15,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 11,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "4-6",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 11,
+        "descriptor": [
+          "smaller",
+          "145+",
+          "7+",
+          "7+",
+          "output-change"
+        ]
+      },
+      {
+        "count": 10,
+        "descriptor": [
+          "same",
+          "145+",
+          "3-4",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 8,
+        "descriptor": [
+          "same",
+          "145+",
+          "5-6",
+          "7+",
+          "shape-preserve"
+        ]
+      }
+    ],
+    "n_indices": 129,
+    "nearest_distance_mean": 1.977,
+    "unique_descriptor_coverage": 0.1111111111111111,
+    "weighted_descriptor_coverage": 0.046511627906976744
+  },
+  "compressarc_oracle_hits": {
+    "largest_gaps": [
+      {
+        "count": 3,
+        "descriptor": [
+          "same",
+          "145+",
+          "5-6",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 3,
+        "descriptor": [
+          "smaller",
+          "65-144",
+          "5-6",
+          "7+",
+          "output-change"
+        ]
+      },
+      {
+        "count": 2,
+        "descriptor": [
+          "same",
+          "145+",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 2,
+        "descriptor": [
+          "same",
+          "65-144",
+          "7+",
+          "7+",
+          "shape-preserve"
+        ]
+      },
+      {
+        "count": 1,
+        "descriptor": [
+          "larger",
+          "<=25",
+          "7+",
+          "4-6",
+          "output-change"
+        ]
+      }
+    ],
+    "n_indices": 42,
+    "nearest_distance_mean": 1.714,
+    "unique_descriptor_coverage": 0.15625,
+    "weighted_descriptor_coverage": 0.21428571428571427
+  }
+}

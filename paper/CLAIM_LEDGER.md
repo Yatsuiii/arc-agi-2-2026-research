@@ -58,3 +58,12 @@ Things we will explicitly not claim, recorded so we do not drift into them.
 | --- | --- | --- | --- |
 | C4 | Running a per-task solver to its full budget can *lose* correct answers it had already ranked into the top 2, so knowing when to stop is a distinct lever from knowing how to rank. | Per-task rank trajectories over the compute budget | **SUPPORTED on ARC-AGI-1** (EXP001-A: 10 of 400 evaluation tasks, 2.5pp, an eighth of the solver's score). Unplanned finding; needs replication on ARC-AGI-2. |
 | C5 | A bounded typed object-centric program synthesizer provides clean incremental candidate coverage on CompressARC's ARC-AGI-2 generation failures. | Candidate oracle union on a frozen clean pilot, with generation isolated from ground-truth analysis | **REJECTED for both executed CPU-only program-synthesis configurations.** GEN002-A: 0/12 Group-A rescues, 0 candidates emitted across 24/24 completed pilot indices (`experiments/GEN002A/RESULTS.md`). GEN002-B: fresh task-disjoint validation pilot, 0/12 Group-A2 rescues, 0 candidates emitted, union oracle unchanged at 12/24 (`experiments/GEN002B/RESULTS.md`). This rejects the executed bounded symbolic-generator line under these frozen language/search configurations; it does not prove program synthesis in general is impossible. |
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A update
+
+| ID | Claim | Evidence | Status |
+| --- | --- | --- | --- |
+| C6 | A clean synthetic ARC curriculum with executable provenance can be built locally without leaking ACQ-001 held-out tasks. | `experiments/DATA001A/RESULTS.md`, `LEAKAGE_AUDIT.md` | WEAKENED |
+| C7 | The synthetic curriculum covers materially more descriptor space than the frozen symbolic DSL and is operationally ready for a bounded learned-generator pilot. | `experiments/DATA001A/COVERAGE_ANALYSIS.md`, `LOCAL_VALIDATION.md` | WEAKENED |
+<!-- DATA001A:END -->

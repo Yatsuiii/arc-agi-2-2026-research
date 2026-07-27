@@ -1,0 +1,59 @@
+{
+  "accepted_tasks": 6000,
+  "accepted_train": 4316,
+  "accepted_validation": 1684,
+  "attempts": 6140,
+  "composition_depth_distribution": {
+    "1": 5124,
+    "2": 876
+  },
+  "curriculum_distribution": {
+    "1": 1750,
+    "2": 2071,
+    "3": 1303,
+    "4": 876
+  },
+  "family_bucket_distribution": {
+    "connect_markers:horizontal": 436,
+    "connect_markers:vertical": 429,
+    "crop_to_content:core": 433,
+    "delete_smallest_object:core": 438,
+    "duplicate_then_crop:core": 438,
+    "duplicate_to_markers:core": 439,
+    "fill_container:core": 438,
+    "recolor_primary:core": 439,
+    "symmetry_completion:horizontal": 439,
+    "symmetry_completion:vertical": 439,
+    "tile_by_markers:horizontal": 377,
+    "tile_by_markers:vertical": 378,
+    "translate_then_recolor:core": 438,
+    "translate_to_marker:core": 439
+  },
+  "family_distribution": {
+    "connect_markers": 865,
+    "crop_to_content": 433,
+    "delete_smallest_object": 438,
+    "duplicate_then_crop": 438,
+    "duplicate_to_markers": 439,
+    "fill_container": 438,
+    "recolor_primary": 439,
+    "symmetry_completion": 878,
+    "tile_by_markers": 755,
+    "translate_then_recolor": 438,
+    "translate_to_marker": 439
+  },
+  "generator_version": "data001a.v1",
+  "quarantined_tasks": 0,
+  "rejected_tasks": 140,
+  "rejection_reasons": {
+    "identity_task": 13,
+    "trivial_constant_output": 127
+  },
+  "size_relation_distribution": {
+    "inconsistent": 522,
+    "larger": 113,
+    "same": 4494,
+    "smaller": 871
+  },
+  "throughput_tasks_per_attempt": 0.9772
+}

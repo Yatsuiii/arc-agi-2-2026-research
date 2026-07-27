@@ -140,3 +140,9 @@ threshold; every non-trivial track scored below the frozen native
 baseline instead, most significantly (`experiments/EXP002D/RESULTS.md`).
 Reported here in full per this project's negative-result discipline, not
 omitted because the hypothesis failed.
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A: Clean synthetic generator preflight
+
+After freezing verifier research and the CPU-only symbolic line, we built a clean-room synthetic ARC generator and model-independent training harness instead of iterating the rejected solver families again. The final frozen DATA001-A pilot produced 6000 accepted tasks from 6140 attempts, spanning 11 executable transformation families and two composition depths, with no admitted exact or structural overlap against the ACQ-001 held-out reference set. Descriptor coverage against CompressARC's held-out generation-failure subset reached weighted coverage 0.047, materially broader than the frozen symbolic DSL's effective support, while local harness checks passed for direct-grid and optional structured-trace supervision. This does not yet demonstrate a learned generator improves held-out accuracy; it establishes that the clean data and infrastructure needed for that test now exist. The next experiment is therefore a bounded MODEL001-A pilot, not another verifier or symbolic redesign.
+<!-- DATA001A:END -->

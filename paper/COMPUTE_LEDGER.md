@@ -79,3 +79,7 @@ Consequence, and it drives Phase 12: the first experiment must be CPU-only or
 must reuse a single stored artifact from one GPU run. Any thesis whose decisive
 experiment needs more than ~4 baseline runs to test is not testable before the
 deadline and should be rejected in Phase 11 on those grounds alone.
+
+<!-- DATA001A:BEGIN -->
+| 2026-07-27 | DATA001-A clean synthetic generator, leakage firewall, pilot corpus, coverage analysis, and model-independent harness | local CPU | ~minutes incl. 3 corpus rebuilds, local validation, and artifact generation | 0 | `experiments/DATA001A/RESULTS.md`. CPU-only, no Kaggle, no cloud GPU, no paid API. Final frozen pilot: 6000 accepted tasks / 6140 attempts, 0 quarantined overlaps, local harness validation complete. |
+<!-- DATA001A:END -->

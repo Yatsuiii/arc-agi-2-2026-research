@@ -1,0 +1,32 @@
+{
+  "balanced_batches_from_first_64_direct_examples": 20,
+  "checkpoint_stub": "artifacts/DATA001A/mock_checkpoint.json",
+  "config_hash": "7408a15bfbb7bc7ab7a2235062ec4761d5d2b382a9992103f5675cda31206db9",
+  "mock_eval_report": {
+    "malformed_outputs": 14,
+    "n_examples": 128,
+    "oracle_accuracy": 1.0,
+    "top1_accuracy": 1.0
+  },
+  "train_direct_plus_trace_stats": {
+    "max": 6412,
+    "mean": 2291.52,
+    "min": 425,
+    "n_examples": 8632,
+    "p95": 4007
+  },
+  "train_direct_stats": {
+    "max": 5379,
+    "mean": 2022.19,
+    "min": 425,
+    "n_examples": 4316,
+    "p95": 3562
+  },
+  "validation_direct_stats": {
+    "max": 4265,
+    "mean": 1802.1,
+    "min": 428,
+    "n_examples": 1684,
+    "p95": 3140
+  }
+}

@@ -220,3 +220,9 @@ wherever the restored checkpoint is discussed.
 
 To be written once a thesis is selected. Must name the single nearest published
 method and state the delta in one sentence. Currently blocked on Phase 11 → 12.
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A synthetic-data position
+
+DATA001-A adopts the executable-validation lesson shared by the strongest synthetic-data systems while rejecting direct reuse of contaminated or unlicensed ARC-specific corpora. The resulting pipeline is closer in spirit to NVARC's SDG discipline than to a hand-curated curriculum, but it is a clean-room reimplementation with typed programs, deterministic provenance, and a held-out leakage firewall. SOAR motivates the auxiliary structured-trace target; ARChitects motivates aggressive quality gates; GEN002-B's null result motivates the shift away from symbolic search as the primary clean path.
+<!-- DATA001A:END -->

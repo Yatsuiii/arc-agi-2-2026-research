@@ -155,3 +155,13 @@ reflecting the determinism policy above.
 `[OPEN]` Not yet chosen. ARC Prize prize-eligibility has historically required
 open sourcing under a permissive licence; the choice must be made before any
 submission, not after.
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A reproducibility notes
+
+- Generator version: `data001a.v1`
+- Dataset manifest: `artifacts/DATA001A/dataset_manifest.json`
+- Coverage manifest: `artifacts/DATA001A/coverage_metrics.json`
+- Frozen local-training config hash: `7408a15bfbb7bc7ab7a2235062ec4761d5d2b382a9992103f5675cda31206db9`
+- All accepted tasks carry deterministic seeds, canonical hashes, and typed program IDs.
+<!-- DATA001A:END -->

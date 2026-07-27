@@ -215,3 +215,14 @@ evidence base for routing (C1) and verification (C3) claims. Two guards:
    rules.
 2. When a solver cannot supply the artifacts a category needs, that category is
    reported as `N/A` for that solver rather than imputed.
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A failure categories
+
+Synthetic generation rejections in the frozen pilot were dominated by:
+
+- `trivial_constant_output`: 127
+- `identity_task`: 13
+
+No accepted task was later reclassified as leaked or corrupted.
+<!-- DATA001A:END -->

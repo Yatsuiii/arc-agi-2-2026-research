@@ -1,0 +1,15 @@
+{
+  "dataset_name": "DATA001A synthetic pilot",
+  "family_disjoint_validation_buckets": [
+    "connect_markers:vertical",
+    "duplicate_then_crop:core",
+    "symmetry_completion:horizontal",
+    "tile_by_markers:vertical"
+  ],
+  "generator_version": "data001a.v1",
+  "max_attempts": 9000,
+  "program_records": 6000,
+  "target_accept": 6000,
+  "train_records": 4316,
+  "validation_records": 1684
+}

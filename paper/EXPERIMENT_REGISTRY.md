@@ -300,3 +300,15 @@ records the resource constraints (4 effective vCPUs, 14.6 GiB VRAM/T4,
 GPU-sharing throughput tax) this pilot's measurements impose on any future
 MODEL-001 base-model choice. No further acquisition was launched, per the
 explicit execution limits this pass operated under.
+
+<!-- DATA001A:BEGIN -->
+## DATA001-A — Synthetic generator and neural-prior preflight
+
+Status: COMPLETE on 2026-07-27.
+
+- Branch: `data001a-synthetic-prior`
+- Clean-room synthetic pilot corpus: 6000 accepted tasks from 6140 attempts
+- Leakage result: 0 exact/structural overlaps admitted, 0 quarantined tasks
+- Verdict: REDESIGN SYNTHETIC PIPELINE
+- Next phase prepared, not launched: MODEL001-A
+<!-- DATA001A:END -->
