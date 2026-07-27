@@ -1,0 +1,278 @@
+{
+  "acquisition": "GEN001A",
+  "group_sizes": {
+    "A": 12,
+    "B": 6,
+    "C": 6
+  },
+  "pilot_n_test_indices": 24,
+  "selection_rule": "Deterministic: sort each group's pool by (size_relation, large_grid, n_input_colours, task_id, test_index), then take an evenly-strided sample. No randomness. No selection based on expected NVARC outcome.",
+  "source_task_stats": "artifacts/data_audit/task_statistics.csv",
+  "source_taxonomy": "artifacts/EXP002D/error_taxonomy.csv",
+  "test_indices": [
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 1.8,
+      "size_relation": "inconsistent",
+      "task_id": "d631b094",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 7,
+      "objects_input_mean": 1.5,
+      "size_relation": "larger",
+      "task_id": "310f3251",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 2,
+      "objects_input_mean": 8.6,
+      "size_relation": "same",
+      "task_id": "ce039d91",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 5,
+      "objects_input_mean": 28.25,
+      "size_relation": "same",
+      "task_id": "41ace6b5",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 7,
+      "objects_input_mean": 17.333,
+      "size_relation": "same",
+      "task_id": "1b59e163",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 8,
+      "objects_input_mean": 6.0,
+      "size_relation": "same",
+      "task_id": "94be5b80",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": true,
+      "n_input_colours": 3,
+      "objects_input_mean": 8.8,
+      "size_relation": "same",
+      "task_id": "3490cc26",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": true,
+      "n_input_colours": 6,
+      "objects_input_mean": 168.5,
+      "size_relation": "same",
+      "task_id": "db615bd4",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": true,
+      "n_input_colours": 8,
+      "objects_input_mean": 14.0,
+      "size_relation": "same",
+      "task_id": "72322fa7",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 4,
+      "objects_input_mean": 8.571,
+      "size_relation": "smaller",
+      "task_id": "25c199f5",
+      "test_index": 1
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": false,
+      "n_input_colours": 8,
+      "objects_input_mean": 4.5,
+      "size_relation": "smaller",
+      "task_id": "12997ef3",
+      "test_index": 1
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": false,
+      "group": "A",
+      "large_grid": true,
+      "n_input_colours": 3,
+      "objects_input_mean": 36.8,
+      "size_relation": "smaller",
+      "task_id": "2c0b0aff",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 2,
+      "objects_input_mean": 1.5,
+      "size_relation": "larger",
+      "task_id": "c9e6f938",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 4,
+      "objects_input_mean": 2.0,
+      "size_relation": "same",
+      "task_id": "4a1cacc2",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 36.0,
+      "size_relation": "same",
+      "task_id": "36fdfd69",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 8,
+      "objects_input_mean": 3.0,
+      "size_relation": "same",
+      "task_id": "0d3d703e",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 4,
+      "objects_input_mean": 5.833,
+      "size_relation": "smaller",
+      "task_id": "e133d23d",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": false,
+      "compressarc_oracle_hit": true,
+      "group": "B",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 10.857,
+      "size_relation": "smaller",
+      "task_id": "a68b268e",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 3.6,
+      "size_relation": "larger",
+      "task_id": "53b68214",
+      "test_index": 1
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 1,
+      "objects_input_mean": 0.0,
+      "size_relation": "same",
+      "task_id": "6f8cd79b",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 2,
+      "objects_input_mean": 2.5,
+      "size_relation": "same",
+      "task_id": "e0fb7511",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 11.0,
+      "size_relation": "same",
+      "task_id": "05269061",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 7,
+      "objects_input_mean": 5.5,
+      "size_relation": "same",
+      "task_id": "29700607",
+      "test_index": 0
+    },
+    {
+      "compressarc_native_top2_hit": true,
+      "compressarc_oracle_hit": true,
+      "group": "C",
+      "large_grid": false,
+      "n_input_colours": 6,
+      "objects_input_mean": 16.8,
+      "size_relation": "smaller",
+      "task_id": "d9fac9be",
+      "test_index": 0
+    }
+  ]
+}
