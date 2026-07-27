@@ -1,0 +1,10 @@
+path	sha256	size_bytes	description
+artifacts/GEN002A/run_manifest.json	255085402f086f5a1389f31f306a608d970f186bd734142915b0cb343f932a64	196	Frozen search configuration and 24-index pilot identity
+artifacts/GEN002A/runtime_summary.json	032a7a3e04a97cd163890eb6a46dd3b000a09bc36c87a05169a9fedba1389cfa	207	Phase 6 completion and candidate counts
+artifacts/GEN002A/task_summary.csv	b7ad7c8c813a6d4af8503c9f08a34b451a6e1f06850b91dada7eeee9a968ef85	1551	Per-index S0/S1 states, exact programs, candidates, timeouts, and runtime
+artifacts/GEN002A/s0_candidates.jsonl.gz	3123b91d66ee02412201a76917d9e3cacdbe13df6bfdd2b10be6b548c724af96	45	Phase 6 S0 candidate archive; valid empty gzip stream
+artifacts/GEN002A/s1_candidates.jsonl.gz	faf6e86ba0f8fddce0751b03dd9367411ebe3a61e3a8085f6d100837be27cd75	45	Phase 6 S1 candidate archive; valid empty gzip stream
+artifacts/GEN002A/oracle_analysis.json	6b8f42a2047f75a1015904907e372e89d7145d895db169c180ade9c359c480ff	695	Phase 7 candidate-oracle and CompressARC union set arithmetic
+artifacts/GEN002A/search_diagnostics.json	e94dd63a98caad86345056e5129c2497c4284ab03536f51e1724c5663a3e6828	3982	Phase 8 training-only best-agreement diagnostics
+artifacts/GEN002A/error_taxonomy.csv	aa0e522e9eabdc5e3b5623c21aa86e4cadbdf21c50522d4c3ed6874b0682a0e1	1634	Phase 8 per-index bounded failure classification
+artifacts/GEN002A/error_taxonomy_summary.json	228ec0b3c28026888bc573c25617cbb22ed11c32aff4041bf206f37dd21fc208	783	Phase 8 category counts and operational classification rule
