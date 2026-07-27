@@ -79,6 +79,10 @@ def _priority(program: Program, cache: SearchCache, train_outputs: tuple[Grid, .
 @dataclass
 class BestFirstResult(SearchResult):
     beam_sizes_by_depth: list[int] = field(default_factory=list)
+    # Analysis-only summaries of the strongest training agreement observed.
+    # Neither field participates in the exact-match emission gate.
+    best_n_solved: int = 0
+    best_pixel_agreement: float = 0.0
 
 
 def search_best_first(
@@ -120,6 +124,8 @@ def search_best_first(
                 result.exact_programs.append(candidate)
             priority = _priority(candidate, cache, train_outputs)
             scored.append((priority, candidate))
+            result.best_n_solved = max(result.best_n_solved, priority[0])
+            result.best_pixel_agreement = max(result.best_pixel_agreement, priority[1])
 
         scored.sort(key=lambda item: item[0], reverse=True)
         kept = scored[:BEAM_WIDTH]

@@ -1,0 +1,27 @@
+{
+  "category_counts": {
+    "missing_language": 17,
+    "search_failure": 7
+  },
+  "category_counts_by_group": {
+    "A": {
+      "missing_language": 10,
+      "search_failure": 2
+    },
+    "B": {
+      "missing_language": 4,
+      "search_failure": 2
+    },
+    "C": {
+      "missing_language": 3,
+      "search_failure": 3
+    }
+  },
+  "classification_rule": {
+    "generalization_failure": "training-exact candidate(s) emitted, none equals the test target",
+    "missing_language": "no candidate emitted and no explored program exactly solved any training pair",
+    "search_failure": "no candidate emitted, but an explored program exactly solved at least one training pair",
+    "success": "at least one emitted candidate equals the test target"
+  },
+  "n_pilot_indices": 24
+}
