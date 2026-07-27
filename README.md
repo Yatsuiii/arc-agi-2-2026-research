@@ -5,6 +5,69 @@ Independent ARC-AGI-2 solver and paper-track project for ARC Prize 2026.
 Developed paper-first: every experiment is preregistered before it runs, and
 failed hypotheses stay in the record.
 
+## Research posture
+
+This repository is organized as a research log, not as a single polished
+solver release.
+
+- `main` is the stable landing branch and project index.
+- major experiments live on dedicated branches and remain separated when they
+  represent materially different hypotheses or contamination status.
+- negative results are preserved rather than rewritten away.
+- clean evidence, contaminated competition engineering, and descriptive
+  post-hoc analysis are tracked separately.
+
+## Current status
+
+As of `2026-07-27`, the repository has four main research lines:
+
+1. `EXP001` selection-analysis work:
+   complete on ARC-AGI-1 recorded traces; selection headroom is supported,
+   predictor work on ARC-AGI-2 is still blocked on `RUN-001`.
+2. `GEN001/GEN002` symbolic and verifier lines:
+   verifier research was frozen and two symbolic-generator configurations
+   (`gen002a-program-synthesis-preflight`, `gen002b-dsl-redesign`) both ended
+   as negative results.
+3. `DATA001-A` clean synthetic generator preflight:
+   successful on provenance, schemas, leakage control, and local harness
+   validation, but failed its original coverage gate.
+4. `DATA001-B` coverage-first synthetic redesign:
+   completed on `data001b-coverage-curriculum` at
+   `fb6b7c1b259b0a354ef82f18fd862c3749633e5d`; clean generation and leakage
+   controls held, and the frozen phase verdict is
+   `ADOPT COVERAGE-FIRST SYNTHETIC PIPELINE`.
+
+`main` intentionally does not auto-merge all experiment branches. The branch
+itself is the frozen record for that line of work.
+
+## Branch guide
+
+| Branch | Purpose | Latest status |
+| --- | --- | --- |
+| `main` | stable index branch | current repository landing page |
+| `acq001-clean-corpus-shard-a` | held-out corpus curation | completed corpus branch |
+| `run001-nvarc-baseline` | contaminated NVARC baseline path | prepared, not launched in this clean repo state |
+| `exp002c2-oversubscription-pilot` | verifier oversubscription pilot | historical experiment branch |
+| `exp002c3-vcpu-throughput` | verifier throughput study | historical experiment branch |
+| `exp002d-powered-clean-verifier` | clean verifier line | frozen negative result |
+| `gen001a-nvarc-restoration-preflight` | NVARC restoration preflight | frozen branch |
+| `gen002a-program-synthesis-preflight` | first symbolic generator line | frozen negative result |
+| `gen002b-dsl-redesign` | redesigned symbolic generator line | frozen negative result |
+| `data001a-synthetic-prior` | clean synthetic preflight | redesign required after coverage shortfall |
+| `data001b-coverage-curriculum` | coverage-first synthetic redesign | adopted clean synthetic direction for future MODEL001-A |
+
+## How to read the repo
+
+Start here:
+
+1. `README.md`
+2. `paper/EXPERIMENT_REGISTRY.md`
+3. `paper/CLAIM_LEDGER.md`
+4. `docs/PROJECT_STATE.md`
+
+Then follow the experiment branches and their `experiments/<ID>/` directories
+for preregistrations, results, and artifacts.
+
 ## Workspace structure
 
 ```
@@ -75,19 +138,17 @@ python -m src.data_audit        # ~4 s  -> artifacts/data_audit/
 python -m src.analysis.headroom # ~20 s -> artifacts/exp001/
 ```
 
-## Current phase
+## Historical baseline note
 
-**Audit complete. Baseline selected. EXP001 Stage A measured. No thesis
-committed yet.**
+The material below reflects the original `main`-branch baseline state before
+the later `GEN002*` and `DATA001*` research branches were split out.
 
-Phases 0-12 of the evidence study are done. EXP001 Stage A ran on CPU against
-CompressARC's published traces and reproduced its headline numbers exactly,
-which verifies the analysis pipeline. On the held-out ARC-AGI-1 evaluation split
-it found 14.25pp of selection headroom and an 8x compute reduction available to
-an oracle allocator. Both surviving theses keep their premises.
+At that point:
 
-Nothing has been trained. No GPU notebook has been launched. No checkpoint has
-been downloaded.
+- audit and baseline-selection work were complete;
+- `EXP001` Stage A had been measured on CPU;
+- no Kaggle notebook had been launched from this clean repo state;
+- no checkpoint had been downloaded into the repository.
 
 ## Calendar
 
@@ -108,10 +169,10 @@ at `~/arc-agi-2-2026/.tools/kaggle-venv/bin/kaggle` authenticates. The note at
 Persona verification may still gate prize eligibility and submission. It does
 not gate API access.
 
-## Exact next step
+## Original next planned step on main
 
-**RUN-001**, specified in `docs/BASELINE_SELECTION.md`. One precondition
-remains:
+The original next planned step recorded on `main` was **RUN-001**, specified in
+`docs/BASELINE_SELECTION.md`. One precondition remained:
 
 - Read and record the licence of the Kaggle model
   `sorokin/qwen3_4b_grids15_sft139` from its web page. The Kaggle API exposes no
@@ -119,9 +180,9 @@ remains:
   data (`sorokin/nvarc-*`) is licensed `unknown`, which is a reason for
   pessimism.
 
-RUN-001 forks the 2026 T4x2 notebook, changes nothing about the model, the
-test-time training, the decoding or the selection, and adds only the persistence
+RUN-001 would fork the 2026 T4x2 notebook, change nothing about the model, the
+test-time training, the decoding or the selection, and add only the persistence
 of the per-candidate records the notebook already builds in memory. One 12-hour
-run then supports every CPU-only selection experiment that follows.
+run would then support every CPU-only selection experiment that follows.
 
 **Not to be launched without approval.**
