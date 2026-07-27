@@ -18,6 +18,8 @@ def test_enumerative_finds_a_one_step_program():
 def test_best_first_finds_a_one_step_program():
     res = search_best_first(TRAIN_IN, TRAIN_OUT_ROTATE90, max_states=20000, timeout_s=45)
     assert len(res.exact_programs) >= 1
+    assert res.best_n_solved == len(TRAIN_IN)
+    assert res.best_pixel_agreement == 1.0
     for program in res.exact_programs:
         for grid, target in zip(TRAIN_IN, TRAIN_OUT_ROTATE90):
             assert evaluate(program, grid) == target
