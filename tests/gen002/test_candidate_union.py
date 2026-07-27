@@ -54,6 +54,14 @@ def test_same_grid_on_different_test_indices_does_not_merge():
     assert len(union_candidates([a, b])) == 2
 
 
+def test_repeated_source_record_provenance_is_not_duplicated():
+    candidate = normalize_compressarc(
+        {"task_id": "task", "test_index": 0, "grid": [[1]]}
+    )
+    merged = union_candidates([candidate, candidate])
+    assert len(merged[0].provenance) == 1
+
+
 def test_normalized_record_has_no_selection_field():
     candidate = normalize_nvarc(
         {"task_id": "task", "test_index": 0, "grid": [[1]]}
