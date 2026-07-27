@@ -1,0 +1,12 @@
+{
+  "checkpoint_id": "MOCK",
+  "config_hash": "d616af6818bc4d59",
+  "contamination_status": "SCIENTIFICALLY_CONTAMINATED",
+  "hit_global_cap": false,
+  "n_completed": 24,
+  "n_manifest_rows": 24,
+  "n_run_this_call": 24,
+  "records_total": 72,
+  "shard": "pilot",
+  "tasks_flushed": 24
+}

@@ -1,0 +1,13 @@
+{
+  "adaptation_steps": 128,
+  "augmentation_count": 16,
+  "candidate_cap": 64,
+  "checkpoint_id": "MOCK",
+  "contamination_status": "SCIENTIFICALLY_CONTAMINATED",
+  "global_time_cap_s": 42000,
+  "per_task_time_cap_s": 1200,
+  "quantization": "nf4-4bit",
+  "seed": 20260727,
+  "selection_algorithm": "score_kgmon",
+  "tokenizer_vocab_size": 16
+}
