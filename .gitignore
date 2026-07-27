@@ -34,3 +34,5 @@ experiments/*/runs/
 !artifacts/GEN001A/**
 !artifacts/GEN002A/
 !artifacts/GEN002A/**
+!artifacts/DATA001B/
+!artifacts/DATA001B/**

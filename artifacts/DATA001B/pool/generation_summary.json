@@ -1,0 +1,27 @@
+{
+  "accepted_pool": 22084,
+  "attempts": 32000,
+  "depth_distribution": {
+    "1": 2623,
+    "2": 16795,
+    "3": 2666
+  },
+  "family_distribution": {
+    "F10_graph_rewrite": 1295,
+    "F11_occlusion_completion": 2666,
+    "F12_conditional_composition": 2666,
+    "F1_multi_move": 1306,
+    "F2_correspondence": 1363,
+    "F3_relational_selection": 2185,
+    "F4_dense_rearrangement": 1285,
+    "F5_panel_transform": 2667,
+    "F6_large_output": 2667,
+    "F7_colour_roles": 1317,
+    "F8_container_content": 2667
+  },
+  "quarantine_count": 0,
+  "rejected": 9916,
+  "rejection_reasons": {
+    "identity": 9916
+  }
+}

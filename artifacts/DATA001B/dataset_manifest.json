@@ -1,0 +1,9 @@
+{
+  "direct_grid_token_count": 23998861,
+  "selected_total": 7031,
+  "selected_train": 5781,
+  "selected_validation": 1250,
+  "selection_objective": "frozen_greedy_quota_diversity_token_penalty_v1",
+  "token_budget": 24000000,
+  "trace_token_count": 21175872
+}

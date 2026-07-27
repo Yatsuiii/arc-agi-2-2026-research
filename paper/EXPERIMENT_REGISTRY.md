@@ -312,3 +312,16 @@ Status: COMPLETE on 2026-07-27.
 - Verdict: REDESIGN SYNTHETIC PIPELINE
 - Next phase prepared, not launched: MODEL001-A
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B — Coverage-first synthetic curriculum redesign
+
+Status: COMPLETE on 2026-07-27.
+
+- Branch: `data001b-coverage-curriculum`
+- Pool: 22084 accepted tasks from 32000 attempts
+- Selected corpus: 7031 tasks under 23998861 direct-grid tokens
+- Leakage result: 0 exact/structural overlaps admitted, 0 quarantined tasks
+- Verdict: ADOPT COVERAGE-FIRST SYNTHETIC PIPELINE
+- Next phase prepared, not launched: MODEL001-A
+<!-- DATA001B:END -->

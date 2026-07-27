@@ -67,3 +67,12 @@ Things we will explicitly not claim, recorded so we do not drift into them.
 | C6 | A clean synthetic ARC curriculum with executable provenance can be built locally without leaking ACQ-001 held-out tasks. | `experiments/DATA001A/RESULTS.md`, `LEAKAGE_AUDIT.md` | WEAKENED |
 | C7 | The synthetic curriculum covers materially more descriptor space than the frozen symbolic DSL and is operationally ready for a bounded learned-generator pilot. | `experiments/DATA001A/COVERAGE_ANALYSIS.md`, `LOCAL_VALIDATION.md` | WEAKENED |
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B update
+
+| ID | Claim | Evidence | Status |
+| --- | --- | --- | --- |
+| C8 | Coverage-first synthetic redesign can materially improve descriptor alignment with difficult ARC-like distributions while remaining leakage-clean and CPU-feasible. | `experiments/DATA001B/COVERAGE_ANALYSIS.md`, `LEAKAGE_AUDIT.md`, `RESULTS.md` | SUPPORTED |
+| C9 | The frozen DATA001-B selected corpus is sufficient to justify launching MODEL001-A immediately. | `experiments/DATA001B/HARDWARE_PROJECTION.md`, `RESULTS.md`, `docs/DATA001B_DECISION.md` | SUPPORTED |
+<!-- DATA001B:END -->

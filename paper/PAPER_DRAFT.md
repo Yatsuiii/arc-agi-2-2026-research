@@ -146,3 +146,9 @@ omitted because the hypothesis failed.
 
 After freezing verifier research and the CPU-only symbolic line, we built a clean-room synthetic ARC generator and model-independent training harness instead of iterating the rejected solver families again. The final frozen DATA001-A pilot produced 6000 accepted tasks from 6140 attempts, spanning 11 executable transformation families and two composition depths, with no admitted exact or structural overlap against the ACQ-001 held-out reference set. Descriptor coverage against CompressARC's held-out generation-failure subset reached weighted coverage 0.047, materially broader than the frozen symbolic DSL's effective support, while local harness checks passed for direct-grid and optional structured-trace supervision. This does not yet demonstrate a learned generator improves held-out accuracy; it establishes that the clean data and infrastructure needed for that test now exist. The next experiment is therefore a bounded MODEL001-A pilot, not another verifier or symbolic redesign.
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B summary
+
+DATA001-B preserved the DATA001-A clean generator architecture and redesigned coverage first. A broader pool of 22084 executable tasks was generated from 32000 attempts, then compressed into a 7031-task corpus under a 24M direct-grid token budget. Leakage remained clean, and the selected corpus reached weighted descriptor coverage 0.147 on the 129 CompressARC generation failures, clearing the frozen DATA001-B gate relative to the DATA001-A baseline of 0.047. The resulting verdict is ADOPT COVERAGE-FIRST SYNTHETIC PIPELINE.
+<!-- DATA001B:END -->

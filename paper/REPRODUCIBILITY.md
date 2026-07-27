@@ -165,3 +165,15 @@ submission, not after.
 - Frozen local-training config hash: `7408a15bfbb7bc7ab7a2235062ec4761d5d2b382a9992103f5675cda31206db9`
 - All accepted tasks carry deterministic seeds, canonical hashes, and typed program IDs.
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B reproducibility notes
+
+- Generator version: `data001b.v1`
+- Pool manifest: `artifacts/DATA001B/pool/pool_manifest.json`
+- Dataset manifest: `artifacts/DATA001B/dataset_manifest.json`
+- Family manifest: `artifacts/DATA001B/family_manifest.json`
+- Coverage analysis: `experiments/DATA001B/COVERAGE_ANALYSIS.md`
+- Frozen selection objective: `frozen_greedy_quota_diversity_token_penalty_v1`
+- All selected tasks carry deterministic seeds, canonical hashes, typed family IDs, token-cost metadata, and structured traces.
+<!-- DATA001B:END -->

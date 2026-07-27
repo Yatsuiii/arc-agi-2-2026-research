@@ -226,3 +226,9 @@ Synthetic generation rejections in the frozen pilot were dominated by:
 
 No accepted task was later reclassified as leaked or corrupted.
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B note
+
+DATA001-B did not use held-out outputs during generation. Its failure mode is distributional: the clean synthetic curriculum still undercovers large-grid, high-colour, dense relational, and large-output-construction regions relative to the difficult ARC descriptor surface. This is a curriculum/selection limitation, not a verifier or symbolic-search issue.
+<!-- DATA001B:END -->

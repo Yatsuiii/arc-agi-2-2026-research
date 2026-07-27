@@ -1,0 +1,41 @@
+{
+  "family_counts": {
+    "F10_graph_rewrite": 428,
+    "F11_occlusion_completion": 336,
+    "F12_conditional_composition": 1172,
+    "F1_multi_move": 813,
+    "F2_correspondence": 420,
+    "F3_relational_selection": 709,
+    "F4_dense_rearrangement": 530,
+    "F5_panel_transform": 658,
+    "F6_large_output": 336,
+    "F7_colour_roles": 846,
+    "F8_container_content": 783
+  },
+  "train_buckets": [
+    "F10:anchor_connect",
+    "F11:repeat_completion",
+    "F12:container_then_move",
+    "F1:shared_vector",
+    "F2:order_pairing",
+    "F3:touching",
+    "F4:pack_rows",
+    "F5:row_panels",
+    "F6:horizontal_tiling",
+    "F7:role_swap",
+    "F8:container_fill"
+  ],
+  "validation_buckets": [
+    "F10:degree_recolour",
+    "F11:partial_symmetry",
+    "F12:panel_then_recolour",
+    "F1:anchor_markers",
+    "F2:paired_markers",
+    "F3:containment",
+    "F4:pack_columns",
+    "F5:column_panels",
+    "F6:vertical_tiling",
+    "F7:dense_palette",
+    "F8:nested_containers"
+  ]
+}

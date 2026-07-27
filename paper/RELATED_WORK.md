@@ -226,3 +226,9 @@ method and state the delta in one sentence. Currently blocked on Phase 11 → 12
 
 DATA001-A adopts the executable-validation lesson shared by the strongest synthetic-data systems while rejecting direct reuse of contaminated or unlicensed ARC-specific corpora. The resulting pipeline is closer in spirit to NVARC's SDG discipline than to a hand-curated curriculum, but it is a clean-room reimplementation with typed programs, deterministic provenance, and a held-out leakage firewall. SOAR motivates the auxiliary structured-trace target; ARChitects motivates aggressive quality gates; GEN002-B's null result motivates the shift away from symbolic search as the primary clean path.
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+## DATA001-B note
+
+DATA001-B follows the clean-room synthetic-data line rather than competition-contaminated reuse. The redesign keeps executable provenance, structured traces, and deterministic leakage controls, but treats ACQ-001 and CompressARC descriptors only as aggregate covariate guides rather than as direct supervision.
+<!-- DATA001B:END -->

@@ -83,3 +83,7 @@ deadline and should be rejected in Phase 11 on those grounds alone.
 <!-- DATA001A:BEGIN -->
 | 2026-07-27 | DATA001-A clean synthetic generator, leakage firewall, pilot corpus, coverage analysis, and model-independent harness | local CPU | ~minutes incl. 3 corpus rebuilds, local validation, and artifact generation | 0 | `experiments/DATA001A/RESULTS.md`. CPU-only, no Kaggle, no cloud GPU, no paid API. Final frozen pilot: 6000 accepted tasks / 6140 attempts, 0 quarantined overlaps, local harness validation complete. |
 <!-- DATA001A:END -->
+
+<!-- DATA001B:BEGIN -->
+| 2026-07-27 | DATA001-B coverage-first synthetic redesign, pool generation, deterministic selection, leakage audit, coverage evaluation, and model-pilot projection | local CPU | ~hours for 32k generation attempts, pool analysis, corpus selection, and report generation | 0 | `experiments/DATA001B/RESULTS.md`. CPU-only, no Kaggle, no cloud GPU, no paid API. Final frozen run: 22084 pool tasks / 32000 attempts, 7031 selected tasks, 0 admitted leakage. |
+<!-- DATA001B:END -->
