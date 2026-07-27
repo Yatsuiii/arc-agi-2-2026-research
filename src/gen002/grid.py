@@ -46,10 +46,6 @@ def background_candidates(grid: Grid) -> list[int]:
     return sorted(counts, key=lambda colour: (-counts[colour], colour != 0, colour))
 
 
-def rows(grid: Grid) -> Grid:
-    return grid
-
-
 def columns(grid: Grid) -> Grid:
     return tuple(zip(*grid)) if grid else ()
 
